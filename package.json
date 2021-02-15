@@ -2,7 +2,7 @@
   "name": "com.zigurous.animation",
   "version": "0.1.0",
   "displayName": "Zigurous Animation",
-  "description": "A collection of assets and scripts for animating Unity game objects.",
+  "description": "Assets and scripts for animating Unity objects.",
   "unity": "2019.4",
   "author": {
     "name": "Zigurous",

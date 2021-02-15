@@ -3,8 +3,8 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Rotates toward the position of another transform
-    /// using a smooth damping function.
+    /// Rotates toward the position of another transform using a smooth damping
+    /// function.
     /// </summary>
     public sealed class SmoothLookAt : MonoBehaviour
     {
@@ -15,31 +15,29 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
-        /// The local offset position from the target's position
-        /// that the camera looks at.
+        /// The local offset position from the target's position that the camera
+        /// looks at.
         /// </summary>
         [Tooltip("The local offset position from the target's position that the camera looks at.")]
         public Vector3 offset = Vector3.zero;
 
         /// <summary>
-        /// How quickly the transform rotates toward the
-        /// target's position. Small numbers make the
-        /// transform more responsive. Larger numbers make
-        /// the transform respond more slowly.
+        /// How quickly the transform rotates toward the target's position.
+        /// Small numbers make the transform more responsive. Larger numbers
+        /// make the transform respond more slowly.
         /// </summary>
         [Tooltip("How quickly the transform rotates toward the target's position. Small numbers make the transform more responsive. Larger numbers make the transform respond more slowly.")]
         public float damping = 0.3f;
 
         /// <summary>
-        /// The maximum amount of degrees the transform
-        /// can rotate per update.
+        /// The maximum amount of degrees the transform can rotate per update.
         /// </summary>
         [Tooltip("The maximum amount of degrees the transform can rotate per update.")]
         public float maxSpeed = Mathf.Infinity;
 
         /// <summary>
-        /// The velocity of the transform as it rotates toward
-        /// the target's position.
+        /// The velocity of the transform as it rotates toward the target's
+        /// position.
         /// </summary>
         private Quaternion _velocity;
 

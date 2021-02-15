@@ -3,8 +3,8 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Moves toward the position of another transform
-    /// using a smooth damping function.
+    /// Moves toward the position of another transform using a smooth damping
+    /// function.
     /// </summary>
     public sealed class SmoothFollow : MonoBehaviour
     {
@@ -15,31 +15,29 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
-        /// The local offset position from the target's position
-        /// that the camera moves toward.
+        /// The local offset position from the target's position that the camera
+        /// moves toward.
         /// </summary>
         [Tooltip("The local offset position from the target's position that the camera moves toward.")]
         public Vector3 offset = Vector3.zero;
 
         /// <summary>
-        /// How quickly the transform moves toward the
-        /// target's position. Small numbers make the
-        /// transform more responsive. Larger numbers make
-        /// the transform respond more slowly.
+        /// How quickly the transform moves toward the target's position. Small
+        /// numbers make the transform more responsive. Larger numbers make the
+        /// transform respond more slowly.
         /// </summary>
         [Tooltip("How quickly the transform moves toward target's position. Small numbers make the transform more responsive. Larger numbers make the transform respond more slowly.")]
         public float damping = 0.3f;
 
         /// <summary>
-        /// The maximum amount of units the transform can
-        /// move per tick.
+        /// The maximum amount of units the transform can move per tick.
         /// </summary>
         [Tooltip("The maximum amount of units the transform can move per tick.")]
         public float maxSpeed = Mathf.Infinity;
 
         /// <summary>
-        /// The velocity of the transform as it moves toward
-        /// the target's position.
+        /// The velocity of the transform as it moves toward the target's
+        /// position.
         /// </summary>
         private Vector3 _velocity;
 

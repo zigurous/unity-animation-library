@@ -1,0 +1,15 @@
+{
+    "name": "Zigurous.Animation.Editor",
+    "references": [
+        "GUID:745911354ede7114ebdcf2b75b69a761"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

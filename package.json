@@ -4,6 +4,10 @@
   "displayName": "Zigurous Animation",
   "description": "Assets and scripts for animating Unity objects.",
   "unity": "2019.4",
+  "repository": "https://github.com/zigurous/unity-animation-library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@zigurous"
+  },
   "author": {
     "name": "Zigurous",
     "email": "support@zigurous.com",

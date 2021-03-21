@@ -1,5 +1,7 @@
 # Animation Library
 
+The Animation Library package contains assets and scripts for animating Unity objects.
+
 ## Installation
 
 The Unity Package Manager can load a package from a Git repository on a remote server.

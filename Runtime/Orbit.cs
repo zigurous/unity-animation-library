@@ -35,23 +35,21 @@ namespace Zigurous.Animation
         /// <summary>
         /// The current angle in degrees of the orbiting object.
         /// </summary>
-        private float _angle = 0.0f;
+        public float angle { get; private set; }
 
         private void Start()
         {
-            _angle = this.startAngle;
-        }
-
-        private void OnDestroy()
-        {
-            this.center = null;
+            this.angle = this.startAngle;
         }
 
         private void LateUpdate()
         {
-            _angle += this.speed * Time.deltaTime;
+            if (this.center == null) {
+                return;
+            }
 
-            float radians = _angle * Mathf.Deg2Rad;
+            this.angle += this.speed * Time.deltaTime;
+            float radians = this.angle * Mathf.Deg2Rad;
 
             this.transform.position = new Vector3(
                 x: this.center.position.x + (Mathf.Cos(radians) * this.radius),

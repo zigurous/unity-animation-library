@@ -41,11 +41,6 @@ namespace Zigurous.Animation
         /// </summary>
         private Vector3 _velocity;
 
-        private void OnDestroy()
-        {
-            this.target = null;
-        }
-
         private void Update()
         {
             if (this.target != null)

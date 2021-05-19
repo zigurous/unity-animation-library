@@ -11,7 +11,7 @@ namespace Zigurous.Animation
         /// <summary>
         /// A reference to the main blinking object's renderer.
         /// </summary>
-        private Renderer _renderer;
+        public new Renderer renderer { get; private set; }
 
         /// <summary>
         /// An array of other renderers whos material will be changed to match
@@ -63,65 +63,56 @@ namespace Zigurous.Animation
         /// <summary>
         /// The time the next update will be performed.
         /// </summary>
-        private float _nextUpdateTime = 0.0f;
+        public float nextUpdateTime { get; private set; }
 
         /// <summary>
         /// Whether the object is currently blinking.
         /// </summary>
-        private bool _blinking = false;
+        public bool blinking { get; private set; }
 
         /// <summary>
         /// Whether the blinking is currently on cooldown.
         /// </summary>
-        private bool _cooldown = false;
+        public bool cooldown { get; private set; }
 
         private void Awake()
         {
-            _renderer = GetComponent<Renderer>();
-        }
-
-        private void OnDestroy()
-        {
-            this.sharedRenderers = null;
-            this.blinkingMaterial = null;
-            this.notBlinkingMaterial = null;
-
-            _renderer = null;
+            this.renderer = GetComponent<Renderer>();
         }
 
         private void OnEnable()
         {
-            _blinking = false;
-            _cooldown = false;
+            this.blinking = false;
+            this.cooldown = false;
         }
 
         private void Update()
         {
-            if (Time.time >= _nextUpdateTime)
+            if (Time.time >= this.nextUpdateTime)
             {
                 if (Random.value < this.blinkChance) {
                     BlinkOnce();
                 }
 
-                _nextUpdateTime = Time.time + this.updateInterval;
+                this.nextUpdateTime = Time.time + this.updateInterval;
             }
         }
 
         public void BlinkOnce()
         {
-            if (_blinking || _cooldown) {
+            if (this.blinking || this.cooldown) {
                 return;
             }
 
-            _blinking = true;
+            this.blinking = true;
 
             AssignMaterial(this.blinkingMaterial);
-            Invoke(nameof(FinishBlinking), this.blinkDuration.Random());
+            Invoke(nameof(FinishBlink), this.blinkDuration.Random());
         }
 
-        private void FinishBlinking()
+        private void FinishBlink()
         {
-            _blinking = false;
+            this.blinking = false;
 
             AssignMaterial(this.notBlinkingMaterial);
             Cooldown();
@@ -129,7 +120,7 @@ namespace Zigurous.Animation
 
         private void AssignMaterial(Material material)
         {
-            _renderer.material = material;
+            this.renderer.material = material;
 
             if (this.sharedRenderers != null)
             {
@@ -145,14 +136,14 @@ namespace Zigurous.Animation
 
             if (duration > 0.0f)
             {
-                _cooldown = true;
+                this.cooldown = true;
                 Invoke(nameof(CooldownComplete), this.blinkCooldown.Random());
             }
         }
 
         private void CooldownComplete()
         {
-            _cooldown = false;
+            this.cooldown = false;
         }
 
     }

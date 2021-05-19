@@ -9,17 +9,10 @@ namespace Zigurous.Animation
         public AnimationCurve y = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
         public AnimationCurve z = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        ~Vector3AnimationCurve()
+        public Vector3 Evaluate(float time)
         {
-            this.x = null;
-            this.y = null;
-            this.z = null;
+            return new Vector3(this.x.Evaluate(time), this.y.Evaluate(time), this.z.Evaluate(time));
         }
-
-        public Vector3 Evaluate(float time) => new Vector3(
-            this.x.Evaluate(time),
-            this.y.Evaluate(time),
-            this.z.Evaluate(time));
 
     }
 

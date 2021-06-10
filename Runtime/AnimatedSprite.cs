@@ -26,6 +26,12 @@ namespace Zigurous.Animation
         public float frameRate = 24.0f;
 
         /// <summary>
+        /// Animates the sprites in reverse order.
+        /// </summary>
+        [Tooltip("Animates the sprites in reverse order.")]
+        public bool reversed;
+
+        /// <summary>
         /// Whether the animation should loop back to the start after cycling
         /// through each sprite.
         /// </summary>
@@ -47,9 +53,10 @@ namespace Zigurous.Animation
             this.spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            SetNextFrameTime();
+            this.frame = 0;
+            SetSprite();
         }
 
         private void Update()
@@ -61,22 +68,30 @@ namespace Zigurous.Animation
 
         private void NextFrame()
         {
-            this.frame++;
+            if (this.reversed) {
+                this.frame--;
+            } else {
+                this.frame++;
+            }
 
-            if (this.frame >= this.sprites.Length)
+            if (this.frame < 0 || this.frame >= this.sprites.Length)
             {
                 if (this.loop) {
-                    this.frame = 0;
+                    this.frame = this.reversed ? this.sprites.Length - 1 : 0;
                 } else {
-                    this.frame = Mathf.Max(this.sprites.Length - 1, 0);
+                    this.frame = Mathf.Clamp(this.frame, 0, this.sprites.Length - 1);
                 }
             }
 
-            if (this.frame < this.sprites.Length) {
+            SetSprite();
+            SetNextFrameTime();
+        }
+
+        private void SetSprite()
+        {
+            if (this.frame >= 0 && this.frame < this.sprites.Length) {
                 this.spriteRenderer.sprite = this.sprites[this.frame];
             }
-
-            SetNextFrameTime();
         }
 
         private void SetNextFrameTime()

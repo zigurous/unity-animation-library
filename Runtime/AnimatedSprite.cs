@@ -55,6 +55,11 @@ namespace Zigurous.Animation
 
         private void Start()
         {
+            Restart();
+        }
+
+        public void Restart()
+        {
             this.frame = 0;
             SetSprite();
         }

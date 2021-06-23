@@ -99,6 +99,11 @@ namespace Zigurous.Animation
 
         private void Start()
         {
+            Restart();
+        }
+
+        public void Restart()
+        {
             this.currentIndex = 0;
 
             SetCurrentSegment();

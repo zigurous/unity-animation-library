@@ -41,7 +41,7 @@ namespace Zigurous.Animation
         /// </summary>
         private Vector3 _velocity;
 
-        private void Update()
+        private void LateUpdate()
         {
             if (this.target != null)
             {

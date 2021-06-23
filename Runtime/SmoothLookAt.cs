@@ -41,7 +41,7 @@ namespace Zigurous.Animation
         /// </summary>
         private Quaternion _velocity;
 
-        private void Update()
+        private void LateUpdate()
         {
             if (this.target != null)
             {

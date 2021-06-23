@@ -13,9 +13,31 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object's scale changes.")]
         public Vector3 speed = Vector3.one;
 
+        /// <summary>
+        /// The update mode during which the object's scale changes.
+        /// </summary>
+        [Tooltip("The update mode during which the object's scale changes.")]
+        public UpdateMode updateMode = UpdateMode.Update;
+
         private void Update()
         {
-            this.transform.localScale += this.speed * Time.deltaTime;
+            if (this.updateMode == UpdateMode.Update) {
+                this.transform.localScale += this.speed * Time.deltaTime;
+            }
+        }
+
+        private void LateUpdate()
+        {
+            if (this.updateMode == UpdateMode.LateUpdate) {
+                this.transform.localScale += this.speed * Time.deltaTime;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (this.updateMode == UpdateMode.FixedUpdate) {
+                this.transform.localScale += this.speed * Time.fixedDeltaTime;
+            }
         }
 
     }

@@ -23,7 +23,7 @@ namespace Zigurous.Animation
         /// The speed at which the object rotates.
         /// </summary>
         [Tooltip("The speed at which the object rotates.")]
-        public float speed = 1.0f;
+        public float speed = 45.0f;
 
         /// <summary>
         /// The update mode during which the object rotates.

@@ -17,7 +17,7 @@ namespace Zigurous.Animation
         /// The speed at which the object orbits.
         /// </summary>
         [Tooltip("The speed at which the object orbits.")]
-        public float speed = 1.0f;
+        public float speed = 45.0f;
 
         /// <summary>
         /// The distance from the center of the object being orbited.

@@ -11,7 +11,7 @@ namespace Zigurous.Animation
         /// The speed at which the object's scale changes.
         /// </summary>
         [Tooltip("The speed at which the object's scale changes.")]
-        public Vector3 speed = Vector3.one;
+        public Vector3 speed = Vector3.zero;
 
         /// <summary>
         /// The update mode during which the object's scale changes.

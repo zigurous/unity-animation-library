@@ -3,14 +3,14 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Rotates an object around another object with a given speed and radius.
+    /// Orbits an object around another object with a given speed and radius.
     /// </summary>
     public sealed class Orbit : MonoBehaviour
     {
         /// <summary>
-        /// The transform the object rotates around.
+        /// The transform the object orbits around.
         /// </summary>
-        [Tooltip("The transform the object rotates around.")]
+        [Tooltip("The transform the object orbits around.")]
         public Transform center;
 
         /// <summary>
@@ -37,25 +37,52 @@ namespace Zigurous.Animation
         /// </summary>
         public float angle { get; private set; }
 
+        /// <summary>
+        /// The update mode during which the object orbits.
+        /// </summary>
+        [Tooltip("The update mode during which the object orbits.")]
+        public UpdateMode updateMode = UpdateMode.Update;
+
         private void Start()
         {
             this.angle = this.startAngle;
         }
 
+        private void Update()
+        {
+            if (this.center != null && this.updateMode == UpdateMode.Update)
+            {
+                this.angle += this.speed * Time.deltaTime;
+                SetPosition(this.angle);
+            }
+        }
+
         private void LateUpdate()
         {
-            if (this.center == null) {
-                return;
+            if (this.center != null && this.updateMode == UpdateMode.LateUpdate)
+            {
+                this.angle += this.speed * Time.deltaTime;
+                SetPosition(this.angle);
             }
+        }
 
-            this.angle += this.speed * Time.deltaTime;
-            float radians = this.angle * Mathf.Deg2Rad;
+        private void FixedUpdate()
+        {
+            if (this.center != null && this.updateMode == UpdateMode.FixedUpdate)
+            {
+                this.angle += this.speed * Time.fixedDeltaTime;
+                SetPosition(this.angle);
+            }
+        }
+
+        private void SetPosition(float angle)
+        {
+            float radians = angle * Mathf.Deg2Rad;
 
             this.transform.position = new Vector3(
                 x: this.center.position.x + (Mathf.Cos(radians) * this.radius),
                 y: this.center.position.y,
-                z: this.center.position.z + (Mathf.Sin(radians) * this.radius)
-            );
+                z: this.center.position.z + (Mathf.Sin(radians) * this.radius));
         }
 
     }

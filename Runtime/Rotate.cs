@@ -5,6 +5,7 @@ namespace Zigurous.Animation
     /// <summary>
     /// Rotates an object in space by a given speed.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Rotate")]
     public sealed class Rotate : MonoBehaviour
     {
         /// <summary>

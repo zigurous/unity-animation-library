@@ -5,6 +5,7 @@ namespace Zigurous.Animation
     /// <summary>
     /// Moves an object in space by a given speed.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Move")]
     public sealed class Move : MonoBehaviour
     {
         /// <summary>

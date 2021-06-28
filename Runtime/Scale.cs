@@ -5,6 +5,7 @@ namespace Zigurous.Animation
     /// <summary>
     /// Scales an object over time by a given speed.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Scale")]
     public sealed class Scale : MonoBehaviour
     {
         /// <summary>

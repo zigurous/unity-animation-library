@@ -5,6 +5,7 @@ namespace Zigurous.Animation
     /// <summary>
     /// Moves an object along a predefined path.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Follow Path")]
     public sealed class FollowPath : MonoBehaviour
     {
         /// <summary>

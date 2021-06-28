@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Moves toward the position of another transform using a smooth damping
     /// function.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Smooth Follow")]
     public sealed class SmoothFollow : MonoBehaviour
     {
         /// <summary>

@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Rotates toward the position of another transform using a smooth damping
     /// function.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Smooth Look At")]
     public sealed class SmoothLookAt : MonoBehaviour
     {
         /// <summary>

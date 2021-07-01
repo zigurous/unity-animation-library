@@ -16,7 +16,16 @@ namespace Zigurous.Animation
         /// <summary>
         /// The hash id of the animation parameter.
         /// </summary>
-        public int hash => _hash;
+        public int hash
+        {
+            get
+            {
+                if (_hash == 0) {
+                    _hash = Animator.StringToHash(_name);
+                }
+                return _hash;
+            }
+        }
 
         [SerializeField]
         [Tooltip("The name of the animation parameter.")]
@@ -42,15 +51,6 @@ namespace Zigurous.Animation
         {
             _name = name;
             _hash = Animator.StringToHash(name);
-        }
-
-        /// <summary>
-        /// Generates a new hash for the parameter using the current name.
-        /// </summary>
-        public int GenerateHash()
-        {
-            _hash = Animator.StringToHash(_name);
-            return _hash;
         }
 
         public static implicit operator AnimatorParameter(string name) => new AnimatorParameter(name);

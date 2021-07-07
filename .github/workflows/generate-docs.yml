@@ -37,6 +37,6 @@ jobs:
         with:
           personal_token: ${{ secrets.DOCS_TOKEN }}
           external_repository: zigurous/docs
-          destination_dir: animation-library
+          destination_dir: com.zigurous.animation
           publish_dir: .docfx/dist
           publish_branch: main

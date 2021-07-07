@@ -2,24 +2,46 @@
 
 namespace Zigurous.Animation
 {
+    /// <summary>
+    /// Represents the start and end time of an animation.
+    /// </summary>
     [System.Serializable]
     public struct Timing
     {
-        [Range(0.0f, 1.0f)]
-        public float startTime;
+        /// <summary>
+        /// The start time of the animation.
+        /// </summary>
+        [Tooltip("The start time of the animation.")]
+        public float start;
 
-        [Range(0.0f, 1.0f)]
-        public float endTime;
+        /// <summary>
+        /// The end time of the animation.
+        /// </summary>
+        [Tooltip("The end time of the animation.")]
+        public float end;
 
-        public Timing(float startTime, float endTime)
+        /// <summary>Constructs a new Timing with the given <paramref name="start"/> and <paramref name="end"/>.</summary>
+        /// <param name="start">The start time of the animation.</param>
+        /// <param name="end">The end time of the animation.</param>
+        public Timing(float start, float end)
         {
-            this.startTime = startTime;
-            this.endTime = endTime;
+            this.start = start;
+            this.end = end;
         }
 
+        /// <returns>
+        /// A random time within the start and end time.
+        /// </returns>
+        public float Random()
+        {
+            return UnityEngine.Random.Range(this.start, this.end);
+        }
+
+        /// <returns>Whether the given <paramref name="time"/> is within range of the animation timing.</returns>
+        /// <param name="time">The time to check.</param>
         public bool Includes(float time)
         {
-            return time >= this.startTime && time <= this.endTime;
+            return time >= this.start && time <= this.end;
         }
 
     }

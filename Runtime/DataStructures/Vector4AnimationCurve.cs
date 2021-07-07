@@ -9,23 +9,27 @@ namespace Zigurous.Animation
     [System.Serializable]
     public sealed class Vector4AnimationCurve : IAnimationCurve<Vector4>
     {
-        /// <summary>The collection of keyframes for the x-axis of a Vector4.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the x-axis of a Vector4.
+        /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector4.")]
         public AnimationCurve x = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the y-axis of a Vector4.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the y-axis of a Vector4.
+        /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector4.")]
         public AnimationCurve y = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the z-axis of a Vector4.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the z-axis of a Vector4.
+        /// </summary>
         [Tooltip("The collection of keyframes for the z-axis of a Vector4.")]
         public AnimationCurve z = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the w-axis of a Vector4.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the w-axis of a Vector4.
+        /// </summary>
         [Tooltip("The collection of keyframes for the w-axis of a Vector4.")]
         public AnimationCurve w = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 

@@ -103,6 +103,9 @@ namespace Zigurous.Animation
             Restart();
         }
 
+        /// <summary>
+        /// Restarts the path at the first node.
+        /// </summary>
         public void Restart()
         {
             this.currentIndex = 0;

@@ -59,6 +59,9 @@ namespace Zigurous.Animation
             Restart();
         }
 
+        /// <summary>
+        /// Restarts the animation to the first frame.
+        /// </summary>
         public void Restart()
         {
             this.frame = 0;

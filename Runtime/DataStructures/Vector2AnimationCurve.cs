@@ -9,13 +9,15 @@ namespace Zigurous.Animation
     [System.Serializable]
     public sealed class Vector2AnimationCurve : IAnimationCurve<Vector2>
     {
-        /// <summary>The collection of keyframes for the x-axis of a Vector2.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the x-axis of a Vector2.
+        /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector2.")]
         public AnimationCurve x = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the y-axis of a Vector2.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the y-axis of a Vector2.
+        /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector2.")]
         public AnimationCurve y = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 

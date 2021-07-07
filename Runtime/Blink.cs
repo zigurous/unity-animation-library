@@ -99,6 +99,9 @@ namespace Zigurous.Animation
             }
         }
 
+        /// <summary>
+        /// Blinks the material for one cycle.
+        /// </summary>
         public void BlinkOnce()
         {
             if (this.blinking || this.cooldown) {

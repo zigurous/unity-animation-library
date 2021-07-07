@@ -9,18 +9,21 @@ namespace Zigurous.Animation
     [System.Serializable]
     public sealed class Vector3AnimationCurve : IAnimationCurve<Vector3>
     {
-        /// <summary>The collection of keyframes for the x-axis of a Vector3.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the x-axis of a Vector3.
+        /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector3.")]
         public AnimationCurve x = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the y-axis of a Vector3.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the y-axis of a Vector3.
+        /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector3.")]
         public AnimationCurve y = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 
-        /// <summary>The collection of keyframes for the z-axis of a Vector3.</summary>
-        /// <value>Stores a collection of keyframes that can be evaluated over time.</value>
+        /// <summary>
+        /// The collection of keyframes for the z-axis of a Vector3.
+        /// </summary>
         [Tooltip("The collection of keyframes for the z-axis of a Vector3.")]
         public AnimationCurve z = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
 

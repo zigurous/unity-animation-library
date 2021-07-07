@@ -50,8 +50,7 @@
           "images/**",
           "favicon.ico",
           "logo.svg",
-          "index.html",
-          ".htaccess"
+          "index.html"
         ]
       }
     ],
@@ -82,7 +81,6 @@
     },
     "fileMetadata": {
       "_disableAffix": {
-        "manual/index.md": true,
         "license/**.md": true
       }
     },

@@ -6,6 +6,6 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Humanoid-Grounding
+  m_Name: Humanoid-Root
   m_Mask: 01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_Elements: []

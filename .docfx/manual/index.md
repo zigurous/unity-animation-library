@@ -19,6 +19,7 @@ The **Animation Library** package contains assets and scripts for animating Unit
 
 - [AnimatorParameter](xref:Zigurous.Animation.AnimatorParameter)
 - [Timing](xref:Zigurous.Animation.Timing)
+- [Timing01](xref:Zigurous.Animation.Timing01)
 - [TimingRange](xref:Zigurous.Animation.TimingRange)
 - [Vector2AnimationCurve](xref:Zigurous.Animation.Vector2AnimationCurve)
 - [Vector3AnimationCurve](xref:Zigurous.Animation.Vector3AnimationCurve)

@@ -10,6 +10,7 @@ on:
     
 jobs:
   generate-docs:
+    name: Generate docs
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -20,15 +21,12 @@ jobs:
         with:
           dotnet-version: 3.1.x
 
-      - name: Setup DocFX
+      - name: Setup docfx
         uses: crazy-max/ghaction-chocolatey@v1
         with:
           args: install docfx
-
-      - name: Install dependencies
-        run: dotnet restore
       
-      - name: DocFX Build
+      - name: Build docs
         working-directory: .docfx
         run: docfx docfx.json
         continue-on-error: false

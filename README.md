@@ -1,10 +1,10 @@
 # Animation Library
 
-The **Animation Library** package contains assets and scripts for animating Unity objects. Animation behaviors include Blink, FollowPath, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more. The package also contains several animation-related data structures and predefined avatar masks.
+The Animation Library package contains assets and scripts for animating Unity objects. Animation behaviors include Blink, FollowPath, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more. The package also contains several animation-related data structures and predefined avatar masks.
 
 ## Installation
 
-Use the Unity [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) to install the **Animation Library** package.
+Use the Unity [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) to install the Animation Library package.
 
 1. Open the Package Manager in `Window > Package Manager`
 2. Click the add (`+`) button in the status bar

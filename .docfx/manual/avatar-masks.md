@@ -8,7 +8,7 @@ A benefit of using Masks is that they tend to reduce memory overheads since body
 
 ### Included Assets
 
-The **Animation Library** package contains 16+ avatar masks to represent different humanoid body parts:
+The Animation Library package contains 16+ avatar masks to represent different humanoid body parts:
 
 - Arms
 - FullBody

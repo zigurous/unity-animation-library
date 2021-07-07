@@ -2,7 +2,7 @@
   "name": "com.zigurous.animation",
   "version": "1.4.2",
   "displayName": "Zigurous Animation Library",
-  "description": "The Animation Library package contains assets and scripts for animating Unity objects. Included animation scripts are Blink, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more.",
+  "description": "The Animation Library package contains assets and scripts for animating Unity objects. Animation behaviors include Blink, FollowPath, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more. The package also contains several animation-related data structures and predefined avatar masks.",
   "unity": "2019.4",
   "keywords": [
     "animation",

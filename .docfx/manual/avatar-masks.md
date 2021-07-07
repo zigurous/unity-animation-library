@@ -6,23 +6,23 @@ Mask assets can be used in Animator Controllers, when specifying Animation Layer
 
 A benefit of using Masks is that they tend to reduce memory overheads since body parts that are not active do not need their associated animation curves. Also, the unused curves need not be calculated during playback which will tend to reduce the CPU overhead of the animation.
 
-## Included Assets
+### Included Assets
 
 The **Animation Library** package contains 16+ avatar masks to represent different humanoid body parts:
 
-- Humanoid-Arms
-- Humanoid-FullBody
-- Humanoid-Hands
-- Humanoid-Head
-- Humanoid-LeftArm
-- Humanoid-LeftHand
-- Humanoid-LeftLeg
-- Humanoid-Legs
-- Humanoid-LowerBody
-- Humanoid-RightArm
-- Humanoid-RightHand
-- Humanoid-RightLeg
-- Humanoid-Root
-- Humanoid-Torso
-- Humanoid-TorsoHead
-- Humanoid-UpperBody
+- Arms
+- FullBody
+- Hands
+- Head
+- LeftArm
+- LeftHand
+- LeftLeg
+- Legs
+- LowerBody
+- RightArm
+- RightHand
+- RightLeg
+- Root
+- Torso
+- TorsoHead
+- UpperBody

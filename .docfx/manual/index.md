@@ -1,6 +1,6 @@
 # Overview
 
-The **Animation Library** package contains assets and scripts for animating Unity objects.
+The **Animation Library** package contains assets and scripts for animating Unity objects. Animation behaviors include Blink, FollowPath, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more. The package also contains several animation-related data structures and predefined avatar masks.
 
 ### Behaviors
 
@@ -25,9 +25,3 @@ The **Animation Library** package contains assets and scripts for animating Unit
 - [Vector2AnimationCurve](xref:Zigurous.Animation.Vector2AnimationCurve)
 - [Vector3AnimationCurve](xref:Zigurous.Animation.Vector3AnimationCurve)
 - [Vector4AnimationCurve](xref:Zigurous.Animation.Vector4AnimationCurve)
-
-### Source Code
-
-The source code for the **Animation Library** package is in the following repository:
-
-- https://github.com/zigurous/unity-animation-library

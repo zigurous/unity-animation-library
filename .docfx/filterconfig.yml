@@ -3,3 +3,5 @@ apiRules:
     uidRegex: ^System
 - exclude:
     uidRegex: ^UnityEngine
+- exclude:
+    uidRegex: ^UnityEditor

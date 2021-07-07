@@ -23,9 +23,3 @@ Import the package namespace in each class/script you want to use it. You may ne
 ```csharp
 using Zigurous.Animation;
 ```
-
-## Source Code
-
-The source code for the **Animation Library** package is in the following repository:
-
-- https://github.com/zigurous/unity-animation-library

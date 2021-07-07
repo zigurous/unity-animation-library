@@ -3,61 +3,45 @@ using UnityEngine;
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Represents an animation timing range normalized between 0 and 1.
+    /// Represents an animation timing range between a lower and upper bound.
     /// </summary>
     [System.Serializable]
     public struct TimingRange
     {
-        [SerializeField]
-        [Tooltip("The start time of the animation, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
-        private float _start;
+        /// <summary>
+        /// The lower bound of the timing range.
+        /// </summary>
+        [Tooltip("The lower bound of the timing range.")]
+        public float min;
 
         /// <summary>
-        /// The start time of the animation, between 0 and 1.
+        /// The upper bound of the timing range.
         /// </summary>
-        public float start
-        {
-            get => _start;
-            set => _start = Mathf.Clamp01(value);
-        }
+        [Tooltip("The upper bound of the timing range.")]
+        public float max;
 
-        [SerializeField]
-        [Tooltip("The end time of the animation, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
-        private float _end;
-
-        /// <summary>
-        /// The end time of the animation, between 0 and 1.
-        /// </summary>
-        public float end
+        /// <summary>Constructs a new timing range with the given <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="min">The lower bound of the timing range.</param>
+        /// <param name="max">The upper bound of the timing range.</param>
+        public TimingRange(float min, float max)
         {
-            get => _end;
-            set => _end = Mathf.Clamp01(value);
-        }
-
-        /// <summary>Constructs a new TimingRange with the given <paramref name="start"/> and <paramref name="end"/>.</summary>
-        /// <param name="start">The start time of the animation, between 0 and 1.</param>
-        /// <param name="end">The end time of the animation, between 0 and 1.</param>
-        public TimingRange(float start, float end)
-        {
-            _start = Mathf.Clamp01(start);
-            _end = Mathf.Clamp01(end);
+            this.min = min;
+            this.max = max;
         }
 
         /// <returns>
-        /// A random time within the start and end time.
+        /// A random time within the min and max time.
         /// </returns>
         public float Random()
         {
-            return UnityEngine.Random.Range(this.start, this.end);
+            return UnityEngine.Random.Range(this.min, this.max);
         }
 
-        /// <returns>Whether the given <paramref name="time"/> is within range of the animation timing.</returns>
+        /// <returns>Whether the given <paramref name="time"/> is within the min and max time.</returns>
         /// <param name="time">The time to check.</param>
         public bool Includes(float time)
         {
-            return time >= this.start && time <= this.end;
+            return time >= this.min && time <= this.max;
         }
 
     }

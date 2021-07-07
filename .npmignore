@@ -1,0 +1,4 @@
+.docfx/
+.github/
+/**/obj/
+/**/obj.meta

@@ -1,0 +1,5 @@
+<div id="breadcrumb_placeholder">
+  <ul class="level1 breadcrumb">
+    <li>{{_tocTitle}}</li>
+  </ul>
+</div>

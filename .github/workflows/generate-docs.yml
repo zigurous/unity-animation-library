@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-    
+
 jobs:
   generate-docs:
     name: Generate docs
@@ -25,17 +25,18 @@ jobs:
         uses: crazy-max/ghaction-chocolatey@v1
         with:
           args: install docfx
-      
+
       - name: Build docs
         working-directory: .docfx
         run: docfx docfx.json
         continue-on-error: false
-        
+
       - name: Publish
         if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: zigurous/docs
+          destination_dir: animation-library
           publish_dir: .docfx/dist
-          publish_branch: docs
-          force_orphan: true
+          publish_branch: main

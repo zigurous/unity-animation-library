@@ -402,7 +402,7 @@ dd{margin-left:0}
 }
 abbr[data-original-title],abbr[title]{cursor:help;border-bottom:1px dotted #777}
 .initialism{font-size:90%;text-transform:uppercase}
-blockquote{padding:10px 10px;margin:0 0 20px;font-size:14px;border-left:5px solid #eee}
+blockquote{padding:5px 10px;margin:0 0 10px;font-size:14px;border-left:5px solid #eee}
 blockquote .small,blockquote footer,blockquote small{display:block;font-size:80%;color:#777}
 legend,pre{display:block;color:#333}
 blockquote .small:before,blockquote footer:before,blockquote small:before{content:'\2014 \00A0'}

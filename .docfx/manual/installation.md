@@ -7,7 +7,9 @@ Use the Unity [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) to 
 3. Select `Add package from git URL` from the add menu
 4. Enter the following Git URL in the text box and click Add:
 
-```https://github.com/zigurous/unity-animation-library.git```
+```
+https://github.com/zigurous/unity-animation-library.git
+```
 
 For more information on the Package Manager and installing packages, see the following pages:
 
@@ -16,7 +18,7 @@ For more information on the Package Manager and installing packages, see the fol
 
 ### Importing
 
-Import the package namespace in each class/script you want to use it. You may need to regenerate project files/assemblies first.
+Import the package namespace in each script you want to use it. You may need to regenerate project files/assemblies first.
 
 ```csharp
 using Zigurous.Animation;

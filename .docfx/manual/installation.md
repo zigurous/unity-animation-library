@@ -13,12 +13,14 @@ https://github.com/zigurous/unity-animation-library.git
 
 For more information on the Package Manager and installing packages, see the following pages:
 
-- [Unity’s Package Manager](https://docs.unity3d.com/Manual/Packages.html)
+- [Unity's Package Manager](https://docs.unity3d.com/Manual/Packages.html)
 - [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
 
 ### Importing
 
-Import the package namespace in each script or file you want to use it. You may need to regenerate project files/assemblies first.
+Import the package namespace in each script or file you want to use it.
+
+> **Note**: You may need to regenerate project files/assemblies first.
 
 ```csharp
 using Zigurous.Animation;

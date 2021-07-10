@@ -20,7 +20,7 @@ namespace Zigurous.Animation
         [Tooltip("The end time of the animation.")]
         public float end;
 
-        /// <summary>Constructs a new timing with the given <paramref name="start"/> and <paramref name="end"/>.</summary>
+        /// <summary>Creates a new timing with the specified values.</summary>
         /// <param name="start">The start time of the animation.</param>
         /// <param name="end">The end time of the animation.</param>
         public Timing(float start, float end)
@@ -37,7 +37,7 @@ namespace Zigurous.Animation
             return UnityEngine.Random.Range(this.start, this.end);
         }
 
-        /// <returns>Whether the given <paramref name="time"/> is within the start and end time.</returns>
+        /// <returns>Whether the <paramref name="time"/> is within the start and end time.</returns>
         /// <param name="time">The time to check.</param>
         public bool Includes(float time)
         {

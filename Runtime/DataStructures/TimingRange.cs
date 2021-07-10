@@ -20,7 +20,7 @@ namespace Zigurous.Animation
         [Tooltip("The upper bound of the timing range.")]
         public float max;
 
-        /// <summary>Constructs a new timing range with the given <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <summary>Creates a new timing range with the specified values.</summary>
         /// <param name="min">The lower bound of the timing range.</param>
         /// <param name="max">The upper bound of the timing range.</param>
         public TimingRange(float min, float max)
@@ -37,7 +37,7 @@ namespace Zigurous.Animation
             return UnityEngine.Random.Range(this.min, this.max);
         }
 
-        /// <returns>Whether the given <paramref name="time"/> is within the min and max time.</returns>
+        /// <returns>Whether the <paramref name="time"/> is within the min and max time.</returns>
         /// <param name="time">The time to check.</param>
         public bool Includes(float time)
         {

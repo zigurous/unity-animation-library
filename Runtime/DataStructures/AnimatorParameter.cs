@@ -47,7 +47,7 @@ namespace Zigurous.Animation
             }
         }
 
-        /// <summary>Constructs a new animation parameter with the given <paramref name="name"/>.</summary>
+        /// <summary>Creates a new animation parameter with the given <paramref name="name"/>.</summary>
         /// <param name="name">The name of the animation parameter.</param>
         public AnimatorParameter(string name)
         {

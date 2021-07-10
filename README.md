@@ -30,7 +30,7 @@ Import the package namespace in each script or file you want to use it.
 using Zigurous.Animation;
 ```
 
-## Index
+## Reference
 
 ### Behaviors
 

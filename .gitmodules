@@ -1,0 +1,4 @@
+[submodule ".docfx/templates/zigurous"]
+	path = .docfx/templates/zigurous
+	url = https://github.com/zigurous/docfx-styles
+	branch = main

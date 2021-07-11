@@ -3,8 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Represents an animation timing range between a lower and upper bound
-    /// normalized between 0 and 1.
+    /// An animation timing range normalized between 0 and 1.
     /// </summary>
     [System.Serializable]
     public struct TimingRange01
@@ -46,16 +45,16 @@ namespace Zigurous.Animation
             _max = Mathf.Clamp01(max);
         }
 
-        /// <returns>
-        /// A random time within the min and max time.
-        /// </returns>
+        /// <summary>Picks a random time within the min and max time.</summary>
+        /// <returns>The random time.</returns>
         public float Random()
         {
             return UnityEngine.Random.Range(this.min, this.max);
         }
 
-        /// <returns>Whether the <paramref name="time"/> is within the min and max time.</returns>
+        /// <summary>Checks if <paramref name="time"/> is within the min and max time.</summary>
         /// <param name="time">The time to check.</param>
+        /// <returns>True if <paramref name="time"/> is within the min and max time.</returns>
         public bool Includes(float time)
         {
             return time >= this.min && time <= this.max;

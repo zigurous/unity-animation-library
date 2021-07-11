@@ -9,7 +9,7 @@
         /// <returns>The value of the curve, at the point in time specified.</returns>
         T Evaluate(float time);
 
-        /// <summary>Add a new key to the curve.</summary>
+        /// <summary>Adds a new key to the curve.</summary>
         /// <param name="time">The time at which to add the key (horizontal axis in the curve graph).</param>
         /// <param name="value">The value for the key (vertical axis in the curve graph).</param>
         void AddKey(float time, T value);

@@ -3,8 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Represents the start and end time of an animation normalized between 0
-    /// and 1.
+    /// The start and end time of an animation normalized between 0 and 1.
     /// </summary>
     [System.Serializable]
     public struct Timing01
@@ -46,16 +45,16 @@ namespace Zigurous.Animation
             _end = Mathf.Clamp01(end);
         }
 
-        /// <returns>
-        /// A random time within the start and end time.
-        /// </returns>
+        /// <summary>Picks a random time within the start and end time.</summary>
+        /// <returns>The random time.</returns>
         public float Random()
         {
             return UnityEngine.Random.Range(this.start, this.end);
         }
 
-        /// <returns>Whether the <paramref name="time"/> is within the start and end time.</returns>
+        /// <summary>Checks if <paramref name="time"/> is within the start and end time.</summary>
         /// <param name="time">The time to check.</param>
+        /// <returns>True if <paramref name="time"/> is within the start and end time.</returns>
         public bool Includes(float time)
         {
             return time >= this.start && time <= this.end;

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Represents an animation timing range between a lower and upper bound.
+    /// An animation timing range between a lower and upper bound.
     /// </summary>
     [System.Serializable]
     public struct TimingRange
@@ -29,16 +29,16 @@ namespace Zigurous.Animation
             this.max = max;
         }
 
-        /// <returns>
-        /// A random time within the min and max time.
-        /// </returns>
+        /// <summary>Picks a random time within the min and max time.</summary>
+        /// <returns>The random time.</returns>
         public float Random()
         {
             return UnityEngine.Random.Range(this.min, this.max);
         }
 
-        /// <returns>Whether the <paramref name="time"/> is within the min and max time.</returns>
+        /// <summary>Checks if <paramref name="time"/> is within the min and max time.</summary>
         /// <param name="time">The time to check.</param>
+        /// <returns>True if <paramref name="time"/> is within the min and max time.</returns>
         public bool Includes(float time)
         {
             return time >= this.min && time <= this.max;

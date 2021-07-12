@@ -36,7 +36,9 @@ namespace Zigurous.Animation
             set => _end = Mathf.Clamp01(value);
         }
 
-        /// <summary>Creates a new timing with the specified values.</summary>
+        /// <summary>
+        /// Creates a new timing with the specified values.
+        /// </summary>
         /// <param name="start">The start time of the animation, between 0 and 1.</param>
         /// <param name="end">The end time of the animation, between 0 and 1.</param>
         public Timing01(float start, float end)
@@ -45,16 +47,18 @@ namespace Zigurous.Animation
             _end = Mathf.Clamp01(end);
         }
 
-        /// <summary>Picks a random time within the start and end time.</summary>
-        /// <returns>The random time.</returns>
+        /// <summary>
+        /// Returns a random time within the start and end time.
+        /// </summary>
         public float Random()
         {
             return UnityEngine.Random.Range(this.start, this.end);
         }
 
-        /// <summary>Checks if <paramref name="time"/> is within the start and end time.</summary>
+        /// <summary>
+        /// Checks if <paramref name="time"/> is within the start and end time.
+        /// </summary>
         /// <param name="time">The time to check.</param>
-        /// <returns>True if <paramref name="time"/> is within the start and end time.</returns>
         public bool Includes(float time)
         {
             return time >= this.start && time <= this.end;

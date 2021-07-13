@@ -1,4 +1,7 @@
 .docfx/
 .github/
+.gitattributes
+.gitignore
+.gitmodules
 /**/obj/
 /**/obj.meta

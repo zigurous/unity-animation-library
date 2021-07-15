@@ -57,8 +57,17 @@ namespace Zigurous.Animation
             _hash = Animator.StringToHash(name);
         }
 
-        /// <param name="name">The name of the animation parameter.</param>
+        /// <summary>
+        /// Implicitly converts a name to an animator parameter.
+        /// </summary>
+        /// <param name="name">The name of the animator parameter.</param>
         public static implicit operator AnimatorParameter(string name) => new AnimatorParameter(name);
+
+        /// <summary>
+        /// Implicitly converts an animator parameter to a hash id.
+        /// </summary>
+        /// <param name="property">The animator parameter to convert to an id.</param>
+        public static implicit operator int(AnimatorParameter property) => property.hash;
 
     }
 

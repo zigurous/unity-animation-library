@@ -7,6 +7,7 @@ namespace Zigurous.Animation.Editor
     public sealed class AnimatorParameterPropertyDrawer : PropertyDrawer
     {
         private SerializedProperty _name;
+        private SerializedProperty _hash;
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -14,9 +15,21 @@ namespace Zigurous.Animation.Editor
                 _name = property.FindPropertyRelative("_name");
             }
 
+            if (_hash == null) {
+                _hash = property.FindPropertyRelative("_hash");
+            }
+
             EditorGUI.BeginProperty(position, label, property);
             position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-            _name.stringValue = EditorGUI.TextField(position, _name.stringValue);
+
+            string name = EditorGUI.TextField(position, _name.stringValue);
+
+            if (name != _name.stringValue)
+            {
+                _name.stringValue = name;
+                _hash.intValue = Animator.StringToHash(name);
+            }
+
             EditorGUI.EndProperty();
         }
 

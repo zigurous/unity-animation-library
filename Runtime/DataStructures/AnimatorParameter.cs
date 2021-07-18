@@ -12,6 +12,8 @@ namespace Zigurous.Animation
     [System.Serializable]
     public struct AnimatorParameter
     {
+        [SerializeField]
+        [HideInInspector]
         private int _hash;
 
         /// <summary>

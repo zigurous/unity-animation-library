@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2021/07/18
+
+### Added
+
+- New `Parameter` static class with predefined hash ids
+- New `SmoothDamp<T>` abstract class
+- New `SmoothDampFloat` data structure
+- New `SmoothDampVector2` data structure
+- New `SmoothDampVector3` data structure
+
+### Fixed
+
+- Hash ids on `AnimatorParameter` were not updating when the name was changed in the editor
+
 ## [1.5.0] - 2021/07/07
 
 ### Added
@@ -23,20 +37,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Animator parameter ids are now generated automatically without ever having to call a function
+- Hash ids on `AnimatorParameter` are now generated automatically without ever having to call a function
 
 ## [1.4.1] - 2021/06/28
 
 ### Changed
 
-- [AddComponentMenu] attribute added to all behaviors
+- Attribute `[AddComponentMenu]` added to all behaviors
 
 ## [1.4.0] - 2021/06/27
 
 ### Added
 
 - Support for different update modes on common animation scripts
-- New RotateAround script
+- New `RotateAround` script
 
 ### Changed
 
@@ -47,27 +61,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Editor property drawer for AnimatorParameter
+- Editor property drawer for `AnimatorParameter`
 
 ## [1.3.0] - 2021/06/22
 
 ### Added
 
-- AnimatorParameter - new serializable data structure that manages parameter hashes
-- Restart function added to AnimatedSprite
+- New `AnimatorParameter` data structure
+- Restart function added to `AnimatedSprite`
 
 ## [1.2.0] - 2021/06/10
 
 ### Added
 
-- New FollowPath script
-- Support for reversed AnimatedSprite
+- New `FollowPath` script
+- Support for reversed `AnimatedSprite`
 
 ## [1.1.0] - 2021/05/19
 
 ### Added
 
-- AnimatedSprite
+- New `AnimatedSprite` behavior
 
 ## [1.0.1] - 2021/04/13
 

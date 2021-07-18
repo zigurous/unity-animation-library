@@ -18,6 +18,9 @@ The Animation Library package contains assets and scripts for animating Unity ob
 ### Data Structures
 
 - [AnimatorParameter](xref:Zigurous.Animation.AnimatorParameter)
+- [SmoothDampFloat](xref:Zigurous.Animation.SmoothDampFloat)
+- [SmoothDampVector2](xref:Zigurous.Animation.SmoothDampVector2)
+- [SmoothDampVector3](xref:Zigurous.Animation.SmoothDampVector3)
 - [Timing](xref:Zigurous.Animation.Timing)
 - [Timing01](xref:Zigurous.Animation.Timing01)
 - [TimingRange](xref:Zigurous.Animation.TimingRange)

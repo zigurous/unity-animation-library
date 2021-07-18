@@ -5,3 +5,7 @@ apiRules:
     uidRegex: ^UnityEngine
 - exclude:
     uidRegex: ^UnityEditor
+- exclude:
+    uidRegex: ^Zigurous.Animation.SmoothDamp.*._value
+- exclude:
+    uidRegex: ^Zigurous.Animation.SmoothDamp.*._velocity

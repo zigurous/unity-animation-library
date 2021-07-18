@@ -48,6 +48,9 @@ using Zigurous.Animation;
 ### Data Structures
 
 - [AnimatorParameter](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.AnimatorParameter.html)
+- [SmoothDampFloat](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampFloat.html)
+- [SmoothDampVector2](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampVector2.html)
+- [SmoothDampVector3](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampVector3.html)
 - [Timing](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Timing.html)
 - [Timing01](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Timing01.html)
 - [TimingRange](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.TimingRange.html)

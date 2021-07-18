@@ -2,5 +2,9 @@
   href: index.md
 - name: Installation
   href: installation.md
-- name: Avatar Masks
-  href: avatar-masks.md
+- name: Reference
+  items:
+  - name: Animator Parameters
+    href: animator-parameters.md
+  - name: Avatar Masks
+    href: avatar-masks.md

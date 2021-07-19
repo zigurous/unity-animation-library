@@ -4,6 +4,10 @@
   href: installation.md
 - name: Reference
   items:
+  - name: Behaviors
+    href: behaviors.md
+  - name: Data Structures
+    href: data-structures.md
   - name: Animator Parameters
     href: animator-parameters.md
   - name: Avatar Masks

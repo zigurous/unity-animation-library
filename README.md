@@ -32,29 +32,7 @@ using Zigurous.Animation;
 
 ## Reference
 
-### Behaviors
-
-- [AnimatedSprite](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.AnimatedSprite.html)
-- [Blink](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Blink.html)
-- [FollowPath](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.FollowPath.html)
-- [Move](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Move.html)
-- [Orbit](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Orbit.html)
-- [Rotate](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Rotate.html)
-- [RotateAround](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.RotateAround.html)
-- [Scale](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Scale.html)
-- [SmoothFollow](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothFollow.html)
-- [SmoothLookAt](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothLookAt.html)
-
-### Data Structures
-
-- [AnimatorParameter](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.AnimatorParameter.html)
-- [SmoothDampFloat](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampFloat.html)
-- [SmoothDampVector2](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampVector2.html)
-- [SmoothDampVector3](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.SmoothDampVector3.html)
-- [Timing](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Timing.html)
-- [Timing01](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Timing01.html)
-- [TimingRange](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.TimingRange.html)
-- [TimingRange01](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.TimingRange01.html)
-- [Vector2AnimationCurve](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Vector2AnimationCurve.html)
-- [Vector3AnimationCurve](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Vector3AnimationCurve.html)
-- [Vector4AnimationCurve](https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation.Vector4AnimationCurve.html)
+- [Behaviors](https://docs.zigurous.com/com.zigurous.animation/manual/behaviors.html)
+- [Data Structures](https://docs.zigurous.com/com.zigurous.animation/manual/data-structures.html)
+- [Animator Parameters](https://docs.zigurous.com/com.zigurous.animation/manual/animator-parameters.html)
+- [Avatar Masks](https://docs.zigurous.com/com.zigurous.animation/manual/avatar-masks.html)

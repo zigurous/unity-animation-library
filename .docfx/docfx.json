@@ -84,6 +84,10 @@
         "license/**.md": true
       }
     },
+    "sitemap": {
+      "baseUrl": "https://docs.zigurous.com/com.zigurous.animation/",
+      "changefreq": "monthly"
+    },
     "template": [
       "default",
       "templates/zigurous"

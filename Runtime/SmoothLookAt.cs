@@ -52,7 +52,10 @@ namespace Zigurous.Animation
                 targetPosition += this.target.rotation * this.offset;
 
                 // Calculate the rotation direction to the target
-                Quaternion targetRotation = Quaternion.LookRotation(targetPosition - this.transform.position);
+                Vector3 targetDirection = targetPosition - this.transform.position;
+                Quaternion targetRotation = targetDirection != Vector3.zero ?
+                    Quaternion.LookRotation(targetDirection) :
+                    Quaternion.identity;
 
                 // Rotate the camera to the target direction
                 this.transform.rotation = SmoothDamp(

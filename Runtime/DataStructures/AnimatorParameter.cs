@@ -17,7 +17,7 @@ namespace Zigurous.Animation
         private int _hash;
 
         /// <summary>
-        /// The hash id of the animation parameter.
+        /// The hash id of the animator parameter.
         /// </summary>
         public int hash
         {
@@ -31,11 +31,11 @@ namespace Zigurous.Animation
         }
 
         [SerializeField]
-        [Tooltip("The name of the animation parameter.")]
+        [Tooltip("The name of the animator parameter.")]
         private string _name;
 
         /// <summary>
-        /// The name of the animation parameter.
+        /// The name of the animator parameter.
         /// </summary>
         public string name
         {
@@ -48,9 +48,9 @@ namespace Zigurous.Animation
         }
 
         /// <summary>
-        /// Creates a new animation parameter with the given <paramref name="name"/>.
+        /// Creates a new animator parameter with the given <paramref name="name"/>.
         /// </summary>
-        /// <param name="name">The name of the animation parameter.</param>
+        /// <param name="name">The name of the animator parameter.</param>
         public AnimatorParameter(string name)
         {
             _name = name;

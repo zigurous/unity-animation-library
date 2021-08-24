@@ -49,7 +49,7 @@ jobs:
       - name: Build docs
         working-directory: docs~
         continue-on-error: false
-        run: npm build
+        run: npm run-script build
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 

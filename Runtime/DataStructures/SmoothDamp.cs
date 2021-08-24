@@ -53,7 +53,8 @@ namespace Zigurous.Animation
         public abstract T Update(T target);
 
         /// <summary>
-        /// Smoothes the current value to the <paramref name="target"/> value.
+        /// Smoothes the current value to the <paramref name="target"/> value
+        /// with the given <paramref name="deltaTime"/>.
         /// </summary>
         /// <param name="target">The target value.</param>
         /// <param name="deltaTime">The time since the last call to this function.</param>

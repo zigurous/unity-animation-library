@@ -37,7 +37,8 @@ jobs:
       - name: Install dependencies
         working-directory: docs~
         run: npm install
-        env: NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
       - name: Generate metadata
         working-directory: docs~

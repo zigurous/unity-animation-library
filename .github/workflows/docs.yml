@@ -35,15 +35,15 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        working-directory: docs
+        working-directory: docs~
         run: npm install
 
       - name: Generate metadata
-        working-directory: docs
+        working-directory: docs~
         run: npm run-script docfx
 
       - name: Build docs
-        working-directory: docs
+        working-directory: docs~
         run: npm build
         continue-on-error: false
 
@@ -54,5 +54,5 @@ jobs:
           personal_token: ${{ secrets.DOCS_TOKEN }}
           external_repository: zigurous/docs
           destination_dir: com.zigurous.animation
-          publish_dir: docs/public
+          publish_dir: docs~/public
           publish_branch: main

@@ -39,24 +39,26 @@ namespace Zigurous.Animation
         }
 
         /// <summary>
-        /// The object follows the path comprised of all the children of this
-        /// transform.
+        /// The transform comprising of all the child nodes in the path.
         /// </summary>
-        [Tooltip("The object follows the path comprised of all the children of this transform.")]
+        [Tooltip("The transform comprising of all the child nodes in the path.")]
         public Transform path;
 
         /// <summary>
-        /// The transform of the node that the object is currently moving from.
+        /// The transform of the node that the object is currently moving from
+        /// (Read only).
         /// </summary>
         public Transform nodeFrom { get; private set; }
 
         /// <summary>
-        /// The transform of the node that the object is currently moving to.
+        /// The transform of the node that the object is currently moving to
+        /// (Read only).
         /// </summary>
         public Transform nodeTo { get; private set; }
 
         /// <summary>
-        /// The index of the node that the object is currently moving to.
+        /// The index of the node that the object is currently moving to
+        /// (Read only).
         /// </summary>
         public int currentIndex { get; private set; }
 

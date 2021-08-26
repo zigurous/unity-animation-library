@@ -7,7 +7,7 @@
     public interface IAnimationCurve<T>
     {
         /// <summary>
-        /// Evaluate the curve at <paramref name="time"/>.
+        /// Evaluate the curve at the specified time.
         /// </summary>
         /// <param name="time">The time within the curve you want to evaluate (the horizontal axis in the curve graph).</param>
         /// <returns>The value of the curve, at the point in time specified.</returns>

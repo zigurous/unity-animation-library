@@ -34,15 +34,17 @@ namespace Zigurous.Animation
         /// <summary>
         /// Returns a random time within the start and end time.
         /// </summary>
+        /// <returns>A random time within the start and end time.</returns>
         public float Random()
         {
             return UnityEngine.Random.Range(this.start, this.end);
         }
 
         /// <summary>
-        /// Checks if <paramref name="time"/> is within the start and end time.
+        /// Checks if a time is within the start and end time.
         /// </summary>
         /// <param name="time">The time to check.</param>
+        /// <returns>True if the time is within the start and end time.</returns>
         public bool Includes(float time)
         {
             return time >= this.start && time <= this.end;

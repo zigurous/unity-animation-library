@@ -10,7 +10,7 @@ namespace Zigurous.Animation
     public class SmoothDampVector3 : SmoothDamp<Vector3>
     {
         /// <summary>
-        /// Smoothes the current value to the <paramref name="target"/> value.
+        /// Smoothes the current value to the target value.
         /// </summary>
         /// <param name="target">The target value.</param>
         /// <returns>The new current value.</returns>
@@ -25,8 +25,8 @@ namespace Zigurous.Animation
         }
 
         /// <summary>
-        /// Smoothes the current value to the <paramref name="target"/> value
-        /// with the given <paramref name="deltaTime"/>.
+        /// Smoothes the current value to the target value
+        /// with the given delta time.
         /// </summary>
         /// <param name="target">The target value.</param>
         /// <param name="deltaTime">The time since the last call to this function.</param>

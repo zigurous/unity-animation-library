@@ -10,7 +10,7 @@ namespace Zigurous.Animation
     public sealed class Blink : MonoBehaviour
     {
         /// <summary>
-        /// A reference to the main blinking object's renderer.
+        /// A reference to the main blinking object's renderer (Read only).
         /// </summary>
         public new Renderer renderer { get; private set; }
 
@@ -62,17 +62,17 @@ namespace Zigurous.Animation
         public float updateInterval = 1f;
 
         /// <summary>
-        /// The time the next update will be performed.
+        /// The time the next update will be performed (Read only).
         /// </summary>
         public float nextUpdateTime { get; private set; }
 
         /// <summary>
-        /// Whether the object is currently blinking.
+        /// Whether the object is currently blinking (Read only).
         /// </summary>
         public bool blinking { get; private set; }
 
         /// <summary>
-        /// Whether the blinking is currently on cooldown.
+        /// Whether the blinking is currently on cooldown (Read only).
         /// </summary>
         public bool cooldown { get; private set; }
 

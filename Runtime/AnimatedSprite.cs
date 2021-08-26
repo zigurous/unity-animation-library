@@ -10,7 +10,7 @@ namespace Zigurous.Animation
     public sealed class AnimatedSprite : MonoBehaviour
     {
         /// <summary>
-        /// The sprite renderer component for the animation.
+        /// The sprite renderer component for the animation (Read only).
         /// </summary>
         public SpriteRenderer spriteRenderer { get; private set; }
 
@@ -27,6 +27,16 @@ namespace Zigurous.Animation
         public float frameRate = 24f;
 
         /// <summary>
+        /// The time at which the next frame will begin (Read only).
+        /// </summary>
+        public float nextFrameTime { get; private set; }
+
+        /// <summary>
+        /// The current frame index (Read only).
+        /// </summary>
+        public int frame { get; private set; }
+
+        /// <summary>
         /// Animates the sprites in reverse order.
         /// </summary>
         [Tooltip("Animates the sprites in reverse order.")]
@@ -38,16 +48,6 @@ namespace Zigurous.Animation
         /// </summary>
         [Tooltip("Whether the animation should loop back to the start after cycling through each sprite.")]
         public bool loop = true;
-
-        /// <summary>
-        /// The time at which the next frame will begin.
-        /// </summary>
-        public float nextFrameTime { get; private set; }
-
-        /// <summary>
-        /// The current frame index.
-        /// </summary>
-        public int frame { get; private set; }
 
         private void Awake()
         {

@@ -34,15 +34,17 @@ namespace Zigurous.Animation
         /// <summary>
         /// Returns a random time within the min and max time.
         /// </summary>
+        /// <returns>A random time within the min and max time.</returns>
         public float Random()
         {
             return UnityEngine.Random.Range(this.min, this.max);
         }
 
         /// <summary>
-        /// Checks if <paramref name="time"/> is within the min and max time.
+        /// Checks if a time is within the min and max time.
         /// </summary>
         /// <param name="time">The time to check.</param>
+        /// <returns>True if the time is within the min and max time.</returns>
         public bool Includes(float time)
         {
             return time >= this.min && time <= this.max;

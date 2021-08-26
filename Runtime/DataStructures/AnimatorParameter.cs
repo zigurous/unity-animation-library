@@ -17,7 +17,7 @@ namespace Zigurous.Animation
         private int _hash;
 
         /// <summary>
-        /// The hash id of the animator parameter.
+        /// The hash id of the animator parameter (Read only).
         /// </summary>
         public int hash
         {
@@ -48,7 +48,7 @@ namespace Zigurous.Animation
         }
 
         /// <summary>
-        /// Creates a new animator parameter with the given <paramref name="name"/>.
+        /// Creates a new animator parameter with the given name.
         /// </summary>
         /// <param name="name">The name of the animator parameter.</param>
         public AnimatorParameter(string name)
@@ -61,7 +61,7 @@ namespace Zigurous.Animation
         /// Implicitly converts a name to an animator parameter.
         /// </summary>
         /// <param name="name">The name of the animator parameter.</param>
-        /// <returns>A new animator parameter with the given <paramref name="name"/>.</returns>
+        /// <returns>A new animator parameter with the given name.</returns>
         public static implicit operator AnimatorParameter(string name) => new AnimatorParameter(name);
 
         /// <summary>

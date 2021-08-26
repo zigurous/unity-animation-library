@@ -10,7 +10,7 @@ namespace Zigurous.Animation
     {
         [SerializeField]
         [Tooltip("The start time of the animation, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
+        [Range(0f, 1f)]
         private float _start;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Zigurous.Animation
 
         [SerializeField]
         [Tooltip("The end time of the animation, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
+        [Range(0f, 1f)]
         private float _end;
 
         /// <summary>

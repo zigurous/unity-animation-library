@@ -18,7 +18,7 @@ namespace Zigurous.Animation
         /// The speed at which the object rotates.
         /// </summary>
         [Tooltip("The speed at which the object rotates.")]
-        public float speed = 45.0f;
+        public float speed = 45f;
 
         /// <summary>
         /// The coordinate space in which the object rotates.

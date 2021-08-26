@@ -13,13 +13,13 @@ namespace Zigurous.Animation
         /// The collection of keyframes for the x-axis of a Vector2.
         /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector2.")]
-        public AnimationCurve x = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
+        public AnimationCurve x = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the y-axis of a Vector2.
         /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector2.")]
-        public AnimationCurve y = new AnimationCurve(new Keyframe(0.0f, 0.0f), new Keyframe(1.0f, 0.0f));
+        public AnimationCurve y = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <inheritdoc/>
         public Vector2 Evaluate(float time)

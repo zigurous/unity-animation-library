@@ -18,20 +18,20 @@ namespace Zigurous.Animation
         /// The speed at which the object orbits.
         /// </summary>
         [Tooltip("The speed at which the object orbits.")]
-        public float speed = 45.0f;
+        public float speed = 45f;
 
         /// <summary>
         /// The distance from the center of the object being orbited.
         /// </summary>
         [Tooltip("The distance from the center of the object being orbited.")]
-        public float radius = 1.0f;
+        public float radius = 1f;
 
         /// <summary>
         /// The initial angle in degrees of the orbiting object.
         /// </summary>
         [Tooltip("The initial angle in degrees of the orbiting object.")]
-        [Range(0.0f, 360.0f)]
-        public float startAngle = 0.0f;
+        [Range(0f, 360f)]
+        public float startAngle = 0f;
 
         /// <summary>
         /// The current angle in degrees of the orbiting object.

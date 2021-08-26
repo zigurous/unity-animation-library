@@ -37,29 +37,29 @@ namespace Zigurous.Animation
         /// The random chance that the object will blink.
         /// </summary>
         [Tooltip("The random chance that the object will blink.")]
-        [Space(10.0f)]
-        [Range(0.0f, 1.0f)]
-        public float blinkChance = 1.0f;
+        [Space(10f)]
+        [Range(0f, 1f)]
+        public float blinkChance = 1f;
 
         /// <summary>
         /// The amount of seconds the material stays blinking.
         /// </summary>
         [Tooltip("The amount of seconds the material stays blinking.")]
-        public TimingRange blinkDuration = new TimingRange(1.0f, 1.0f);
+        public TimingRange blinkDuration = new TimingRange(1f, 1f);
 
         /// <summary>
         /// The amount of seconds before the material can blink a subsequent
         /// time.
         /// </summary>
         [Tooltip("The amount of seconds before the material can blink a subsequent time.")]
-        public TimingRange blinkCooldown = new TimingRange(1.0f, 1.0f);
+        public TimingRange blinkCooldown = new TimingRange(1f, 1f);
 
         /// <summary>
         /// How frequently in seconds the script will execute as a way to
         /// optimize the code performance.
         /// </summary>
         [Tooltip("How frequently in seconds the script will execute as a way to optimize the code performance.")]
-        public float updateInterval = 1.0f;
+        public float updateInterval = 1f;
 
         /// <summary>
         /// The time the next update will be performed.
@@ -138,7 +138,7 @@ namespace Zigurous.Animation
         {
             float duration = this.blinkCooldown.Random();
 
-            if (duration > 0.0f)
+            if (duration > 0f)
             {
                 this.cooldown = true;
                 Invoke(nameof(CooldownComplete), this.blinkCooldown.Random());

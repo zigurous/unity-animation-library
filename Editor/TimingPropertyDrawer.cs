@@ -6,7 +6,7 @@ namespace Zigurous.Animation.Editor
     [CustomPropertyDrawer(typeof(Timing))]
     public sealed class TimingPropertyDrawer : PropertyDrawer
     {
-        private const float horizontalSpacing = 4.0f;
+        private const float horizontalSpacing = 4f;
 
         private SerializedProperty _start;
         private SerializedProperty _end;
@@ -32,7 +32,7 @@ namespace Zigurous.Animation.Editor
 
             // Calculate the bounds of the child fields
             Rect rect = new Rect(position);
-            rect.width = (position.width - horizontalSpacing) / 2;
+            rect.width = (position.width - horizontalSpacing) / 2f;
 
             // Draw the child fields
             rect = FloatFieldWithChangeCheck(_start, rect);

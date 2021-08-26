@@ -24,7 +24,7 @@ namespace Zigurous.Animation
         /// The amount of frames per second that are rendered.
         /// </summary>
         [Tooltip("The amount of frames per second that are rendered.")]
-        public float frameRate = 24.0f;
+        public float frameRate = 24f;
 
         /// <summary>
         /// Animates the sprites in reverse order.
@@ -70,7 +70,7 @@ namespace Zigurous.Animation
 
         private void Update()
         {
-            if (Time.time >= this.nextFrameTime && this.frameRate != 0.0f) {
+            if (Time.time >= this.nextFrameTime && this.frameRate != 0f) {
                 NextFrame();
             }
         }
@@ -105,9 +105,9 @@ namespace Zigurous.Animation
 
         private void SetNextFrameTime()
         {
-            if (this.frameRate != 0.0f)
+            if (this.frameRate != 0f)
             {
-                float timing = 1.0f / this.frameRate;
+                float timing = 1f / this.frameRate;
                 this.nextFrameTime = Time.time + timing;
             }
         }

@@ -10,7 +10,7 @@ namespace Zigurous.Animation
     {
         [SerializeField]
         [Tooltip("The lower bound of the timing range, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
+        [Range(0f, 1f)]
         private float _min;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Zigurous.Animation
 
         [SerializeField]
         [Tooltip("The upper bound of the timing range, between 0 and 1.")]
-        [Range(0.0f, 1.0f)]
+        [Range(0f, 1f)]
         private float _max;
 
         /// <summary>

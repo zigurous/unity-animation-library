@@ -6,7 +6,7 @@ namespace Zigurous.Animation.Editor
     [CustomPropertyDrawer(typeof(TimingRange01))]
     public sealed class TimingRange01PropertyDrawer : PropertyDrawer
     {
-        private const float horizontalSpacing = 4.0f;
+        private const float horizontalSpacing = 4f;
 
         private SerializedProperty _min;
         private SerializedProperty _max;
@@ -32,7 +32,7 @@ namespace Zigurous.Animation.Editor
 
             // Calculate the bounds of the child fields
             Rect rect = new Rect(position);
-            rect.width = (position.width - horizontalSpacing) / 2;
+            rect.width = (position.width - horizontalSpacing) / 2f;
 
             // Draw the child fields
             rect = SliderWithChangeCheck(_min, rect, "Min");
@@ -56,7 +56,7 @@ namespace Zigurous.Animation.Editor
             EditorGUIUtility.labelWidth = EditorStyles.label.CalcSize(label).x;
 
             // Draw the field and store the field's value
-            float value = EditorGUI.Slider(position, label, property.floatValue, 0.0f, 1.0f);
+            float value = EditorGUI.Slider(position, label, property.floatValue, 0f, 1f);
 
             // Update the property's value from the field
             if (EditorGUI.EndChangeCheck()) {

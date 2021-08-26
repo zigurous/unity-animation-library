@@ -66,7 +66,7 @@ namespace Zigurous.Animation
         /// slowly.
         /// </summary>
         [Tooltip("How quickly the object moves between nodes. Small numbers make the object more responsive. Larger numbers make the object respond more slowly.")]
-        public float damping = 1.0f;
+        public float damping = 1f;
 
         /// <summary>
         /// The maximum speed the object can move between nodes.

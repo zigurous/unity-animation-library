@@ -12,6 +12,7 @@
   "repository": "https://github.com/zigurous/unity-animation-library",
   "documentationUrl": "https://docs.zigurous.com/com.zigurous.animation",
   "changelogUrl": "https://docs.zigurous.com/com.zigurous.animation/changelog",
+  "licensesUrl": "https://docs.zigurous.com/com.zigurous.animation/license",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@zigurous"
   },

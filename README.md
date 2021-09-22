@@ -24,7 +24,7 @@ Use the Unity [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) to 
 https://github.com/zigurous/unity-animation-library.git
 ```
 
-### Importing
+## Namespace
 
 Import the package namespace in each script or file you want to use it. You may need to regenerate project files/assemblies first.
 

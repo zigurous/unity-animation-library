@@ -36,30 +36,26 @@ namespace Zigurous.Animation
         /// <inheritdoc/>
         public Vector4 Evaluate(float time)
         {
-            return new Vector4(
-                this.x.Evaluate(time),
-                this.y.Evaluate(time),
-                this.z.Evaluate(time),
-                this.w.Evaluate(time));
+            return new Vector4(x.Evaluate(time), y.Evaluate(time), z.Evaluate(time), w.Evaluate(time));
         }
 
         /// <inheritdoc/>
         /// <param name="value">The value for the key (vertical axis in the curve graph).</param>
         public void AddKey(float time, Vector4 value)
         {
-            this.x.AddKey(time, value.x);
-            this.y.AddKey(time, value.y);
-            this.z.AddKey(time, value.z);
-            this.w.AddKey(time, value.w);
+            x.AddKey(time, value.x);
+            y.AddKey(time, value.y);
+            z.AddKey(time, value.z);
+            w.AddKey(time, value.w);
         }
 
         /// <inheritdoc/>
         public void RemoveKey(int index)
         {
-            this.x.RemoveKey(index);
-            this.y.RemoveKey(index);
-            this.z.RemoveKey(index);
-            this.w.RemoveKey(index);
+            x.RemoveKey(index);
+            y.RemoveKey(index);
+            z.RemoveKey(index);
+            w.RemoveKey(index);
         }
 
     }

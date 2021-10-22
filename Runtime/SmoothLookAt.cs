@@ -44,26 +44,26 @@ namespace Zigurous.Animation
 
         private void LateUpdate()
         {
-            if (this.target != null)
+            if (target != null)
             {
                 // Calculate the offset position from the follow target
                 // accounting for the rotation of the object
-                Vector3 targetPosition = this.target.position;
-                targetPosition += this.target.rotation * this.offset;
+                Vector3 targetPosition = target.position;
+                targetPosition += target.rotation * offset;
 
                 // Calculate the rotation direction to the target
-                Vector3 targetDirection = targetPosition - this.transform.position;
+                Vector3 targetDirection = targetPosition - transform.position;
                 Quaternion targetRotation = targetDirection != Vector3.zero ?
                     Quaternion.LookRotation(targetDirection) :
                     Quaternion.identity;
 
                 // Rotate the camera to the target direction
-                this.transform.rotation = SmoothDamp(
-                    current: this.transform.rotation,
+                transform.rotation = SmoothDamp(
+                    current: transform.rotation,
                     target: targetRotation,
                     currentVelocity: ref _velocity,
-                    smoothTime: this.damping,
-                    maxSpeed: this.maxSpeed);
+                    smoothTime: damping,
+                    maxSpeed: maxSpeed);
             }
         }
 

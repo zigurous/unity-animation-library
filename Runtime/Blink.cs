@@ -78,24 +78,24 @@ namespace Zigurous.Animation
 
         private void Awake()
         {
-            this.renderer = GetComponent<Renderer>();
+            renderer = GetComponent<Renderer>();
         }
 
         private void OnEnable()
         {
-            this.blinking = false;
-            this.cooldown = false;
+            blinking = false;
+            cooldown = false;
         }
 
         private void Update()
         {
-            if (Time.time >= this.nextUpdateTime)
+            if (Time.time >= nextUpdateTime)
             {
-                if (Random.value < this.blinkChance) {
+                if (Random.value < blinkChance) {
                     BlinkOnce();
                 }
 
-                this.nextUpdateTime = Time.time + this.updateInterval;
+                nextUpdateTime = Time.time + updateInterval;
             }
         }
 
@@ -104,50 +104,50 @@ namespace Zigurous.Animation
         /// </summary>
         public void BlinkOnce()
         {
-            if (this.blinking || this.cooldown) {
+            if (blinking || cooldown) {
                 return;
             }
 
-            this.blinking = true;
+            blinking = true;
 
-            AssignMaterial(this.blinkingMaterial);
-            Invoke(nameof(FinishBlink), this.blinkDuration.Random());
+            AssignMaterial(blinkingMaterial);
+            Invoke(nameof(FinishBlink), blinkDuration.Random());
         }
 
         private void FinishBlink()
         {
-            this.blinking = false;
+            blinking = false;
 
-            AssignMaterial(this.notBlinkingMaterial);
+            AssignMaterial(notBlinkingMaterial);
             Cooldown();
         }
 
         private void AssignMaterial(Material material)
         {
-            this.renderer.material = material;
+            renderer.material = material;
 
-            if (this.sharedRenderers != null)
+            if (sharedRenderers != null)
             {
-                for (int i = 0; i < this.sharedRenderers.Length; i++) {
-                    this.sharedRenderers[i].material = material;
+                for (int i = 0; i < sharedRenderers.Length; i++) {
+                    sharedRenderers[i].material = material;
                 }
             }
         }
 
         private void Cooldown()
         {
-            float duration = this.blinkCooldown.Random();
+            float duration = blinkCooldown.Random();
 
             if (duration > 0f)
             {
-                this.cooldown = true;
-                Invoke(nameof(CooldownComplete), this.blinkCooldown.Random());
+                cooldown = true;
+                Invoke(nameof(CooldownComplete), blinkCooldown.Random());
             }
         }
 
         private void CooldownComplete()
         {
-            this.cooldown = false;
+            cooldown = false;
         }
 
     }

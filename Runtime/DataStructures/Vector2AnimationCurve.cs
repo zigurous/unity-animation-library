@@ -24,24 +24,22 @@ namespace Zigurous.Animation
         /// <inheritdoc/>
         public Vector2 Evaluate(float time)
         {
-            return new Vector2(
-                this.x.Evaluate(time),
-                this.y.Evaluate(time));
+            return new Vector2(x.Evaluate(time), y.Evaluate(time));
         }
 
         /// <inheritdoc/>
         /// <param name="value">The value for the key (vertical axis in the curve graph).</param>
         public void AddKey(float time, Vector2 value)
         {
-            this.x.AddKey(time, value.x);
-            this.y.AddKey(time, value.y);
+            x.AddKey(time, value.x);
+            y.AddKey(time, value.y);
         }
 
         /// <inheritdoc/>
         public void RemoveKey(int index)
         {
-            this.x.RemoveKey(index);
-            this.y.RemoveKey(index);
+            x.RemoveKey(index);
+            y.RemoveKey(index);
         }
 
     }

@@ -51,7 +51,7 @@ namespace Zigurous.Animation
 
         private void Awake()
         {
-            this.spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
@@ -64,31 +64,31 @@ namespace Zigurous.Animation
         /// </summary>
         public void Restart()
         {
-            this.frame = 0;
+            frame = 0;
             SetSprite();
         }
 
         private void Update()
         {
-            if (Time.time >= this.nextFrameTime && this.frameRate != 0f) {
+            if (Time.time >= nextFrameTime && frameRate != 0f) {
                 NextFrame();
             }
         }
 
         private void NextFrame()
         {
-            if (this.reversed) {
-                this.frame--;
+            if (reversed) {
+                frame--;
             } else {
-                this.frame++;
+                frame++;
             }
 
-            if (this.frame < 0 || this.frame >= this.sprites.Length)
+            if (frame < 0 || frame >= sprites.Length)
             {
-                if (this.loop) {
-                    this.frame = this.reversed ? this.sprites.Length - 1 : 0;
+                if (loop) {
+                    frame = reversed ? sprites.Length - 1 : 0;
                 } else {
-                    this.frame = Mathf.Clamp(this.frame, 0, this.sprites.Length - 1);
+                    frame = Mathf.Clamp(frame, 0, sprites.Length - 1);
                 }
             }
 
@@ -98,17 +98,17 @@ namespace Zigurous.Animation
 
         private void SetSprite()
         {
-            if (this.frame >= 0 && this.frame < this.sprites.Length) {
-                this.spriteRenderer.sprite = this.sprites[this.frame];
+            if (frame >= 0 && frame < sprites.Length) {
+                spriteRenderer.sprite = sprites[frame];
             }
         }
 
         private void SetNextFrameTime()
         {
-            if (this.frameRate != 0f)
+            if (frameRate != 0f)
             {
-                float timing = 1f / this.frameRate;
-                this.nextFrameTime = Time.time + timing;
+                float timing = 1f / frameRate;
+                nextFrameTime = Time.time + timing;
             }
         }
 

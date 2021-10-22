@@ -28,22 +28,22 @@ namespace Zigurous.Animation
 
         private void Update()
         {
-            if (this.updateMode == UpdateMode.Update) {
-                this.transform.Translate(this.speed * Time.deltaTime, this.space);
+            if (updateMode == UpdateMode.Update) {
+                transform.Translate(speed * Time.deltaTime, space);
             }
         }
 
         private void LateUpdate()
         {
-            if (this.updateMode == UpdateMode.LateUpdate) {
-                this.transform.Translate(this.speed * Time.deltaTime, this.space);
+            if (updateMode == UpdateMode.LateUpdate) {
+                transform.Translate(speed * Time.deltaTime, space);
             }
         }
 
         private void FixedUpdate()
         {
-            if (this.updateMode == UpdateMode.FixedUpdate) {
-                this.transform.Translate(this.speed * Time.fixedDeltaTime, this.space);
+            if (updateMode == UpdateMode.FixedUpdate) {
+                transform.Translate(speed * Time.fixedDeltaTime, space);
             }
         }
 

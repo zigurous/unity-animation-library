@@ -52,7 +52,7 @@ namespace Zigurous.Animation
         /// </summary>
         public float Random()
         {
-            return UnityEngine.Random.Range(this.min, this.max);
+            return UnityEngine.Random.Range(min, max);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Zigurous.Animation
         /// <returns>True if the time is within the min and max time.</returns>
         public bool Includes(float time)
         {
-            return time >= this.min && time <= this.max;
+            return time >= min && time <= max;
         }
 
     }

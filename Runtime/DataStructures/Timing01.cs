@@ -53,7 +53,7 @@ namespace Zigurous.Animation
         /// <returns>A random time within the start and end time.</returns>
         public float Random()
         {
-            return UnityEngine.Random.Range(this.start, this.end);
+            return UnityEngine.Random.Range(start, end);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Zigurous.Animation
         /// <returns>True if the time is within the start and end time.</returns>
         public bool Includes(float time)
         {
-            return time >= this.start && time <= this.end;
+            return time >= start && time <= end;
         }
 
     }

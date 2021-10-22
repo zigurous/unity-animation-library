@@ -46,33 +46,33 @@ namespace Zigurous.Animation
 
         private void Start()
         {
-            this.angle = this.startAngle;
+            angle = startAngle;
         }
 
         private void Update()
         {
-            if (this.center != null && this.updateMode == UpdateMode.Update)
+            if (center != null && updateMode == UpdateMode.Update)
             {
-                this.angle += this.speed * Time.deltaTime;
-                SetPosition(this.angle);
+                angle += speed * Time.deltaTime;
+                SetPosition(angle);
             }
         }
 
         private void LateUpdate()
         {
-            if (this.center != null && this.updateMode == UpdateMode.LateUpdate)
+            if (center != null && updateMode == UpdateMode.LateUpdate)
             {
-                this.angle += this.speed * Time.deltaTime;
-                SetPosition(this.angle);
+                angle += speed * Time.deltaTime;
+                SetPosition(angle);
             }
         }
 
         private void FixedUpdate()
         {
-            if (this.center != null && this.updateMode == UpdateMode.FixedUpdate)
+            if (center != null && updateMode == UpdateMode.FixedUpdate)
             {
-                this.angle += this.speed * Time.fixedDeltaTime;
-                SetPosition(this.angle);
+                angle += speed * Time.fixedDeltaTime;
+                SetPosition(angle);
             }
         }
 
@@ -80,10 +80,10 @@ namespace Zigurous.Animation
         {
             float radians = angle * Mathf.Deg2Rad;
 
-            this.transform.position = new Vector3(
-                x: this.center.position.x + (Mathf.Cos(radians) * this.radius),
-                y: this.center.position.y,
-                z: this.center.position.z + (Mathf.Sin(radians) * this.radius));
+            transform.position = new Vector3(
+                x: center.position.x + (Mathf.Cos(radians) * radius),
+                y: center.position.y,
+                z: center.position.z + (Mathf.Sin(radians) * radius));
         }
 
     }

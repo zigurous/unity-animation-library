@@ -44,20 +44,20 @@ namespace Zigurous.Animation
 
         private void LateUpdate()
         {
-            if (this.target != null)
+            if (target != null)
             {
                 // Calculate the offset position from the follow target
                 // accounting for the rotation of the object
-                Vector3 targetPosition = this.target.position;
-                targetPosition += this.target.rotation * this.offset;
+                Vector3 targetPosition = target.position;
+                targetPosition += target.rotation * offset;
 
                 // Move the transform to the target's position
-                this.transform.position = Vector3.SmoothDamp(
-                    current: this.transform.position,
+                transform.position = Vector3.SmoothDamp(
+                    current: transform.position,
                     target: targetPosition,
                     currentVelocity: ref _velocity,
-                    smoothTime: this.damping,
-                    maxSpeed: this.maxSpeed);
+                    smoothTime: damping,
+                    maxSpeed: maxSpeed);
             }
         }
 

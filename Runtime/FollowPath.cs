@@ -110,50 +110,50 @@ namespace Zigurous.Animation
         /// </summary>
         public void Restart()
         {
-            this.currentIndex = 0;
+            currentIndex = 0;
 
             SetCurrentSegment();
         }
 
         private void Update()
         {
-            if (this.nodeTo == null) {
+            if (nodeTo == null) {
                 return;
             }
 
-            this.transform.position = Vector3.SmoothDamp(
-                current: this.transform.position,
-                target: this.nodeTo.position,
+            transform.position = Vector3.SmoothDamp(
+                current: transform.position,
+                target: nodeTo.position,
                 currentVelocity: ref _velocity,
-                smoothTime: this.damping,
-                maxSpeed: this.maxSpeed);
+                smoothTime: damping,
+                maxSpeed: maxSpeed);
 
-            Vector3 vector = this.transform.position - this.nodeTo.position;
+            Vector3 vector = transform.position - nodeTo.position;
 
-            if (vector.sqrMagnitude < this.minProximity) {
+            if (vector.sqrMagnitude < minProximity) {
                 Next();
             }
         }
 
         private void Next()
         {
-            if (this.path == null) {
+            if (path == null) {
                 return;
             }
 
-            if (this.reversed) {
-                this.currentIndex--;
+            if (reversed) {
+                currentIndex--;
             } else {
-                this.currentIndex++;
+                currentIndex++;
             }
 
-            if (this.currentIndex >= this.path.childCount || this.currentIndex < 0)
+            if (currentIndex >= path.childCount || currentIndex < 0)
             {
                 Loop();
                 SetCurrentSegment();
 
-                if (this.looping == LoopType.Restart && this.nodeTo != null) {
-                    this.transform.position = this.nodeTo.position;
+                if (looping == LoopType.Restart && nodeTo != null) {
+                    transform.position = nodeTo.position;
                 }
             }
             else
@@ -164,32 +164,32 @@ namespace Zigurous.Animation
 
         private void Loop()
         {
-            int lastIndex = Mathf.Max(this.path.childCount - 1, 0);
+            int lastIndex = Mathf.Max(path.childCount - 1, 0);
 
-            switch (this.looping)
+            switch (looping)
             {
                 case LoopType.None:
-                    this.currentIndex = Mathf.Clamp(this.currentIndex, 0, lastIndex);
+                    currentIndex = Mathf.Clamp(currentIndex, 0, lastIndex);
                     break;
 
                 case LoopType.Restart:
                 case LoopType.Circular:
-                    this.currentIndex = this.reversed ? lastIndex : 0;
+                    currentIndex = reversed ? lastIndex : 0;
                     break;
 
                 case LoopType.PingPong:
-                    this.reversed = !this.reversed;
-                    this.currentIndex = this.reversed ? lastIndex : 0;
+                    reversed = !reversed;
+                    currentIndex = reversed ? lastIndex : 0;
                     break;
             }
         }
 
         private void SetCurrentSegment()
         {
-            this.nodeFrom = this.nodeTo;
+            nodeFrom = nodeTo;
 
-            if (this.currentIndex >= 0 && this.currentIndex < this.path.childCount) {
-                this.nodeTo = this.path.GetChild(this.currentIndex);
+            if (currentIndex >= 0 && currentIndex < path.childCount) {
+                nodeTo = path.GetChild(currentIndex);
             }
         }
 

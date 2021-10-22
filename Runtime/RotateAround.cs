@@ -34,22 +34,22 @@ namespace Zigurous.Animation
 
         private void Update()
         {
-            if (this.point != null && this.updateMode == UpdateMode.Update) {
-                this.transform.RotateAround(this.point.position, this.axis, this.speed * Time.deltaTime);
+            if (point != null && updateMode == UpdateMode.Update) {
+                transform.RotateAround(point.position, axis, speed * Time.deltaTime);
             }
         }
 
         private void LateUpdate()
         {
-            if (this.point != null && this.updateMode == UpdateMode.LateUpdate) {
-                this.transform.RotateAround(this.point.position, this.axis, this.speed * Time.deltaTime);
+            if (point != null && updateMode == UpdateMode.LateUpdate) {
+                transform.RotateAround(point.position, axis, speed * Time.deltaTime);
             }
         }
 
         private void FixedUpdate()
         {
-            if (this.point != null && this.updateMode == UpdateMode.FixedUpdate) {
-                this.transform.RotateAround(this.point.position, this.axis, this.speed * Time.fixedDeltaTime);
+            if (point != null && updateMode == UpdateMode.FixedUpdate) {
+                transform.RotateAround(point.position, axis, speed * Time.fixedDeltaTime);
             }
         }
 

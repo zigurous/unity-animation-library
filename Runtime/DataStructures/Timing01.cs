@@ -11,29 +11,29 @@ namespace Zigurous.Animation
         [SerializeField]
         [Tooltip("The start time of the animation, between 0 and 1.")]
         [Range(0f, 1f)]
-        private float _start;
+        private float m_Start;
 
         /// <summary>
         /// The start time of the animation, between 0 and 1.
         /// </summary>
         public float start
         {
-            get => _start;
-            set => _start = Mathf.Clamp01(value);
+            get => m_Start;
+            set => m_Start = Mathf.Clamp01(value);
         }
 
         [SerializeField]
         [Tooltip("The end time of the animation, between 0 and 1.")]
         [Range(0f, 1f)]
-        private float _end;
+        private float m_End;
 
         /// <summary>
         /// The end time of the animation, between 0 and 1.
         /// </summary>
         public float end
         {
-            get => _end;
-            set => _end = Mathf.Clamp01(value);
+            get => m_End;
+            set => m_End = Mathf.Clamp01(value);
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace Zigurous.Animation
         /// <param name="end">The end time of the animation, between 0 and 1.</param>
         public Timing01(float start, float end)
         {
-            _start = Mathf.Clamp01(start);
-            _end = Mathf.Clamp01(end);
+            m_Start = Mathf.Clamp01(start);
+            m_End = Mathf.Clamp01(end);
         }
 
         /// <summary>

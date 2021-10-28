@@ -8,17 +8,31 @@ namespace Zigurous.Animation
     [System.Serializable]
     public struct TimingRange
     {
+        [SerializeField]
+        [Tooltip("The lower bound of the timing range.")]
+        private float m_Min;
+
         /// <summary>
         /// The lower bound of the timing range.
         /// </summary>
-        [Tooltip("The lower bound of the timing range.")]
-        public float min;
+        public float min
+        {
+            get => m_Min;
+            set => m_Min = value;
+        }
+
+        [SerializeField]
+        [Tooltip("The upper bound of the timing range.")]
+        private float m_Max;
 
         /// <summary>
         /// The upper bound of the timing range.
         /// </summary>
-        [Tooltip("The upper bound of the timing range.")]
-        public float max;
+        public float max
+        {
+            get => m_Max;
+            set => m_Max = value;
+        }
 
         /// <summary>
         /// Creates a new timing range with the specified values.
@@ -27,8 +41,8 @@ namespace Zigurous.Animation
         /// <param name="max">The upper bound of the timing range.</param>
         public TimingRange(float min, float max)
         {
-            this.min = min;
-            this.max = max;
+            m_Min = min;
+            m_Max = max;
         }
 
         /// <summary>

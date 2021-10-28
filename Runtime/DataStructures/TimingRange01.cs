@@ -11,29 +11,29 @@ namespace Zigurous.Animation
         [SerializeField]
         [Tooltip("The lower bound of the timing range, between 0 and 1.")]
         [Range(0f, 1f)]
-        private float _min;
+        private float m_Min;
 
         /// <summary>
         /// The lower bound of the timing range, between 0 and 1.
         /// </summary>
         public float min
         {
-            get => _min;
-            set => _min = Mathf.Clamp01(value);
+            get => m_Min;
+            set => m_Min = Mathf.Clamp01(value);
         }
 
         [SerializeField]
         [Tooltip("The upper bound of the timing range, between 0 and 1.")]
         [Range(0f, 1f)]
-        private float _max;
+        private float m_Max;
 
         /// <summary>
         /// The upper bound of the timing range, between 0 and 1.
         /// </summary>
         public float max
         {
-            get => _max;
-            set => _max = Mathf.Clamp01(value);
+            get => m_Max;
+            set => m_Max = Mathf.Clamp01(value);
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace Zigurous.Animation
         /// <param name="max">The upper bound of the timing range, between 0 and 1.</param>
         public TimingRange01(float min, float max)
         {
-            _min = Mathf.Clamp01(min);
-            _max = Mathf.Clamp01(max);
+            m_Min = Mathf.Clamp01(min);
+            m_Max = Mathf.Clamp01(max);
         }
 
         /// <summary>

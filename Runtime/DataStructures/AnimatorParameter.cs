@@ -14,7 +14,7 @@ namespace Zigurous.Animation
     {
         [SerializeField]
         [HideInInspector]
-        private int _hash;
+        private int m_Hash;
 
         /// <summary>
         /// The hash id of the animator parameter (Read only).
@@ -23,27 +23,27 @@ namespace Zigurous.Animation
         {
             get
             {
-                if (_hash == 0) {
-                    _hash = Animator.StringToHash(_name);
+                if (m_Hash == 0) {
+                    m_Hash = Animator.StringToHash(m_Name);
                 }
-                return _hash;
+                return m_Hash;
             }
         }
 
         [SerializeField]
         [Tooltip("The name of the animator parameter.")]
-        private string _name;
+        private string m_Name;
 
         /// <summary>
         /// The name of the animator parameter.
         /// </summary>
         public string name
         {
-            get => _name;
+            get => m_Name;
             set
             {
-                _name = value;
-                _hash = Animator.StringToHash(value);
+                m_Name = value;
+                m_Hash = Animator.StringToHash(value);
             }
         }
 
@@ -53,8 +53,8 @@ namespace Zigurous.Animation
         /// <param name="name">The name of the animator parameter.</param>
         public AnimatorParameter(string name)
         {
-            _name = name;
-            _hash = Animator.StringToHash(name);
+            m_Name = name;
+            m_Hash = Animator.StringToHash(name);
         }
 
         /// <summary>

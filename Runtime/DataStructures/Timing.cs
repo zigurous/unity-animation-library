@@ -8,17 +8,31 @@ namespace Zigurous.Animation
     [System.Serializable]
     public struct Timing
     {
+        [SerializeField]
+        [Tooltip("The start time of the animation.")]
+        private float m_Start;
+
         /// <summary>
         /// The start time of the animation.
         /// </summary>
-        [Tooltip("The start time of the animation.")]
-        public float start;
+        public float start
+        {
+            get => m_Start;
+            set => m_Start = value;
+        }
+
+        [SerializeField]
+        [Tooltip("The end time of the animation.")]
+        private float m_End;
 
         /// <summary>
         /// The end time of the animation.
         /// </summary>
-        [Tooltip("The end time of the animation.")]
-        public float end;
+        public float end
+        {
+            get => m_End;
+            set => m_End = value;
+        }
 
         /// <summary>
         /// Creates a new timing with the specified values.
@@ -27,8 +41,8 @@ namespace Zigurous.Animation
         /// <param name="end">The end time of the animation.</param>
         public Timing(float start, float end)
         {
-            this.start = start;
-            this.end = end;
+            m_Start = start;
+            m_End = end;
         }
 
         /// <summary>

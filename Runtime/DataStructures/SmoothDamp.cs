@@ -10,16 +10,16 @@ namespace Zigurous.Animation
     [System.Serializable]
     public abstract class SmoothDamp<T>
     {
-        protected T _value;
-        protected T _velocity;
+        protected T m_Value;
+        protected T m_Velocity;
 
         /// <summary>
         /// The current value (Read only).
         /// </summary>
         public T value
         {
-            get { return _value; }
-            protected set { _value = value; }
+            get { return m_Value; }
+            protected set { m_Value = value; }
         }
 
         /// <summary>
@@ -28,8 +28,8 @@ namespace Zigurous.Animation
         /// </summary>
         public T velocity
         {
-            get { return _velocity; }
-            protected set { _velocity = value; }
+            get { return m_Velocity; }
+            protected set { m_Velocity = value; }
         }
 
         /// <summary>

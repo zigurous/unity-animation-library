@@ -40,25 +40,26 @@ namespace Zigurous.Animation
         /// The velocity of the transform as it moves toward the target's
         /// position.
         /// </summary>
-        private Vector3 _velocity;
+        private Vector3 velocity;
 
         private void LateUpdate()
         {
-            if (target != null)
-            {
-                // Calculate the offset position from the follow target
-                // accounting for the rotation of the object
-                Vector3 targetPosition = target.position;
-                targetPosition += target.rotation * offset;
-
-                // Move the transform to the target's position
-                transform.position = Vector3.SmoothDamp(
-                    current: transform.position,
-                    target: targetPosition,
-                    currentVelocity: ref _velocity,
-                    smoothTime: damping,
-                    maxSpeed: maxSpeed);
+            if (target == null) {
+                return;
             }
+
+            // Calculate the offset position from the follow target
+            // accounting for the rotation of the object
+            Vector3 targetPosition = target.position;
+            targetPosition += target.rotation * offset;
+
+            // Move the transform to the target's position
+            transform.position = Vector3.SmoothDamp(
+                current: transform.position,
+                target: targetPosition,
+                currentVelocity: ref velocity,
+                smoothTime: damping,
+                maxSpeed: maxSpeed);
         }
 
     }

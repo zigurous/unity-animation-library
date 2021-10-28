@@ -40,31 +40,32 @@ namespace Zigurous.Animation
         /// The velocity of the transform as it rotates toward the target's
         /// position.
         /// </summary>
-        private Quaternion _velocity;
+        private Quaternion velocity;
 
         private void LateUpdate()
         {
-            if (target != null)
-            {
-                // Calculate the offset position from the follow target
-                // accounting for the rotation of the object
-                Vector3 targetPosition = target.position;
-                targetPosition += target.rotation * offset;
-
-                // Calculate the rotation direction to the target
-                Vector3 targetDirection = targetPosition - transform.position;
-                Quaternion targetRotation = targetDirection != Vector3.zero ?
-                    Quaternion.LookRotation(targetDirection) :
-                    Quaternion.identity;
-
-                // Rotate the camera to the target direction
-                transform.rotation = SmoothDamp(
-                    current: transform.rotation,
-                    target: targetRotation,
-                    currentVelocity: ref _velocity,
-                    smoothTime: damping,
-                    maxSpeed: maxSpeed);
+            if (target == null) {
+                return;
             }
+
+            // Calculate the offset position from the follow target
+            // accounting for the rotation of the object
+            Vector3 targetPosition = target.position;
+            targetPosition += target.rotation * offset;
+
+            // Calculate the rotation direction to the target
+            Vector3 targetDirection = targetPosition - transform.position;
+            Quaternion targetRotation = targetDirection != Vector3.zero ?
+                Quaternion.LookRotation(targetDirection) :
+                Quaternion.identity;
+
+            // Rotate the camera to the target direction
+            transform.rotation = SmoothDamp(
+                current: transform.rotation,
+                target: targetRotation,
+                currentVelocity: ref velocity,
+                smoothTime: damping,
+                maxSpeed: maxSpeed);
         }
 
         private Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion currentVelocity, float smoothTime, float maxSpeed = Mathf.Infinity)

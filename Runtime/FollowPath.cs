@@ -86,7 +86,7 @@ namespace Zigurous.Animation
         /// <summary>
         /// The rate at which the object is moving.
         /// </summary>
-        private Vector3 _velocity;
+        private Vector3 velocity;
 
         /// <summary>
         /// The looping behavior, if desired.
@@ -124,7 +124,7 @@ namespace Zigurous.Animation
             transform.position = Vector3.SmoothDamp(
                 current: transform.position,
                 target: nodeTo.position,
-                currentVelocity: ref _velocity,
+                currentVelocity: ref velocity,
                 smoothTime: damping,
                 maxSpeed: maxSpeed);
 

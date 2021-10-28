@@ -8,9 +8,6 @@ namespace Zigurous.Animation.Editor
     {
         private const float horizontalSpacing = 4f;
 
-        private SerializedProperty _start;
-        private SerializedProperty _end;
-
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Start drawing the property
@@ -27,16 +24,16 @@ namespace Zigurous.Animation.Editor
             EditorGUI.indentLevel = 0;
 
             // Create references to child fields
-            if (_start == null) _start = property.FindPropertyRelative("_start");
-            if (_end == null) _end = property.FindPropertyRelative("_end");
+            SerializedProperty start = property.FindPropertyRelative("m_Start");
+            SerializedProperty end = property.FindPropertyRelative("m_End");
 
             // Calculate the bounds of the child fields
             Rect rect = new Rect(position);
             rect.width = (position.width - horizontalSpacing) / 2f;
 
             // Draw the child fields
-            rect = SliderWithChangeCheck(_start, rect, "Start");
-            rect = SliderWithChangeCheck(_end, rect, "End");
+            rect = SliderWithChangeCheck(start, rect, "Start");
+            rect = SliderWithChangeCheck(end, rect, "End");
 
             // Set sizes back to their original values
             EditorGUI.indentLevel = originalIndent;

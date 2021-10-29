@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Private serialized property naming convention to match Unity conventions
+- Naming convention of private serialized properties to match Unity conventions
 
 ## [1.6.0] - 2021/07/18
 

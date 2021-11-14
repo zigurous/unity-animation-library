@@ -12,14 +12,14 @@ namespace Zigurous.Animation.Editor
             SerializedProperty hash = property.FindPropertyRelative("m_Hash");
 
             EditorGUI.BeginProperty(position, label, property);
-            position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
-            string nameValue = EditorGUI.TextField(position, name.stringValue);
+            string nameValue = EditorGUI.TextField(position, label, name.stringValue);
 
             if (nameValue != name.stringValue)
             {
                 name.stringValue = nameValue;
                 hash.intValue = Animator.StringToHash(nameValue);
+                property.serializedObject.ApplyModifiedProperties();
             }
 
             EditorGUI.EndProperty();

@@ -1,4 +1,4 @@
-name: Publish Docs
+name: Generate Docs
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  publish-docs:
-    name: Publish Docs
+  generate:
+    name: Generate Docs
     runs-on: windows-latest
     steps:
       - name: Checkout package

@@ -39,7 +39,7 @@ jobs:
 
       - name: Generate documentation
         working-directory: docs~
-        run: npm run-script generate
+        run: npm run-script generate com.zigurous.animation "Animation Library"
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 

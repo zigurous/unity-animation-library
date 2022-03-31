@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  BASE_PATH: com.zigurous.animation
+  PACKAGE_TITLE: "Animation Library"
+
 jobs:
   generate:
     name: Generate Docs
@@ -46,7 +50,7 @@ jobs:
 
       - name: Generate documentation
         working-directory: docs~
-        run: npm run-script generate com.zigurous.animation "Animation Library"
+        run: npm run-script generate $env:BASE_PATH $env:PACKAGE_TITLE
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
@@ -63,6 +67,6 @@ jobs:
         with:
           personal_token: ${{ secrets.DOCS_TOKEN }}
           external_repository: zigurous/docs
-          destination_dir: com.zigurous.animation
+          destination_dir: ${{ env.BASE_PATH }}
           publish_dir: docs~/public
           publish_branch: main

@@ -3,18 +3,25 @@ name: Publish Docs
 on:
   push:
     branches:
-      - docs
+      - main
 
 jobs:
   publish-docs:
     name: Publish Docs
     runs-on: windows-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout package
+        uses: actions/checkout@v3
         with:
-          submodules: true
           token: ${{ secrets.DOCS_TOKEN }}
+
+      - name: Checkout docs template
+        uses: actions/checkout@v3
+        with:
+          repository: zigurous/docs-template
+          ref: unity-package
+          token: ${{ secrets.DOCS_TOKEN }}
+          path: docs~
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1

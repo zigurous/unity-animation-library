@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Manual",
+    "basePath": "/manual"
+  },
+  {
+    "name": "Scripting API",
+    "basePath": "/api",
+    "api": true
+  },
+  {
+    "name": "Changelog",
+    "basePath": "/changelog"
+  },
+  {
+    "name": "License",
+    "basePath": "/license"
+  }
+]

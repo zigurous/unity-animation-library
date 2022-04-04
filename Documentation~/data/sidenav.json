@@ -1,88 +1,83 @@
 [
   {
-    "basePath": "/",
-    "categories": [
+    "title": "📌 Overview",
+    "items": [
       {
-        "title": "📌 Overview",
-        "items": [
-          {
-            "name": "Getting Started",
-            "path": "/manual"
-          },
-          {
-            "name": "Installation",
-            "path": "/manual/installation"
-          },
-          {
-            "name": "Changelog",
-            "path": "/changelog"
-          },
-          {
-            "name": "License",
-            "path": "/license"
-          }
-        ]
+        "name": "Getting Started",
+        "path": "/manual"
       },
       {
-        "title": "📖 Reference",
-        "items": [
-          {
-            "name": "Behaviors",
-            "path": "/manual/behaviors"
-          },
-          {
-            "name": "Data Structures",
-            "path": "/manual/data-structures"
-          },
-          {
-            "name": "Animator Parameters",
-            "path": "/manual/animator-parameters"
-          },
-          {
-            "name": "Avatar Masks",
-            "path": "/manual/avatar-masks"
-          }
-        ]
+        "name": "Installation",
+        "path": "/installation"
       },
       {
-        "title": "💬 Contact",
-        "items": [
-          {
-            "name": "Discord",
-            "href": "https://discord.gg/DdYyWVb",
-            "icon": "launch"
-          },
-          {
-            "name": "Twitter",
-            "href": "https://twitter.com/zigurous",
-            "icon": "launch"
-          }
-        ]
+        "name": "Changelog",
+        "path": "/changelog"
       },
       {
-        "title": "🔗 Other Links",
-        "items": [
-          {
-            "name": "GitHub",
-            "href": "https://github.com/zigurous/unity-animation-library",
-            "icon": "launch"
-          },
-          {
-            "name": "Asset Store",
-            "href": "https://assetstore.unity.com/publishers/51884",
-            "icon": "launch"
-          },
-          {
-            "name": "YouTube",
-            "href": "https://youtube.com/c/zigurous?sub_confirmation=1",
-            "icon": "launch"
-          },
-          {
-            "name": "Patreon",
-            "href": "https://patreon.com/zigurous",
-            "icon": "launch"
-          }
-        ]
+        "name": "License",
+        "path": "/license"
+      }
+    ]
+  },
+  {
+    "title": "📖 Reference",
+    "items": [
+      {
+        "name": "Behaviors",
+        "path": "/manual/behaviors"
+      },
+      {
+        "name": "Data Structures",
+        "path": "/manual/data-structures"
+      },
+      {
+        "name": "Animator Parameters",
+        "path": "/manual/animator-parameters"
+      },
+      {
+        "name": "Avatar Masks",
+        "path": "/manual/avatar-masks"
+      }
+    ]
+  },
+  {
+    "title": "💬 Contact",
+    "items": [
+      {
+        "name": "Discord",
+        "href": "https://discord.gg/DdYyWVb",
+        "icon": "launch"
+      },
+      {
+        "name": "Twitter",
+        "href": "https://twitter.com/zigurous",
+        "icon": "launch"
+      }
+    ]
+  },
+  {
+    "title": "🔗 Other Links",
+    "items": [
+      {
+        "name": "GitHub",
+        "href": "https://github.com/zigurous/unity-animation-library",
+        "icon": "launch"
+      },
+      {
+        "name": "Asset Store",
+        "href": "https://assetstore.unity.com/publishers/51884",
+        "icon": "launch"
+      },
+      {
+        "name": "YouTube",
+        "href": "https://youtube.com/c/zigurous?sub_confirmation=1",
+        "icon": "launch"
+      },
+      {
+        "name": "Patreon",
+        "href": "https://patreon.com/zigurous",
+        "icon": "launch"
       }
     ]
   }

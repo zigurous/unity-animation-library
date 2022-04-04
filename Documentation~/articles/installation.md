@@ -1,5 +1,5 @@
 ---
-slug: "/manual/installation"
+slug: "/installation"
 ---
 
 # Installation

@@ -1,19 +1,18 @@
 [
   {
     "name": "Manual",
-    "basePath": "/manual"
+    "path": "/manual"
   },
   {
     "name": "Scripting API",
-    "basePath": "/api",
-    "api": true
+    "path": "/api"
   },
   {
     "name": "Changelog",
-    "basePath": "/changelog"
+    "path": "/changelog"
   },
   {
     "name": "License",
-    "basePath": "/license"
+    "path": "/license"
   }
 ]

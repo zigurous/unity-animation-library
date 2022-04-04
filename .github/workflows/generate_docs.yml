@@ -11,8 +11,8 @@ env:
   PACKAGE_TITLE: "Animation Library"
 
 jobs:
-  generate:
-    name: Generate Docs
+  build:
+    name: Build
     runs-on: windows-latest
     steps:
       - name: Checkout package
@@ -39,28 +39,47 @@ jobs:
           args: install docfx
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
+          cache: 'yarn'
+          cache-dependency-path: docs~/yarn.lock
 
       - name: Install dependencies
         working-directory: docs~
-        run: npm install
+        run: yarn install
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
       - name: Generate documentation
         working-directory: docs~
-        run: npm run-script generate $env:BASE_PATH $env:PACKAGE_TITLE
+        run: yarn generate $env:BASE_PATH $env:PACKAGE_TITLE
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
       - name: Build docs
         working-directory: docs~
         continue-on-error: false
-        run: npm run-script build
+        run: yarn build
         env:
           NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs~/public
+
+  publish:
+    name: Publish
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: docs
+          path: docs
 
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
@@ -68,5 +87,5 @@ jobs:
           personal_token: ${{ secrets.DOCS_TOKEN }}
           external_repository: zigurous/docs
           destination_dir: ${{ env.BASE_PATH }}
-          publish_dir: docs~/public
+          publish_dir: docs
           publish_branch: main

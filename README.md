@@ -20,7 +20,7 @@ Use the Unity [Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) to 
 3. Select `Add package from git URL` from the add menu
 4. Enter the following Git URL in the text box and click Add:
 
-```http
+```
 https://github.com/zigurous/unity-animation-library.git
 ```
 

@@ -88,11 +88,12 @@ jobs:
               owner: 'zigurous',
               repo: 'docs',
               ref: 'main',
-              workflow_id: 'publish.yml',
+              workflow_id: 'publish_artifact.yml',
               inputs: {
-                path: process.env.BASE_PATH,
-                repo: process.env.GITHUB_REPOSITORY,
-                commit: context.sha,
-                workflow: 'generate_docs.yml'
+                destination_path: process.env.BASE_PATH,
+                artifact_repo: process.env.GITHUB_REPOSITORY,
+                artifact_commit: process.env.GITHUB_SHA,
+                artifact_workflow: 'generate_docs.yml',
+                artifact_name: 'docs'
               }
             })

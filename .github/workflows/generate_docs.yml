@@ -15,77 +15,80 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
-      - name: Checkout package
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.DOCS_TOKEN }}
+    - name: Checkout package
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.DOCS_TOKEN }}
 
-      - name: Checkout docs template
-        uses: actions/checkout@v3
-        with:
-          repository: zigurous/docs-template
-          ref: unity-package
-          token: ${{ secrets.DOCS_TOKEN }}
-          path: docs~
+    - name: Checkout docs template
+      uses: actions/checkout@v3
+      with:
+        repository: zigurous/docs-template
+        ref: unity-package
+        token: ${{ secrets.DOCS_TOKEN }}
+        path: docs~
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.x
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
 
-      - name: Setup docfx
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install docfx
+    - name: Setup docfx
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install docfx
 
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-          cache-dependency-path: docs~/yarn.lock
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+        cache: 'yarn'
+        cache-dependency-path: docs~/yarn.lock
 
-      - name: Install dependencies
-        working-directory: docs~
-        run: yarn install
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+    - name: Install dependencies
+      working-directory: docs~
+      run: yarn install
+      env:
+        NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
-      - name: Generate documentation
-        working-directory: docs~
-        run: yarn generate $env:BASE_PATH $env:PACKAGE_TITLE
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+    - name: Generate documentation
+      working-directory: docs~
+      run: yarn generate $env:BASE_PATH $env:PACKAGE_TITLE
+      env:
+        NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
-      - name: Build docs
-        working-directory: docs~
-        continue-on-error: false
-        run: yarn build
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+    - name: Build docs
+      working-directory: docs~
+      continue-on-error: false
+      run: yarn build
+      env:
+        NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs~/public
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: docs
+        path: docs~/public
 
   publish:
     name: Publish
     needs: build
     runs-on: windows-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: docs
-          path: docs
-
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.DOCS_TOKEN }}
-          external_repository: zigurous/docs
-          destination_dir: ${{ env.BASE_PATH }}
-          publish_dir: docs
-          publish_branch: main
+    - name: Dispatch workflow
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.DOCS_TOKEN }}
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: 'zigurous',
+            repo: 'docs',
+            ref: 'main',
+            workflow_id: 'publish.yml',
+            inputs: {
+              path: process.env.BASE_PATH,
+              repo: process.env.GITHUB_REPOSITORY,
+              commit: context.sha,
+              workflow: 'generate_docs.yml'
+            }
+          })

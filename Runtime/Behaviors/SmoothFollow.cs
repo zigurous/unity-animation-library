@@ -20,7 +20,7 @@ namespace Zigurous.Animation
         /// moves toward.
         /// </summary>
         [Tooltip("The local offset position from the target's position that the camera moves toward.")]
-        public Vector3 offset = Vector3.zero;
+        public Vector3 offset;
 
         /// <summary>
         /// How quickly the transform moves toward the target's position. Small
@@ -28,7 +28,7 @@ namespace Zigurous.Animation
         /// transform respond more slowly.
         /// </summary>
         [Tooltip("How quickly the transform moves toward target's position. Small numbers make the transform more responsive. Larger numbers make the transform respond more slowly.")]
-        public float damping = 0.3f;
+        public float damping = 0.25f;
 
         /// <summary>
         /// The maximum amount of units the transform can move per tick.
@@ -48,18 +48,15 @@ namespace Zigurous.Animation
                 return;
             }
 
-            // Calculate the offset position from the follow target
-            // accounting for the rotation of the object
+            // Calculate the offset position from the follow target accounting
+            // for the rotation of the object
             Vector3 targetPosition = target.position;
             targetPosition += target.rotation * offset;
 
             // Move the transform to the target's position
-            transform.position = Vector3.SmoothDamp(
-                current: transform.position,
-                target: targetPosition,
-                currentVelocity: ref velocity,
-                smoothTime: damping,
-                maxSpeed: maxSpeed);
+            Vector3 position = transform.position;
+            position.SmoothDamp(targetPosition, ref velocity, damping, maxSpeed);
+            transform.position = position;
         }
 
     }

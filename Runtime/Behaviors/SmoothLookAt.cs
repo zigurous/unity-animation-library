@@ -20,7 +20,7 @@ namespace Zigurous.Animation
         /// looks at.
         /// </summary>
         [Tooltip("The local offset position from the target's position that the camera looks at.")]
-        public Vector3 offset = Vector3.zero;
+        public Vector3 offset;
 
         /// <summary>
         /// How quickly the transform rotates toward the target's position.
@@ -28,7 +28,7 @@ namespace Zigurous.Animation
         /// make the transform respond more slowly.
         /// </summary>
         [Tooltip("How quickly the transform rotates toward the target's position. Small numbers make the transform more responsive. Larger numbers make the transform respond more slowly.")]
-        public float damping = 0.3f;
+        public float damping = 0.25f;
 
         /// <summary>
         /// The maximum amount of degrees the transform can rotate per update.
@@ -48,8 +48,8 @@ namespace Zigurous.Animation
                 return;
             }
 
-            // Calculate the offset position from the follow target
-            // accounting for the rotation of the object
+            // Calculate the offset position from the follow target accounting
+            // for the rotation of the object
             Vector3 targetPosition = target.position;
             targetPosition += target.rotation * offset;
 
@@ -60,36 +60,9 @@ namespace Zigurous.Animation
                 Quaternion.identity;
 
             // Rotate the camera to the target direction
-            transform.rotation = SmoothDamp(
-                current: transform.rotation,
-                target: targetRotation,
-                currentVelocity: ref velocity,
-                smoothTime: damping,
-                maxSpeed: maxSpeed);
-        }
-
-        private Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion currentVelocity, float smoothTime, float maxSpeed = Mathf.Infinity)
-        {
-            float dot = Quaternion.Dot(current, target);
-            float direction = dot > 0f ? 1f : -1f;
-            target.x *= direction;
-            target.y *= direction;
-            target.z *= direction;
-            target.w *= direction;
-
-            Vector4 result = new Vector4(
-                x: Mathf.SmoothDamp(current.x, target.x, ref currentVelocity.x, smoothTime, maxSpeed),
-                y: Mathf.SmoothDamp(current.y, target.y, ref currentVelocity.y, smoothTime, maxSpeed),
-                z: Mathf.SmoothDamp(current.z, target.z, ref currentVelocity.z, smoothTime, maxSpeed),
-                w: Mathf.SmoothDamp(current.w, target.w, ref currentVelocity.w, smoothTime, maxSpeed)).normalized;
-
-            Vector4 error = Vector4.Project(new Vector4(currentVelocity.x, currentVelocity.y, currentVelocity.z, currentVelocity.w), result);
-            currentVelocity.x -= error.x;
-            currentVelocity.y -= error.y;
-            currentVelocity.z -= error.z;
-            currentVelocity.w -= error.w;
-
-            return new Quaternion(result.x, result.y, result.z, result.w);
+            Quaternion rotation = transform.rotation;
+            rotation.SmoothDamp(targetRotation, ref velocity, damping, maxSpeed);
+            transform.rotation = rotation;
         }
 
     }

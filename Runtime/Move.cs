@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {
@@ -6,14 +7,8 @@ namespace Zigurous.Animation
     /// Moves an object in space by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Move")]
-    public sealed class Move : MonoBehaviour
+    public sealed class Move : UpdateBehavior
     {
-        /// <summary>
-        /// The speed at which the object moves.
-        /// </summary>
-        [Tooltip("The speed at which the object moves.")]
-        public Vector3 speed = Vector3.zero;
-
         /// <summary>
         /// The coordinate space in which the object moves.
         /// </summary>
@@ -21,30 +16,15 @@ namespace Zigurous.Animation
         public Space space = Space.World;
 
         /// <summary>
-        /// The update mode during which the object moves.
+        /// The speed at which the object moves.
         /// </summary>
-        [Tooltip("The update mode during which the object moves.")]
-        public UpdateMode updateMode = UpdateMode.Update;
+        [Tooltip("The speed at which the object moves.")]
+        public Vector3 speed = Vector3.zero;
 
-        private void Update()
+        /// <inheritdoc/>
+        protected override void OnUpdate(float deltaTime)
         {
-            if (updateMode == UpdateMode.Update) {
-                transform.Translate(speed * Time.deltaTime, space);
-            }
-        }
-
-        private void LateUpdate()
-        {
-            if (updateMode == UpdateMode.LateUpdate) {
-                transform.Translate(speed * Time.deltaTime, space);
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            if (updateMode == UpdateMode.FixedUpdate) {
-                transform.Translate(speed * Time.fixedDeltaTime, space);
-            }
+            transform.Translate(speed * deltaTime, space);
         }
 
     }

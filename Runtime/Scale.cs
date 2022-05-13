@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {
@@ -6,7 +7,7 @@ namespace Zigurous.Animation
     /// Scales an object over time by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Scale")]
-    public sealed class Scale : MonoBehaviour
+    public sealed class Scale : UpdateBehavior
     {
         /// <summary>
         /// The speed at which the object's scale changes.
@@ -14,31 +15,10 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object's scale changes.")]
         public Vector3 speed = Vector3.zero;
 
-        /// <summary>
-        /// The update mode during which the object's scale changes.
-        /// </summary>
-        [Tooltip("The update mode during which the object's scale changes.")]
-        public UpdateMode updateMode = UpdateMode.Update;
-
-        private void Update()
+        /// <inheritdoc/>
+        protected override void OnUpdate(float deltaTime)
         {
-            if (updateMode == UpdateMode.Update) {
-                transform.localScale += speed * Time.deltaTime;
-            }
-        }
-
-        private void LateUpdate()
-        {
-            if (updateMode == UpdateMode.LateUpdate) {
-                transform.localScale += speed * Time.deltaTime;
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            if (updateMode == UpdateMode.FixedUpdate) {
-                transform.localScale += speed * Time.fixedDeltaTime;
-            }
+            transform.localScale += speed * deltaTime;
         }
 
     }

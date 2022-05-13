@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {
@@ -6,8 +7,14 @@ namespace Zigurous.Animation
     /// Rotates an object in space by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate")]
-    public sealed class Rotate : MonoBehaviour
+    public sealed class Rotate : UpdateBehavior
     {
+        /// <summary>
+        /// The coordinate space in which the object rotates.
+        /// </summary>
+        [Tooltip("The coordinate space in which the object rotates.")]
+        public Space space = Space.World;
+
         /// <summary>
         /// The axis in which the object rotates.
         /// </summary>
@@ -20,37 +27,10 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object rotates.")]
         public float speed = 45f;
 
-        /// <summary>
-        /// The coordinate space in which the object rotates.
-        /// </summary>
-        [Tooltip("The coordinate space in which the object rotates.")]
-        public Space space = Space.World;
-
-        /// <summary>
-        /// The update mode during which the object rotates.
-        /// </summary>
-        [Tooltip("The update mode during which the object rotates.")]
-        public UpdateMode updateMode = UpdateMode.Update;
-
-        private void Update()
+        /// <inheritdoc/>
+        protected override void OnUpdate(float deltaTime)
         {
-            if (updateMode == UpdateMode.Update) {
-                transform.Rotate(axis * speed * Time.deltaTime, space);
-            }
-        }
-
-        private void LateUpdate()
-        {
-            if (updateMode == UpdateMode.LateUpdate) {
-                transform.Rotate(axis * speed * Time.deltaTime, space);
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            if (updateMode == UpdateMode.FixedUpdate) {
-                transform.Rotate(axis * speed * Time.fixedDeltaTime, space);
-            }
+            transform.Rotate(axis * speed * deltaTime, space);
         }
 
     }

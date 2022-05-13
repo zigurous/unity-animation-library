@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {
@@ -6,7 +7,7 @@ namespace Zigurous.Animation
     /// Rotates an object around a point by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate Around")]
-    public sealed class RotateAround : MonoBehaviour
+    public sealed class RotateAround : UpdateBehavior
     {
         /// <summary>
         /// The point to rotate around.
@@ -26,31 +27,10 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object rotates.")]
         public float speed = 45f;
 
-        /// <summary>
-        /// The update mode during which the object rotates.
-        /// </summary>
-        [Tooltip("The update mode during which the object rotates.")]
-        public UpdateMode updateMode = UpdateMode.Update;
-
-        private void Update()
+        /// <inheritdoc/>
+        protected override void OnUpdate(float deltaTime)
         {
-            if (point != null && updateMode == UpdateMode.Update) {
-                transform.RotateAround(point.position, axis, speed * Time.deltaTime);
-            }
-        }
-
-        private void LateUpdate()
-        {
-            if (point != null && updateMode == UpdateMode.LateUpdate) {
-                transform.RotateAround(point.position, axis, speed * Time.deltaTime);
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            if (point != null && updateMode == UpdateMode.FixedUpdate) {
-                transform.RotateAround(point.position, axis, speed * Time.fixedDeltaTime);
-            }
+            transform.RotateAround(point.position, axis, speed * deltaTime);
         }
 
     }

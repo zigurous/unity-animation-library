@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {
@@ -6,7 +7,7 @@ namespace Zigurous.Animation
     /// Orbits an object around another object with a given speed and radius.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Orbit")]
-    public sealed class Orbit : MonoBehaviour
+    public sealed class Orbit : UpdateBehavior
     {
         /// <summary>
         /// The transform the object orbits around.
@@ -34,46 +35,15 @@ namespace Zigurous.Animation
         public float startAngle = 0f;
 
         /// <summary>
-        /// The current angle in degrees of the orbiting object (Read only).
+        /// The current angle in degrees of the orbiting object.
         /// </summary>
-        public float angle { get; private set; }
+        public float angle { get; set; }
 
-        /// <summary>
-        /// The update mode during which the object orbits.
-        /// </summary>
-        [Tooltip("The update mode during which the object orbits.")]
-        public UpdateMode updateMode = UpdateMode.Update;
-
-        private void Start()
+        /// <inheritdoc/>
+        protected override void OnUpdate(float deltaTime)
         {
-            angle = startAngle;
-        }
-
-        private void Update()
-        {
-            if (center != null && updateMode == UpdateMode.Update)
-            {
-                angle += speed * Time.deltaTime;
-                SetPosition(angle);
-            }
-        }
-
-        private void LateUpdate()
-        {
-            if (center != null && updateMode == UpdateMode.LateUpdate)
-            {
-                angle += speed * Time.deltaTime;
-                SetPosition(angle);
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            if (center != null && updateMode == UpdateMode.FixedUpdate)
-            {
-                angle += speed * Time.fixedDeltaTime;
-                SetPosition(angle);
-            }
+            angle += speed * deltaTime;
+            SetPosition(angle);
         }
 
         private void SetPosition(float angle)
@@ -84,6 +54,11 @@ namespace Zigurous.Animation
                 x: center.position.x + (Mathf.Cos(radians) * radius),
                 y: center.position.y,
                 z: center.position.z + (Mathf.Sin(radians) * radius));
+        }
+
+        private void Start()
+        {
+            angle = startAngle;
         }
 
     }

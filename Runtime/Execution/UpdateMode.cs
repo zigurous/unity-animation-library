@@ -1,7 +1,7 @@
-﻿namespace Zigurous.Animation
+﻿namespace Zigurous.Animation.Execution
 {
     /// <summary>
-    /// An update mode during which an animation behavior can run.
+    /// An update mode an animation behavior can run with.
     /// </summary>
     public enum UpdateMode
     {

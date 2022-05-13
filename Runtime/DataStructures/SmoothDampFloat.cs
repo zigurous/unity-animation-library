@@ -16,7 +16,9 @@ namespace Zigurous.Animation
         /// <returns>The new current value.</returns>
         public override float Update(float target)
         {
-            value = Mathf.SmoothDamp(value, target, ref m_Velocity, smoothTime, maxSpeed);
+            float currentVelocity = velocity;
+            value = Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed);
+            velocity = currentVelocity;
             return value;
         }
 
@@ -29,7 +31,9 @@ namespace Zigurous.Animation
         /// <returns>The new current value.</returns>
         public override float Update(float target, float deltaTime)
         {
-            value = Mathf.SmoothDamp(value, target, ref m_Velocity, smoothTime, maxSpeed, deltaTime);
+            float currentVelocity = velocity;
+            value = Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
+            velocity = currentVelocity;
             return value;
         }
 

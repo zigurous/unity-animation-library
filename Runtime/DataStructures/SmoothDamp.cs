@@ -10,8 +10,8 @@ namespace Zigurous.Animation
     [System.Serializable]
     public abstract class SmoothDamp<T>
     {
-        protected T m_Value;
-        protected T m_Velocity;
+        private T m_Value;
+        private T m_Velocity;
 
         /// <summary>
         /// The current value (Read only).

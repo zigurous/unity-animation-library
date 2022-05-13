@@ -16,7 +16,9 @@ namespace Zigurous.Animation
         /// <returns>The new current value.</returns>
         public override Vector2 Update(Vector2 target)
         {
-            value = Vector2.SmoothDamp(value, target, ref m_Velocity, smoothTime, maxSpeed);
+            Vector2 currentVelocity = velocity;
+            value = Vector2.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed);
+            velocity = currentVelocity;
             return value;
         }
 
@@ -29,7 +31,9 @@ namespace Zigurous.Animation
         /// <returns>The new current value.</returns>
         public override Vector2 Update(Vector2 target, float deltaTime)
         {
-            value = Vector2.SmoothDamp(value, target, ref m_Velocity, smoothTime, maxSpeed, deltaTime);
+            Vector2 currentVelocity = velocity;
+            value = Vector2.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
+            velocity = currentVelocity;
             return value;
         }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Zigurous.Animation.Execution;
 
-namespace Zigurous.Animation.Execution
+namespace Zigurous.Animation
 {
     /// <summary>
     /// An animation behavior that can run in any update mode.
@@ -10,6 +11,7 @@ namespace Zigurous.Animation.Execution
         /// <summary>
         /// The update mode of the behavior.
         /// </summary>
+        [Tooltip("The update mode of the behavior.")]
         public UpdateMode updateMode = UpdateMode.Update;
 
         /// <summary>
@@ -25,7 +27,7 @@ namespace Zigurous.Animation.Execution
         #endif
 
         /// <summary>
-        /// Updates the animation behavior.
+        /// Handles updates of the animation behavior.
         /// </summary>
         /// <param name="deltaTime">The time since the last frame.</param>
         protected abstract void OnUpdate(float deltaTime);

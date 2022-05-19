@@ -5,7 +5,7 @@ namespace Zigurous.Animation.Execution
     /// <summary>
     /// An update strategy executed during the fixed update loop.
     /// </summary>
-    public sealed class FixedUpdateStrategy : UpdateStrategy
+    internal sealed class FixedUpdateStrategy : UpdateStrategy
     {
         private void FixedUpdate()
         {

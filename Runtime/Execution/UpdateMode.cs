@@ -1,4 +1,4 @@
-﻿namespace Zigurous.Animation.Execution
+﻿namespace Zigurous.Animation
 {
     /// <summary>
     /// An update mode an animation behavior can run with.

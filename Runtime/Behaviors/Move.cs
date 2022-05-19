@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Animation.Execution;
 
 namespace Zigurous.Animation
 {

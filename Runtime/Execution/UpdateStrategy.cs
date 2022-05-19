@@ -5,7 +5,7 @@ namespace Zigurous.Animation.Execution
     /// <summary>
     /// An update strategy that executes an update action.
     /// </summary>
-    public abstract class UpdateStrategy : MonoBehaviour
+    internal abstract class UpdateStrategy : MonoBehaviour
     {
         /// <summary>
         /// A function delegate to execute an update action.

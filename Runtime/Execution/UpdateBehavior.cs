@@ -98,6 +98,11 @@ namespace Zigurous.Animation
         /// <typeparam name="T">The type of update strategy to set.</typeparam>
         private void SetStrategy<T>() where T : UpdateStrategy
         {
+            // Do nothing if the strategy is already set to the given type
+            if (strategy is T) {
+                return;
+            }
+
             // Unregister from the existing strategy
             if (strategy != null) {
                 strategy.Unregister(OnUpdate);

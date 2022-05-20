@@ -32,6 +32,12 @@ Gradually changes a Vector3 over time using a spring-damper function, which will
 
 <hr/>
 
+### [SmoothDampQuaternion](/api/Zigurous.Animation/SmoothDampQuaternion)
+
+Gradually changes a Quaternion over time using a spring-damper function, which will never overshoot.
+
+<hr/>
+
 ### [Timing](/api/Zigurous.Animation/Timing)
 
 The start and end time of an animation.

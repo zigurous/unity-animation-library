@@ -8,18 +8,24 @@ The **Animation Library** package contains assets and scripts for animating Unit
 
 <hr/>
 
-## 📌 Overview
+## Overview
 
-- [Scripting API](/api/Zigurous.Animation)
-- [Installation](/manual/installation)
-- [Changelog](/changelog)
-- [License](/license)
+#### ⚙️ [Installation](/installation)
+
+#### 🧰 [Scripting API](/api/Zigurous.Animation)
+
+#### 📋 [Changelog](/changelog)
+
+#### ⚖️ [License](/license)
 
 <hr/>
 
-## 📖 Reference
+## Reference
 
-- [Behaviors](/manual/behaviors)
-- [Data Structures](/manual/data-structures)
-- [Animator Parameters](/manual/animator-parameters)
-- [Avatar Masks](/manual/avatar-masks)
+#### 🚀 [Behaviors](/manual/behaviors)
+
+#### 💾 [Data Structures](/manual/data-structures)
+
+#### 🔖 [Animator Parameters](/manual/animator-parameters)
+
+#### 🎭 [Avatar Masks](/manual/avatar-masks)

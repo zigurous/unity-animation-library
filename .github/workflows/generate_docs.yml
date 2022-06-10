@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BASE_PATH: com.zigurous.animation
+  PACKAGE_BASE_PATH: com.zigurous.animation
   PACKAGE_TITLE: "Animation Library"
 
 jobs:
@@ -32,41 +32,12 @@ jobs:
           token: ${{ secrets.DOCS_TOKEN }}
           path: docs~
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.x
-
-      - name: Setup docfx
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install docfx
-
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: yarn
-          cache-dependency-path: docs~/yarn.lock
-
-      - name: Install dependencies
-        working-directory: docs~
-        run: yarn install
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
-
-      - name: Generate documentation
-        working-directory: docs~
-        run: yarn generate $env:BASE_PATH $env:PACKAGE_TITLE
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
-
       - name: Build docs
-        working-directory: docs~
-        continue-on-error: false
-        run: yarn build
-        env:
-          NPM_TOKEN: ${{ secrets.DOCS_TOKEN }}
+        uses: ./docs~/.github/actions/build-docs
+        with:
+          npm_token: ${{ secrets.DOCS_TOKEN }}
+          package_base_path: ${{ env.PACKAGE_BASE_PATH }}
+          package_title: ${{ env.PACKAGE_TITLE }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3

@@ -61,7 +61,7 @@ jobs:
               ref: 'main',
               workflow_id: 'publish_artifact.yml',
               inputs: {
-                destination_path: process.env.BASE_PATH,
+                destination_path: process.env.PACKAGE_BASE_PATH,
                 artifact_repo: process.env.GITHUB_REPOSITORY,
                 artifact_commit: process.env.GITHUB_SHA,
                 artifact_workflow: 'generate_docs.yml',

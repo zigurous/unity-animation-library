@@ -16,6 +16,12 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
+        /// Restricts rotation around the specified axes.
+        /// </summary>
+        [Tooltip("Restricts rotation around the specified axes.")]
+        public AxisConstraint constraints = 0;
+
+        /// <summary>
         /// The local offset position from the target's position that the camera
         /// looks at.
         /// </summary>
@@ -31,10 +37,10 @@ namespace Zigurous.Animation
         public float damping = 0.25f;
 
         /// <summary>
-        /// The maximum amount of degrees the transform can rotate per update.
+        /// The maximum amount the transform can rotate per update.
         /// </summary>
-        [Tooltip("The maximum amount of degrees the transform can rotate per update.")]
-        public float maxSpeed = Mathf.Infinity;
+        [Tooltip("The maximum amount the transform can rotate per update.")]
+        public float maxSpeed = 1f;
 
         /// <summary>
         /// The velocity of the transform as it rotates toward the target's
@@ -55,11 +61,19 @@ namespace Zigurous.Animation
 
             // Calculate the rotation direction to the target
             Vector3 targetDirection = targetPosition - transform.position;
+
+            // Constrain the look direction if specified
+            if (constraints.Contains(AxisConstraint.X)) targetDirection.x = 0f;
+            if (constraints.Contains(AxisConstraint.Y)) targetDirection.y = 0f;
+            if (constraints.Contains(AxisConstraint.Z)) targetDirection.z = 0f;
+
+            // Only set the look rotation if the direction vector is not zero
+            // otherwise an error is triggered
             Quaternion targetRotation = targetDirection != Vector3.zero ?
                 Quaternion.LookRotation(targetDirection) :
                 Quaternion.identity;
 
-            // Rotate the camera to the target direction
+            // Rotate the object to the target direction
             Quaternion rotation = transform.rotation;
             rotation = SmoothDamp(rotation, targetRotation, ref velocity, damping, maxSpeed);
             transform.rotation = rotation;

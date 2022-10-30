@@ -3,7 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Matches the position of the transform to another.
+    /// Matches the position of the transform to another transform.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Position")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/MatchPosition")]

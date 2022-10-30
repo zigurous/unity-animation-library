@@ -3,7 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Matches the rotation of the transform to another.
+    /// Matches the rotation of the transform to another transform.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Rotation")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/MatchRotation")]

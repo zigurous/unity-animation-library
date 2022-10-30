@@ -5,6 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2022/10/30
+
+## Added
+
+- New `BillboardRotation` behavior
+- New behaviors to rotate based on user input (Input System dependency added)
+  - `InputRotation`
+  - `LookAtMouse`
+- New match transform behaviors
+  - `MatchPosition`
+  - `MatchRotation`
+  - `MatchScale`
+  - `MatchTransform`
+- New lock transform behaviors
+  - `LockPosition`
+  - `LockRotation`
+  - `LockScale`
+  - `LockTransform`
+- Optional axis constraints added to `SmoothFollow` and `SmoothLookAt`
+- Help URLs added to every behavior script
+
+## Changed
+
+- Default execution order set to +100 for behaviors using LateUpdate
+- Update strategies hidden from component menu
+- Renamed `UpdateBehavior` to `UpdateBehaviour`
+- Documentation changes
+
+## Removed
+
+- Deleted `Parameter` static class
+
 ## [1.7.0] - 2022/05/20
 
 ### Added

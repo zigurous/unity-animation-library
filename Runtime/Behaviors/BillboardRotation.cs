@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Rotates the object so it is always facing the camera.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Billboard Rotation")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/BillboardRotation")]
     [DefaultExecutionOrder(100)]
     public sealed class BillboardRotation : MonoBehaviour
     {

@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Scales an object over time by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Scale")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Scale")]
     public sealed class Scale : UpdateBehaviour
     {
         /// <summary>

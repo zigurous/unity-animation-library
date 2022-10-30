@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Animates a series of sprites over time.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Animated Sprite")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedSprite")]
     [RequireComponent(typeof(SpriteRenderer))]
     public sealed class AnimatedSprite : MonoBehaviour
     {

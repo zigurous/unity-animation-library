@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Moves an object in space by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Move")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Move")]
     public sealed class Move : UpdateBehaviour
     {
         /// <summary>

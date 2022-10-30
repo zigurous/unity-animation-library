@@ -8,6 +8,8 @@ namespace Zigurous.Animation
     /// <summary>
     /// Rotates the transform based on user input.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Input Rotation")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/InputRotation")]
     public sealed class InputRotation : MonoBehaviour
     {
         #if ENABLE_INPUT_SYSTEM

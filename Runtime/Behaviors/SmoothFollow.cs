@@ -7,6 +7,7 @@ namespace Zigurous.Animation
     /// function.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Smooth Follow")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/SmoothFollow")]
     [DefaultExecutionOrder(100)]
     public sealed class SmoothFollow : MonoBehaviour
     {

@@ -8,6 +8,8 @@ namespace Zigurous.Animation
     /// <summary>
     /// Rotates the transform to look at the mouse.
     /// </summary>
+    [AddComponentMenu("Zigurous/Animation/Look At Mouse")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/LookAtMouse")]
     public sealed class LookAtMouse : MonoBehaviour
     {
         /// <summary>

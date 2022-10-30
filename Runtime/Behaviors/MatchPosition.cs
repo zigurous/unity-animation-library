@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Matches the position of the transform to another.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Position")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/MatchPosition")]
     [DefaultExecutionOrder(100)]
     public sealed class MatchPosition : MonoBehaviour
     {

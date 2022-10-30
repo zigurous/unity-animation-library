@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Locks the rotation of the transform to a specified value.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Lock Rotation")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/LockRotation")]
     [DefaultExecutionOrder(100)]
     public sealed class LockRotation : MonoBehaviour
     {

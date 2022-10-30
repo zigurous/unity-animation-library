@@ -17,9 +17,9 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
-        /// Restricts rotation around the specified axes.
+        /// Prevents rotation around the specified axes.
         /// </summary>
-        [Tooltip("Restricts rotation around the specified axes.")]
+        [Tooltip("Prevents rotation around the specified axes.")]
         public AxisConstraint constraints = 0;
 
         /// <summary>

@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Matches the scale of the transform to another.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Scale")]
+    [DefaultExecutionOrder(100)]
     public sealed class MatchScale : MonoBehaviour
     {
         /// <summary>

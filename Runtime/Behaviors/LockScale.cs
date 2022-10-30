@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Locks the scale of the transform to a specified value.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Lock Scale")]
+    [DefaultExecutionOrder(100)]
     public sealed class LockScale : MonoBehaviour
     {
         /// <summary>

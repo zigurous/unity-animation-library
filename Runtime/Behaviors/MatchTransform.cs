@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Matches the transform values to another.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Transform")]
+    [DefaultExecutionOrder(100)]
     public sealed class MatchTransform : MonoBehaviour
     {
         /// <summary>

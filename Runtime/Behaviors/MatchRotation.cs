@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Matches the rotation of the transform to another.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Rotation")]
+    [DefaultExecutionOrder(100)]
     public sealed class MatchRotation : MonoBehaviour
     {
         /// <summary>

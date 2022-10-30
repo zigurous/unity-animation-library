@@ -6,7 +6,7 @@ namespace Zigurous.Animation
     /// Rotates an object around a point by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate Around")]
-    public sealed class RotateAround : UpdateBehavior
+    public sealed class RotateAround : UpdateBehaviour
     {
         /// <summary>
         /// The point to rotate around.

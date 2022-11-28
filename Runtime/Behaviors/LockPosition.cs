@@ -11,6 +11,12 @@ namespace Zigurous.Animation
     public sealed class LockPosition : MonoBehaviour
     {
         /// <summary>
+        /// The coordinate space the transform is updated in.
+        /// </summary>
+        [Tooltip("The coordinate space the transform is updated in.")]
+        public Space space = Space.World;
+
+        /// <summary>
         /// The position axes to lock.
         /// </summary>
         [Tooltip("The position axes to lock.")]
@@ -30,12 +36,26 @@ namespace Zigurous.Animation
 
         private void Start()
         {
-            if (useTransformPosition) {
-                lockedPosition = transform.position;
+            if (useTransformPosition)
+            {
+                if (space == Space.World) {
+                    lockedPosition = transform.position;
+                } else {
+                    lockedPosition = transform.localPosition;
+                }
             }
         }
 
         private void LateUpdate()
+        {
+            if (space == Space.World) {
+                LockWorldSpace();
+            } else {
+                LockLocalSpace();
+            }
+        }
+
+        private void LockWorldSpace()
         {
             Vector3 position = transform.position;
 
@@ -52,6 +72,25 @@ namespace Zigurous.Animation
             }
 
             transform.position = position;
+        }
+
+        private void LockLocalSpace()
+        {
+            Vector3 position = transform.localPosition;
+
+            if (constraints.Contains(AxisConstraint.X)) {
+                position.x = lockedPosition.x;
+            }
+
+            if (constraints.Contains(AxisConstraint.Y)) {
+                position.y = lockedPosition.y;
+            }
+
+            if (constraints.Contains(AxisConstraint.Z)) {
+                position.z = lockedPosition.z;
+            }
+
+            transform.localPosition = position;
         }
 
     }

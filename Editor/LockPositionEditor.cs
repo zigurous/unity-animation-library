@@ -7,12 +7,14 @@ namespace Zigurous.Animation.Editor
     {
         public override void OnInspectorGUI()
         {
+            SerializedProperty space = serializedObject.FindProperty("space");
             SerializedProperty constraints = serializedObject.FindProperty("constraints");
             SerializedProperty useTransformPosition = serializedObject.FindProperty("useTransformPosition");
             SerializedProperty lockedPosition = serializedObject.FindProperty("lockedPosition");
 
             EditorGUI.BeginChangeCheck();
 
+            EditorGUILayout.PropertyField(space);
             EditorGUILayout.PropertyField(constraints);
             EditorGUILayout.PropertyField(useTransformPosition);
 

@@ -10,9 +10,17 @@ namespace Zigurous.Animation
     public sealed class Orbit : UpdateBehaviour
     {
         /// <summary>
-        /// The transform the object orbits around.
+        /// The coordinate space in which the object rotates.
         /// </summary>
-        [Tooltip("The transform the object orbits around.")]
+        [Tooltip("The coordinate space in which the object rotates.")]
+        public Space space = Space.World;
+
+        /// <summary>
+        /// The transform the object orbits around. If not assigned, the
+        /// transform orbits around the origin of the specified coordinate
+        /// space.
+        /// </summary>
+        [Tooltip("The transform the object orbits around. If not assigned, the transform orbits around the origin of the specified coordinate space.")]
         public Transform center;
 
         /// <summary>
@@ -43,6 +51,7 @@ namespace Zigurous.Animation
         protected override void OnUpdate(float deltaTime)
         {
             angle += speed * deltaTime;
+
             SetPosition(angle);
         }
 
@@ -50,10 +59,30 @@ namespace Zigurous.Animation
         {
             float radians = angle * Mathf.Deg2Rad;
 
-            transform.position = new Vector3(
-                x: center.position.x + (Mathf.Cos(radians) * radius),
-                y: center.position.y,
-                z: center.position.z + (Mathf.Sin(radians) * radius));
+            Vector3 centerPosition = Vector3.zero;
+
+            if (space == Space.World)
+            {
+                if (center != null) {
+                    centerPosition = center.position;
+                }
+
+                transform.position = new Vector3(
+                    x: centerPosition.x + (Mathf.Cos(radians) * radius),
+                    y: centerPosition.y,
+                    z: centerPosition.z + (Mathf.Sin(radians) * radius));
+            }
+            else
+            {
+                if (center != null) {
+                    centerPosition = center.localPosition;
+                }
+
+                transform.localPosition = new Vector3(
+                    x: centerPosition.x + (Mathf.Cos(radians) * radius),
+                    y: centerPosition.y,
+                    z: centerPosition.z + (Mathf.Sin(radians) * radius));
+            }
         }
 
         private void Start()

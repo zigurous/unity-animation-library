@@ -25,6 +25,12 @@ namespace Zigurous.Animation
         public Vector3 offset;
 
         /// <summary>
+        /// The coordinate space in which the object moves.
+        /// </summary>
+        [Tooltip("The coordinate space in which the object moves.")]
+        public Space space = Space.World;
+
+        /// <summary>
         /// Prevents movement around the specified axes.
         /// </summary>
         [Tooltip("Prevents movement around the specified axes.")]
@@ -56,21 +62,18 @@ namespace Zigurous.Animation
                 return;
             }
 
-            Vector3 currentPosition = transform.position;
+            Vector3 currentPosition = space == Space.World ? transform.position : transform.localPosition;
+            Vector3 targetPosition = target.position + (target.rotation * offset);
 
-            // Calculate the offset position from the follow target while
-            // accounting for the rotation of the object
-            Vector3 targetPosition = target.position;
-            targetPosition += target.rotation * offset;
-
-            // Constrain the position if specified
             if (constraints.Contains(AxisConstraint.X)) targetPosition.x = currentPosition.x;
             if (constraints.Contains(AxisConstraint.Y)) targetPosition.y = currentPosition.y;
             if (constraints.Contains(AxisConstraint.Z)) targetPosition.z = currentPosition.z;
 
-            // Move the transform to the target's position
-            currentPosition = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, damping, maxSpeed);
-            transform.position = currentPosition;
+            if (space == Space.World) {
+                transform.position = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, damping, maxSpeed);
+            } else {
+                transform.localPosition = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, damping, maxSpeed);
+            }
         }
 
     }

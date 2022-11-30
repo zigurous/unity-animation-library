@@ -17,6 +17,7 @@ namespace Zigurous.Animation
             /// <summary>
             /// Turns off looping.
             /// </summary>
+            [Tooltip("Turns off looping.")]
             None,
 
             /// <summary>
@@ -24,18 +25,21 @@ namespace Zigurous.Animation
             /// reaches the end. The object will jump to the position of the
             /// first node.
             /// </summary>
+            [Tooltip("Restarts the object from the beginning of the path after it reaches the end. The object will jump to the position of the first node.")]
             Restart,
 
             /// <summary>
             /// After reaching the end of the path, the object will traverse
             /// back to the first node and continue with the next loop.
             /// </summary>
+            [Tooltip("After reaching the end of the path, the object will traverse back to the first node and continue with the next loop.")]
             Circular,
 
             /// <summary>
             /// The object traverses along the path forwards then backwards then
             /// forwards then backwards, etc.
             /// </summary>
+            [Tooltip("The object traverses along the path forwards then backwards then forwards then backwards, etc.")]
             PingPong,
         }
 

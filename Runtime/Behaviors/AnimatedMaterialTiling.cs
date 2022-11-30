@@ -28,7 +28,7 @@ namespace Zigurous.Animation
         public Vector2 axis = Vector2.right;
 
         /// <summary>
-        /// A Unity lifecycle method called when the behaviour is reset in the editor.
+        /// A Unity lifecycle method called when the behavior is reset in the editor.
         /// </summary>
         protected virtual void Reset()
         {

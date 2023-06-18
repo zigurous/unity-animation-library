@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Locks the position of the transform to a specified value.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Lock Position")]
+    [DefaultExecutionOrder(100)]
     public sealed class LockPosition : MonoBehaviour
     {
         /// <summary>

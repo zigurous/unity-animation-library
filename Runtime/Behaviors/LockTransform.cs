@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Locks the transform properties to specified values.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Lock Transform")]
+    [DefaultExecutionOrder(100)]
     public sealed class LockTransform : MonoBehaviour
     {
         /// <summary>

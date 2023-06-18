@@ -17,17 +17,17 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
-        /// Prevents movement around the specified axes.
-        /// </summary>
-        [Tooltip("Prevents movement around the specified axes.")]
-        public AxisConstraint constraints = 0;
-
-        /// <summary>
         /// The local offset position from the target's position that the camera
         /// moves toward.
         /// </summary>
         [Tooltip("The local offset position from the target's position that the camera moves toward.")]
         public Vector3 offset;
+
+        /// <summary>
+        /// Prevents movement around the specified axes.
+        /// </summary>
+        [Tooltip("Prevents movement around the specified axes.")]
+        public AxisConstraint constraints = 0;
 
         /// <summary>
         /// How quickly the transform moves toward the target's position. Small

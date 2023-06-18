@@ -34,7 +34,7 @@ namespace Zigurous.Animation
         public float startAngle = 0f;
 
         /// <summary>
-        /// The current angle in degrees of the orbiting object.
+        /// The current angle of the orbiting object in degrees.
         /// </summary>
         public float angle { get; set; }
 

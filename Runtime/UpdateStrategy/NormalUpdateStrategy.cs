@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Zigurous.Animation.Execution
+namespace Zigurous.Animation
 {
     /// <summary>
     /// An update strategy executed during the normal update loop.

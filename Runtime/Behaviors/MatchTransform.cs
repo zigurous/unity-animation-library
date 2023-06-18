@@ -3,7 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Matches the transform values to another.
+    /// Matches the transform values to another transform.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Transform")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/MatchTransform")]

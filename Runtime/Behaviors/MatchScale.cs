@@ -3,7 +3,7 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Matches the scale of the transform to another.
+    /// Matches the scale of the transform to another transform.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Match Scale")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/MatchScale")]

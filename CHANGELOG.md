@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.8.0] - 2022/11/30
 
-## Added
+### Added
 
 - New `BillboardRotation` behavior
 - New `AnimatedMaterialTiling` behavior
@@ -28,14 +28,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Option to change coordinate space for most animation behaviors
 - Help URLs added to every behavior script
 
-## Changed
+### Changed
 
 - Default execution order set to +100 for behaviors using LateUpdate
 - Update strategies hidden from component menu
 - Renamed `UpdateBehavior` to `UpdateBehaviour`
 - Documentation changes
 
-## Removed
+### Removed
 
 - Deleted `Parameter` static class
 - Deleted internal `Processors` class

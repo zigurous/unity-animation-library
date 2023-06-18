@@ -8,15 +8,15 @@ namespace Zigurous.Animation.Editor
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            SerializedProperty name = property.FindPropertyRelative("m_Name");
+            SerializedProperty nameProperty = property.FindPropertyRelative("m_Name");
 
-            EditorGUI.BeginProperty(position, label, property);
+            label = EditorGUI.BeginProperty(position, label, property);
 
-            string nameValue = EditorGUI.TextField(position, label, name.stringValue);
+            EditorGUI.BeginChangeCheck();
 
-            if (nameValue != name.stringValue)
-            {
-                name.stringValue = nameValue;
+            nameProperty.stringValue = EditorGUI.DelayedTextField(position, label, nameProperty.stringValue);
+
+            if (EditorGUI.EndChangeCheck()) {
                 property.serializedObject.ApplyModifiedProperties();
             }
 

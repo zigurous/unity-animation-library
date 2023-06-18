@@ -3,12 +3,9 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// An animation parameter that can be set on an Animator.
+    /// An animation parameter that can be set on an Animator. A hash id is
+    /// automatically created for the parameter for optimal code.
     /// </summary>
-    /// <remarks>
-    /// A hash id is automatically created for the parameter. Ids are used for
-    /// optimized setters and getters on Animator parameters.
-    /// </remarks>
     [System.Serializable]
     public struct AnimatorParameter
     {
@@ -70,7 +67,6 @@ namespace Zigurous.Animation
         /// <param name="property">The animator parameter to convert to an id.</param>
         /// <returns>The hash id of the animator parameter.</returns>
         public static implicit operator int(AnimatorParameter property) => property.hash;
-
     }
 
 }

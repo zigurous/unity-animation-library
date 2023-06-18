@@ -12,7 +12,7 @@ namespace Zigurous.Animation
     [System.Serializable]
     public struct AnimatorParameter
     {
-        [SerializeField]
+        [System.NonSerialized]
         [HideInInspector]
         private int m_Hash;
 

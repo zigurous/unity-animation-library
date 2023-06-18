@@ -9,7 +9,6 @@ namespace Zigurous.Animation.Editor
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             SerializedProperty name = property.FindPropertyRelative("m_Name");
-            SerializedProperty hash = property.FindPropertyRelative("m_Hash");
 
             EditorGUI.BeginProperty(position, label, property);
 
@@ -18,7 +17,6 @@ namespace Zigurous.Animation.Editor
             if (nameValue != name.stringValue)
             {
                 name.stringValue = nameValue;
-                hash.intValue = Animator.StringToHash(nameValue);
                 property.serializedObject.ApplyModifiedProperties();
             }
 

@@ -8,6 +8,9 @@
   "documentationUrl": "https://docs.zigurous.com/com.zigurous.animation",
   "changelogUrl": "https://docs.zigurous.com/com.zigurous.animation/changelog",
   "licensesUrl": "https://docs.zigurous.com/com.zigurous.animation/license",
+  "dependencies": {
+    "com.unity.inputsystem": "1.2.0"
+  },
   "keywords": [
     "animation",
     "animator",

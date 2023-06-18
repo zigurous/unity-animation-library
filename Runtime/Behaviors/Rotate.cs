@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Rotates an object in space by a given speed.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Rotate")]
     public sealed class Rotate : UpdateBehaviour
     {
         /// <summary>

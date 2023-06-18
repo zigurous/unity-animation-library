@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Switches an object's material on and off at a variable rate.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Blink")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Blink")]
     [RequireComponent(typeof(Renderer))]
     public sealed class Blink : MonoBehaviour
     {

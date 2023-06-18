@@ -6,6 +6,7 @@ namespace Zigurous.Animation
     /// Orbits an object around another object with a given speed and radius.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Orbit")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Orbit")]
     public sealed class Orbit : UpdateBehaviour
     {
         /// <summary>

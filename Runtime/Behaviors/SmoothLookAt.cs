@@ -7,6 +7,7 @@ namespace Zigurous.Animation
     /// function.
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Smooth Look At")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/SmoothLookAt")]
     [DefaultExecutionOrder(100)]
     public sealed class SmoothLookAt : MonoBehaviour
     {

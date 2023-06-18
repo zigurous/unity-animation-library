@@ -5,7 +5,7 @@ namespace Zigurous.Animation
     /// <summary>
     /// An animation behavior that can run in any update mode.
     /// </summary>
-    public abstract class UpdateBehavior : MonoBehaviour
+    public abstract class UpdateBehaviour : MonoBehaviour
     {
         /// <summary>
         /// The update mode of the behavior.
@@ -36,7 +36,11 @@ namespace Zigurous.Animation
         /// </summary>
         protected virtual void OnEnable()
         {
-            UpdateStrategy();
+            if (strategy != null) {
+                strategy.Register(OnUpdate);
+            } else {
+                UpdateStrategy();
+            }
         }
 
         /// <summary>
@@ -49,19 +53,17 @@ namespace Zigurous.Animation
             }
         }
 
+        #if UNITY_EDITOR
         /// <summary>
         /// A Unity lifecycle method called during editor validation.
         /// </summary>
-        protected virtual void OnValidate()
+        private void OnValidate()
         {
-            #if UNITY_EDITOR
             if (Application.isPlaying) {
                 dirty = true;
             }
-            #endif
         }
 
-        #if UNITY_EDITOR
         private void Update()
         {
             if (dirty)

@@ -17,6 +17,12 @@ namespace Zigurous.Animation
         public Transform target;
 
         /// <summary>
+        /// Prevents movement around the specified axes.
+        /// </summary>
+        [Tooltip("Prevents movement around the specified axes.")]
+        public AxisConstraint constraints = 0;
+
+        /// <summary>
         /// The local offset position from the target's position that the camera
         /// moves toward.
         /// </summary>
@@ -49,15 +55,21 @@ namespace Zigurous.Animation
                 return;
             }
 
-            // Calculate the offset position from the follow target accounting
-            // for the rotation of the object
+            Vector3 currentPosition = transform.position;
+
+            // Calculate the offset position from the follow target while
+            // accounting for the rotation of the object
             Vector3 targetPosition = target.position;
             targetPosition += target.rotation * offset;
 
+            // Constrain the position if specified
+            if (constraints.Contains(AxisConstraint.X)) targetPosition.x = currentPosition.x;
+            if (constraints.Contains(AxisConstraint.Y)) targetPosition.y = currentPosition.y;
+            if (constraints.Contains(AxisConstraint.Z)) targetPosition.z = currentPosition.z;
+
             // Move the transform to the target's position
-            Vector3 position = transform.position;
-            position = Vector3.SmoothDamp(position, targetPosition, ref velocity, damping, maxSpeed);
-            transform.position = position;
+            currentPosition = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, damping, maxSpeed);
+            transform.position = currentPosition;
         }
 
     }

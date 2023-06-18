@@ -29,12 +29,6 @@ namespace Zigurous.Animation
         public AxisConstraint constraints = 0;
 
         /// <summary>
-        /// The world up vector.
-        /// </summary>
-        [Tooltip("The world up vector.")]
-        public Vector3 worldUp = Vector3.up;
-
-        /// <summary>
         /// How quickly the transform rotates to look at the camera. Small
         /// numbers make the transform more responsive. Larger numbers make the
         /// transform respond more slowly.

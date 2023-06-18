@@ -13,17 +13,33 @@ namespace Zigurous.Animation
     public sealed class InputRotation : MonoBehaviour
     {
         #if ENABLE_INPUT_SYSTEM
+
+        /// <summary>
+        /// Uses a reference to an input action.
+        /// </summary>
+        [Tooltip("Uses a reference to an input action.")]
+        public bool useInputReference = true;
+
         /// <summary>
         /// The input action that rotates the transform.
         /// </summary>
         [Tooltip("The input action that rotates the transform.")]
         public InputAction rotateInput = new InputAction("Rotate", InputActionType.Value, "<Mouse>/delta/x", null, "scale(factor=0.05)");
+
+        /// <summary>
+        /// The input action reference that rotates the transform.
+        /// </summary>
+        [Tooltip("The input action reference that rotates the transform.")]
+        public InputActionReference rotateInputReference;
+
         #elif ENABLE_LEGACY_INPUT_MANAGER
+
         /// <summary>
         /// The input axis that rotates the transform.
         /// </summary>
         [Tooltip("The input axis that rotates the transform.")]
         public string inputAxis = "Mouse X";
+
         #endif
 
         /// <summary>
@@ -53,6 +69,10 @@ namespace Zigurous.Animation
         private void OnEnable()
         {
             rotateInput.Enable();
+
+            if (rotateInputReference.action != null) {
+                rotateInputReference.action.Enable();
+            }
         }
 
         private void OnDisable()
@@ -66,8 +86,15 @@ namespace Zigurous.Animation
             float input = 0f;
 
             #if ENABLE_INPUT_SYSTEM
-            input = rotateInput.ReadValue<float>();
+
+            if (!useInputReference) {
+                input = rotateInput.ReadValue<float>();
+            } else if (rotateInputReference.action != null) {
+                input = rotateInputReference.action.ReadValue<float>();
+            }
+
             #elif ENABLE_LEGACY_INPUT_MANAGER
+
             try
             {
                 if (!string.IsNullOrEmpty(inputAxis)) {
@@ -80,6 +107,7 @@ namespace Zigurous.Animation
                 Debug.LogWarning($"[InputRotation] Input axis '{inputAxis}' is not setup.\nDefine the input in the Input Manager settings accessed from the menu: Edit > Project Settings");
                 #endif
             }
+
             #endif
 
             transform.Rotate(axis.normalized * speed * input * Time.deltaTime, space);

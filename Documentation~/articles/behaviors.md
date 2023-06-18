@@ -14,6 +14,12 @@ Animates a series of sprites over time.
 
 <hr/>
 
+### [AnimatedMaterialTiling](/api/Zigurous.Animation/AnimatedMaterialTiling)
+
+Animates the tiling property of a renderer's material.
+
+<hr/>
+
 ### [BillboardRotation](/api/Zigurous.Animation/BillboardRotation)
 
 Rotates the object so it is always facing the camera.

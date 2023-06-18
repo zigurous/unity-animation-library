@@ -12,7 +12,7 @@ namespace Zigurous.Animation
         /// <summary>
         /// Smoothes the current value to the target value.
         /// </summary>
-        /// <param name="target">The target value.</param>
+        /// <param name="target">The target value to animate towards.</param>
         /// <returns>The new current value.</returns>
         public override Vector3 Update(Vector3 target)
         {
@@ -26,7 +26,7 @@ namespace Zigurous.Animation
         /// Smoothes the current value to the target value
         /// with the given delta time.
         /// </summary>
-        /// <param name="target">The target value.</param>
+        /// <param name="target">The target value to animate towards.</param>
         /// <param name="deltaTime">The time since the last call to this function.</param>
         /// <returns>The new current value.</returns>
         public override Vector3 Update(Vector3 target, float deltaTime)

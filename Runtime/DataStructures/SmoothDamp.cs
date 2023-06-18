@@ -37,30 +37,28 @@ namespace Zigurous.Animation
         /// value will reach the target faster.
         /// </summary>
         [Tooltip("Approximately the time it will take to reach the target. A smaller value will reach the target faster.")]
-        public float smoothTime = 0.1f;
+        public float smoothTime = 0.2f;
 
         /// <summary>
-        /// Optionally allows you to clamp the maximum speed.
+        /// Optionally allows the maximum speed to be clamped.
         /// </summary>
-        [Tooltip("Optionally allows you to clamp the maximum speed.")]
+        [Tooltip("Optionally allows the maximum speed to be clamped.")]
         public float maxSpeed = Mathf.Infinity;
 
         /// <summary>
         /// Smoothes the current value to the target value.
         /// </summary>
-        /// <param name="target">The target value.</param>
+        /// <param name="target">The target value to animate towards.</param>
         /// <returns>The new current value.</returns>
         public abstract T Update(T target);
 
         /// <summary>
-        /// Smoothes the current value to the target value
-        /// with the given delta time.
+        /// Smoothes the current value to the target value with the given delta time.
         /// </summary>
-        /// <param name="target">The target value.</param>
+        /// <param name="target">The target value to animate towards.</param>
         /// <param name="deltaTime">The time since the last call to this function.</param>
         /// <returns>The new current value.</returns>
         public abstract T Update(T target, float deltaTime);
-
     }
 
 }

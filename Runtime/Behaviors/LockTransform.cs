@@ -11,6 +11,12 @@ namespace Zigurous.Animation
     public sealed class LockTransform : MonoBehaviour
     {
         /// <summary>
+        /// The coordinate space the transform is updated in.
+        /// </summary>
+        [Tooltip("The coordinate space the transform is updated in.")]
+        public Space space = Space.World;
+
+        /// <summary>
         /// The transform properties to lock.
         /// </summary>
         [Tooltip("The transform properties to lock.")]
@@ -44,13 +50,31 @@ namespace Zigurous.Animation
         {
             if (useTransformValues)
             {
-                lockedPosition = transform.position;
-                lockedRotation = transform.eulerAngles;
-                lockedScale = transform.localScale;
+                if (space == Space.World)
+                {
+                    lockedPosition = transform.position;
+                    lockedRotation = transform.eulerAngles;
+                    lockedScale = transform.localScale;
+                }
+                else
+                {
+                    lockedPosition = transform.localPosition;
+                    lockedRotation = transform.localEulerAngles;
+                    lockedScale = transform.localScale;
+                }
             }
         }
 
         private void LateUpdate()
+        {
+            if (space == Space.World) {
+                LockWorldSpace();
+            } else {
+                LockLocalSpace();
+            }
+        }
+
+        private void LockWorldSpace()
         {
             if (constraints.Contains(TransformConstraint.Position)) {
                 transform.position = lockedPosition;
@@ -58,6 +82,21 @@ namespace Zigurous.Animation
 
             if (constraints.Contains(TransformConstraint.Rotation)) {
                 transform.eulerAngles = lockedRotation;
+            }
+
+            if (constraints.Contains(TransformConstraint.Scale)) {
+                transform.localScale = lockedScale;
+            }
+        }
+
+        private void LockLocalSpace()
+        {
+            if (constraints.Contains(TransformConstraint.Position)) {
+                transform.localPosition = lockedPosition;
+            }
+
+            if (constraints.Contains(TransformConstraint.Rotation)) {
+                transform.localEulerAngles = lockedRotation;
             }
 
             if (constraints.Contains(TransformConstraint.Scale)) {

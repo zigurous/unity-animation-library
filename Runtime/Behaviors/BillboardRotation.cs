@@ -17,6 +17,12 @@ namespace Zigurous.Animation
         public Camera lookCamera;
 
         /// <summary>
+        /// The coordinate space in which the object rotates.
+        /// </summary>
+        [Tooltip("The coordinate space in which the object rotates.")]
+        public Space space = Space.World;
+
+        /// <summary>
         /// Restricts rotation around the specified axes.
         /// </summary>
         [Tooltip("Restricts rotation around the specified axes.")]
@@ -54,7 +60,6 @@ namespace Zigurous.Animation
 
         private void LateUpdate()
         {
-            // Auto-assign camera if not set
             if (lookCamera == null)
             {
                 lookCamera = Camera.main;
@@ -64,24 +69,21 @@ namespace Zigurous.Animation
                 }
             }
 
-            // Calculate the rotation direction to the target
             Vector3 lookDirection = lookCamera.transform.position - transform.position;
 
-            // Constrain the look direction if specified
             if (constraints.Contains(AxisConstraint.X)) lookDirection.x = 0f;
             if (constraints.Contains(AxisConstraint.Y)) lookDirection.y = 0f;
             if (constraints.Contains(AxisConstraint.Z)) lookDirection.z = 0f;
 
-            // Only set the look rotation if the direction vector is not zero
-            // otherwise an error is triggered
             Quaternion lookRotation = lookDirection != Vector3.zero ?
                 Quaternion.LookRotation(lookDirection) :
                 Quaternion.identity;
 
-            // Rotate the object to look at the camera
-            Quaternion rotation = transform.rotation;
-            rotation = SmoothDamp(rotation, lookRotation, ref velocity, damping, maxSpeed);
-            transform.rotation = rotation;
+            if (space == Space.World) {
+                transform.rotation = SmoothDamp(transform.rotation, lookRotation, ref velocity, damping, maxSpeed);
+            } else {
+                transform.localRotation = SmoothDamp(transform.localRotation, lookRotation, ref velocity, damping, maxSpeed);
+            }
         }
 
         private static Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion velocity, float smoothTime, float maxSpeed)

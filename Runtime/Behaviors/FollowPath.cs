@@ -85,9 +85,10 @@ namespace Zigurous.Animation
         public float minProximity = 0.1f;
 
         /// <summary>
-        /// The rate at which the object is moving.
+        /// The coordinate space the object moves in.
         /// </summary>
-        private Vector3 velocity;
+        [Tooltip("The coordinate space the object moves in.")]
+        public Space space = Space.World;
 
         /// <summary>
         /// The looping behavior, if desired.
@@ -101,6 +102,11 @@ namespace Zigurous.Animation
         [Tooltip("Moves the object between nodes in reverse.")]
         public bool reversed;
 
+        /// <summary>
+        /// The rate at which the object is moving.
+        /// </summary>
+        private Vector3 velocity;
+
         private void Start()
         {
             Restart();
@@ -113,7 +119,7 @@ namespace Zigurous.Animation
         {
             currentIndex = 0;
 
-            SetCurrentSegment();
+            SetNode();
         }
 
         private void Update()
@@ -122,21 +128,25 @@ namespace Zigurous.Animation
                 return;
             }
 
-            transform.position = Vector3.SmoothDamp(
-                current: transform.position,
-                target: nodeTo.position,
-                currentVelocity: ref velocity,
-                smoothTime: damping,
-                maxSpeed: maxSpeed);
+            Vector3 direction;
 
-            Vector3 vector = transform.position - nodeTo.position;
+            if (space == Space.World)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, nodeTo.position, ref velocity, damping, maxSpeed);
+                direction = transform.position - nodeTo.position;
+            }
+            else
+            {
+                transform.localPosition = Vector3.SmoothDamp(transform.localPosition, nodeTo.localPosition, ref velocity, damping, maxSpeed);
+                direction = transform.localPosition - nodeTo.localPosition;
+            }
 
-            if (vector.sqrMagnitude < minProximity) {
-                Next();
+            if (direction.sqrMagnitude < (minProximity * minProximity)) {
+                NextNode();
             }
         }
 
-        private void Next()
+        private void NextNode()
         {
             if (path == null) {
                 return;
@@ -151,15 +161,31 @@ namespace Zigurous.Animation
             if (currentIndex >= path.childCount || currentIndex < 0)
             {
                 Loop();
-                SetCurrentSegment();
+                SetNode();
 
-                if (looping == LoopType.Restart && nodeTo != null) {
-                    transform.position = nodeTo.position;
+                if (looping == LoopType.Restart && nodeTo != null)
+                {
+                    if (space == Space.World) {
+                        transform.position = nodeTo.position;
+                    } else {
+                        transform.localPosition = nodeTo.localPosition;
+                    }
                 }
             }
             else
             {
-                SetCurrentSegment();
+                SetNode();
+            }
+        }
+
+        private void SetNode()
+        {
+            nodeFrom = nodeTo;
+
+            if (path == null) {
+                nodeTo = null;
+            } else if (currentIndex >= 0 && currentIndex < path.childCount) {
+                nodeTo = path.GetChild(currentIndex);
             }
         }
 
@@ -182,15 +208,6 @@ namespace Zigurous.Animation
                     reversed = !reversed;
                     currentIndex = reversed ? lastIndex : 0;
                     break;
-            }
-        }
-
-        private void SetCurrentSegment()
-        {
-            nodeFrom = nodeTo;
-
-            if (currentIndex >= 0 && currentIndex < path.childCount) {
-                nodeTo = path.GetChild(currentIndex);
             }
         }
 

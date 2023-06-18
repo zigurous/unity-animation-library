@@ -18,6 +18,12 @@ namespace Zigurous.Animation
         [Tooltip("The camera used to convert positions from world space to screen space.")]
         public Camera screenCamera;
 
+        /// <summary>
+        /// The coordinate space the transform rotates in.
+        /// </summary>
+        [Tooltip("The coordinate space the transform rotates in.")]
+        public Space space = Space.World;
+
         private void Reset()
         {
             if (screenCamera == null) {
@@ -48,9 +54,15 @@ namespace Zigurous.Animation
             #endif
 
             Vector3 lookDirection = mousePosition - screenPoint;
-            transform.rotation = lookDirection != Vector3.zero ?
-                Quaternion.LookRotation(lookDirection) :
-                Quaternion.identity;
+            Quaternion lookRotation = lookDirection != Vector3.zero ?
+                    Quaternion.LookRotation(lookDirection) :
+                    Quaternion.identity;
+
+            if (space == Space.World) {
+                transform.rotation = lookRotation;
+            } else {
+                transform.localRotation = lookRotation;
+            }
         }
 
     }

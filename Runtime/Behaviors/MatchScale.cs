@@ -13,11 +13,13 @@ namespace Zigurous.Animation
         /// <summary>
         /// The scale axes to match.
         /// </summary>
+        [Tooltip("The scale axes to match.")]
         public AxisConstraint constraints = (AxisConstraint)~0;
 
         /// <summary>
         /// The target transform to match the scale to.
         /// </summary>
+        [Tooltip("The target transform to match the scale to.")]
         public Transform matchedTransform;
 
         private void LateUpdate()

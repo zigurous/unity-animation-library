@@ -25,6 +25,12 @@ namespace Zigurous.Animation
         public Vector3 offset;
 
         /// <summary>
+        /// The coordinate space in which the object rotates.
+        /// </summary>
+        [Tooltip("The coordinate space in which the object rotates.")]
+        public Space space = Space.World;
+
+        /// <summary>
         /// Prevents rotation around the specified axes.
         /// </summary>
         [Tooltip("Prevents rotation around the specified axes.")]
@@ -56,29 +62,22 @@ namespace Zigurous.Animation
                 return;
             }
 
-            // Calculate the offset position from the follow target accounting
-            // for the rotation of the object
-            Vector3 targetPosition = target.position;
-            targetPosition += target.rotation * offset;
-
-            // Calculate the rotation direction to the target
+            Vector3 targetPosition = target.position + (target.rotation * offset);
             Vector3 targetDirection = targetPosition - transform.position;
 
-            // Constrain the look direction if specified
             if (constraints.Contains(AxisConstraint.X)) targetDirection.x = 0f;
             if (constraints.Contains(AxisConstraint.Y)) targetDirection.y = 0f;
             if (constraints.Contains(AxisConstraint.Z)) targetDirection.z = 0f;
 
-            // Only set the look rotation if the direction vector is not zero
-            // otherwise an error is triggered
             Quaternion targetRotation = targetDirection != Vector3.zero ?
                 Quaternion.LookRotation(targetDirection) :
                 Quaternion.identity;
 
-            // Rotate the object to the target direction
-            Quaternion rotation = transform.rotation;
-            rotation = SmoothDamp(rotation, targetRotation, ref velocity, damping, maxSpeed);
-            transform.rotation = rotation;
+            if (space == Space.World) {
+                transform.rotation = SmoothDamp(transform.rotation, targetRotation, ref velocity, damping, maxSpeed);
+            } else {
+                transform.localRotation = SmoothDamp(transform.localRotation, targetRotation, ref velocity, damping, maxSpeed);
+            }
         }
 
         private static Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion velocity, float smoothTime, float maxSpeed)

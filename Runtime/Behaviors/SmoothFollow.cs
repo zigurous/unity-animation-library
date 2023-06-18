@@ -55,7 +55,7 @@ namespace Zigurous.Animation
 
             // Move the transform to the target's position
             Vector3 position = transform.position;
-            position.SmoothDamp(targetPosition, ref velocity, damping, maxSpeed);
+            position = Vector3.SmoothDamp(position, targetPosition, ref velocity, damping, maxSpeed);
             transform.position = position;
         }
 

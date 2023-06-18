@@ -61,8 +61,32 @@ namespace Zigurous.Animation
 
             // Rotate the camera to the target direction
             Quaternion rotation = transform.rotation;
-            rotation.SmoothDamp(targetRotation, ref velocity, damping, maxSpeed);
+            rotation = SmoothDamp(rotation, targetRotation, ref velocity, damping, maxSpeed);
             transform.rotation = rotation;
+        }
+
+        private static Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion velocity, float smoothTime, float maxSpeed)
+        {
+            float dot = Quaternion.Dot(current, target);
+            float direction = dot > 0f ? 1f : -1f;
+            target.x *= direction;
+            target.y *= direction;
+            target.z *= direction;
+            target.w *= direction;
+
+            Vector4 result = new Vector4(
+                x: Mathf.SmoothDamp(current.x, target.x, ref velocity.x, smoothTime, maxSpeed),
+                y: Mathf.SmoothDamp(current.y, target.y, ref velocity.y, smoothTime, maxSpeed),
+                z: Mathf.SmoothDamp(current.z, target.z, ref velocity.z, smoothTime, maxSpeed),
+                w: Mathf.SmoothDamp(current.w, target.w, ref velocity.w, smoothTime, maxSpeed)).normalized;
+
+            Vector4 error = Vector4.Project(new Vector4(velocity.x, velocity.y, velocity.z, velocity.w), result);
+            velocity.x -= error.x;
+            velocity.y -= error.y;
+            velocity.z -= error.z;
+            velocity.w -= error.w;
+
+            return new Quaternion(result.x, result.y, result.z, result.w);
         }
 
     }

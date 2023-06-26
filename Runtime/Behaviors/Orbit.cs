@@ -52,37 +52,44 @@ namespace Zigurous.Animation
         {
             angle += speed * deltaTime;
 
-            SetPosition(angle);
+            SetPosition(angle * Mathf.Deg2Rad);
         }
 
         private void SetPosition(float angle)
         {
-            float radians = angle * Mathf.Deg2Rad;
-
-            Vector3 centerPosition = Vector3.zero;
-
-            if (space == Space.World)
-            {
-                if (center != null) {
-                    centerPosition = center.position;
-                }
-
-                transform.position = new Vector3(
-                    x: centerPosition.x + (Mathf.Cos(radians) * radius),
-                    y: centerPosition.y,
-                    z: centerPosition.z + (Mathf.Sin(radians) * radius));
+            if (space == Space.World) {
+                SetWorldPosition(angle);
+            } else {
+                SetLocalPosition(angle);
             }
-            else
-            {
-                if (center != null) {
-                    centerPosition = center.localPosition;
-                }
+        }
 
-                transform.localPosition = new Vector3(
-                    x: centerPosition.x + (Mathf.Cos(radians) * radius),
-                    y: centerPosition.y,
-                    z: centerPosition.z + (Mathf.Sin(radians) * radius));
+        private void SetWorldPosition(float angle)
+        {
+            Vector3 pivotPoint = Vector3.zero;
+
+            if (center != null) {
+                pivotPoint = center.position;
             }
+
+            transform.position = new Vector3(
+                x: pivotPoint.x + (Mathf.Cos(angle) * radius),
+                y: pivotPoint.y,
+                z: pivotPoint.z + (Mathf.Sin(angle) * radius));
+        }
+
+        private void SetLocalPosition(float angle)
+        {
+            Vector3 pivotPoint = Vector3.zero;
+
+            if (center != null) {
+                pivotPoint = center.localPosition;
+            }
+
+            transform.localPosition = new Vector3(
+                x: pivotPoint.x + (Mathf.Cos(angle) * radius),
+                y: pivotPoint.y,
+                z: pivotPoint.z + (Mathf.Sin(angle) * radius));
         }
 
         private void Start()

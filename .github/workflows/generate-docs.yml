@@ -1,0 +1,23 @@
+name: Generate Docs
+
+on:
+  push:
+    branches:
+      - release/1.7.0
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    name: Docs
+    uses: zigurous/docs/.github/workflows/unity-package.yml@main
+    with:
+      package_title: "Animation Library"
+      package_base_path: com.zigurous.animation@1.7.0
+      package_workflow: generate-docs.yml
+      package_artifact: docs
+    secrets:
+      token: ${{ secrets.DOCS_TOKEN }}

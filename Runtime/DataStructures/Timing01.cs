@@ -18,7 +18,7 @@ namespace Zigurous.Animation
         /// </summary>
         public float start
         {
-            get => m_Start;
+            readonly get => m_Start;
             set => m_Start = Mathf.Clamp01(value);
         }
 
@@ -32,7 +32,7 @@ namespace Zigurous.Animation
         /// </summary>
         public float end
         {
-            get => m_End;
+            readonly get => m_End;
             set => m_End = Mathf.Clamp01(value);
         }
 
@@ -51,7 +51,7 @@ namespace Zigurous.Animation
         /// Returns a random time within the start and end time.
         /// </summary>
         /// <returns>A random time within the start and end time.</returns>
-        public float Random()
+        public readonly float Random()
         {
             return UnityEngine.Random.Range(start, end);
         }
@@ -61,7 +61,7 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="time">The time to check.</param>
         /// <returns>True if the time is within the start and end time.</returns>
-        public bool Includes(float time)
+        public readonly bool Includes(float time)
         {
             return time >= start && time <= end;
         }

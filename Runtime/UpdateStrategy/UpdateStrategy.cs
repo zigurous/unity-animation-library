@@ -24,9 +24,7 @@ namespace Zigurous.Animation
         /// <param name="deltaTime">The time since the last frame.</param>
         public void Execute(float deltaTime)
         {
-            if (update != null) {
-                update.Invoke(deltaTime);
-            }
+            update?.Invoke(deltaTime);
         }
 
         /// <summary>

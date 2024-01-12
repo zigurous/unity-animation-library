@@ -17,7 +17,7 @@ namespace Zigurous.Animation
         /// </summary>
         public float min
         {
-            get => m_Min;
+            readonly get => m_Min;
             set => m_Min = value;
         }
 
@@ -30,7 +30,7 @@ namespace Zigurous.Animation
         /// </summary>
         public float max
         {
-            get => m_Max;
+            readonly get => m_Max;
             set => m_Max = value;
         }
 
@@ -49,7 +49,7 @@ namespace Zigurous.Animation
         /// Returns a random time within the min and max time.
         /// </summary>
         /// <returns>A random time within the min and max time.</returns>
-        public float Random()
+        public readonly float Random()
         {
             return UnityEngine.Random.Range(min, max);
         }
@@ -59,7 +59,7 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="time">The time to check.</param>
         /// <returns>True if the time is within the min and max time.</returns>
-        public bool Includes(float time)
+        public readonly bool Includes(float time)
         {
             return time >= min && time <= max;
         }

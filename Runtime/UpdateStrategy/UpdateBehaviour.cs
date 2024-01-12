@@ -109,12 +109,14 @@ namespace Zigurous.Animation
                 strategy.Unregister(OnUpdate);
             }
 
-            // See if the strategy already exists
-            strategy = GetComponent<T>();
-
-            // Create a new strategy if it does not exist
-            if (strategy == null)
+            if (TryGetComponent(out T existingStrategy))
             {
+                // Use the existing strategy if it exists
+                strategy = existingStrategy;
+            }
+            else
+            {
+                // Create a new strategy if it does not exist
                 strategy = gameObject.AddComponent<T>();
                 strategy.hideFlags = HideFlags.HideInInspector;
             }

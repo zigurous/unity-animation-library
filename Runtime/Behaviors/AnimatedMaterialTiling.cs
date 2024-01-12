@@ -39,7 +39,7 @@ namespace Zigurous.Animation
         protected override void OnUpdate(float deltaTime)
         {
             if (renderer != null) {
-                renderer.material.mainTextureOffset += axis * animationSpeed * Time.deltaTime;
+                renderer.material.mainTextureOffset += animationSpeed * Time.deltaTime * axis;
             }
         }
 

@@ -36,7 +36,7 @@ namespace Zigurous.Animation
         /// </summary>
         public string name
         {
-            get => m_Name;
+            readonly get => m_Name;
             set
             {
                 m_Name = value;

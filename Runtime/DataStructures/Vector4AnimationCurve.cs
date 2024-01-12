@@ -13,25 +13,25 @@ namespace Zigurous.Animation
         /// The collection of keyframes for the x-axis of a Vector4.
         /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector4.")]
-        public AnimationCurve x = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve x = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the y-axis of a Vector4.
         /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector4.")]
-        public AnimationCurve y = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve y = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the z-axis of a Vector4.
         /// </summary>
         [Tooltip("The collection of keyframes for the z-axis of a Vector4.")]
-        public AnimationCurve z = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve z = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the w-axis of a Vector4.
         /// </summary>
         [Tooltip("The collection of keyframes for the w-axis of a Vector4.")]
-        public AnimationCurve w = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve w = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <inheritdoc/>
         public Vector4 Evaluate(float time)

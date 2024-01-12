@@ -13,19 +13,19 @@ namespace Zigurous.Animation
         /// The collection of keyframes for the x-axis of a Vector3.
         /// </summary>
         [Tooltip("The collection of keyframes for the x-axis of a Vector3.")]
-        public AnimationCurve x = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve x = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the y-axis of a Vector3.
         /// </summary>
         [Tooltip("The collection of keyframes for the y-axis of a Vector3.")]
-        public AnimationCurve y = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve y = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <summary>
         /// The collection of keyframes for the z-axis of a Vector3.
         /// </summary>
         [Tooltip("The collection of keyframes for the z-axis of a Vector3.")]
-        public AnimationCurve z = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
+        public AnimationCurve z = new(new Keyframe(0f, 0f), new Keyframe(1f, 0f));
 
         /// <inheritdoc/>
         public Vector3 Evaluate(float time)

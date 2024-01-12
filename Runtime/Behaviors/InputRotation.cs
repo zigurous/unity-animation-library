@@ -24,7 +24,7 @@ namespace Zigurous.Animation
         /// The input action that rotates the transform.
         /// </summary>
         [Tooltip("The input action that rotates the transform.")]
-        public InputAction rotateInput = new InputAction("Rotate", InputActionType.Value, "<Mouse>/delta/x", null, "scale(factor=0.05)");
+        public InputAction rotateInput = new("Rotate", InputActionType.Value, "<Mouse>/delta/x", null, "scale(factor=0.05)");
 
         /// <summary>
         /// The input action reference that rotates the transform.
@@ -69,10 +69,7 @@ namespace Zigurous.Animation
         private void OnEnable()
         {
             rotateInput.Enable();
-
-            if (rotateInputReference.action != null) {
-                rotateInputReference.action.Enable();
-            }
+            rotateInputReference.action?.Enable();
         }
 
         private void OnDisable()
@@ -110,7 +107,7 @@ namespace Zigurous.Animation
 
             #endif
 
-            transform.Rotate(axis.normalized * speed * input * Time.deltaTime, space);
+            transform.Rotate(input * speed * Time.deltaTime * axis.normalized, space);
         }
 
     }

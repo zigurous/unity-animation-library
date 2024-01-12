@@ -30,7 +30,7 @@ namespace Zigurous.Animation
         /// <inheritdoc/>
         protected override void OnUpdate(float deltaTime)
         {
-            transform.Rotate(axis * speed * deltaTime, space);
+            transform.Rotate(deltaTime * speed * axis, space);
         }
 
     }

@@ -46,14 +46,14 @@ namespace Zigurous.Animation
         /// The amount of seconds the material stays blinking.
         /// </summary>
         [Tooltip("The amount of seconds the material stays blinking.")]
-        public TimingRange blinkDuration = new TimingRange(1f, 1f);
+        public TimingRange blinkDuration = new(1f, 1f);
 
         /// <summary>
         /// The amount of seconds before the material can blink a subsequent
         /// time.
         /// </summary>
         [Tooltip("The amount of seconds before the material can blink a subsequent time.")]
-        public TimingRange blinkCooldown = new TimingRange(1f, 1f);
+        public TimingRange blinkCooldown = new(1f, 1f);
 
         /// <summary>
         /// How frequently in seconds the script will execute as a way to

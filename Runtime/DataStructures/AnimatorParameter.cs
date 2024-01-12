@@ -36,7 +36,7 @@ namespace Zigurous.Animation
         /// </summary>
         public string name
         {
-            get => m_Name;
+            readonly get => m_Name;
             set
             {
                 m_Name = value;
@@ -59,7 +59,7 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="name">The name of the animator parameter.</param>
         /// <returns>A new animator parameter with the given name.</returns>
-        public static implicit operator AnimatorParameter(string name) => new AnimatorParameter(name);
+        public static implicit operator AnimatorParameter(string name) => new(name);
 
         /// <summary>
         /// Implicitly converts an animator parameter to a hash id.

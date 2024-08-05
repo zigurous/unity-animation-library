@@ -59,7 +59,7 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="name">The name of the shader property.</param>
         /// <returns>A shader property with the given name.</returns>
-        public static implicit operator ShaderProperty(string name) => new ShaderProperty(name);
+        public static implicit operator ShaderProperty(string name) => new(name);
 
         /// <summary>
         /// Implicitly converts a shader property to an id.

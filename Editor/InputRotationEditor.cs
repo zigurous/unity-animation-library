@@ -6,10 +6,16 @@ namespace Zigurous.Animation.Editor
     [CustomEditor(typeof(InputRotation))]
     public class InputRotationEditor : UnityEditor.Editor
     {
-        private GUIContent rotateInputLabel = new GUIContent("Rotate Input");
+        private static readonly GUIContent rotateInputLabel = new("Rotate Input");
 
         public override void OnInspectorGUI()
         {
+            serializedObject.Update();
+
+            using (new EditorGUI.DisabledScope(true)) {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Script"));
+            }
+
             #if ENABLE_INPUT_SYSTEM
             SerializedProperty useInputReference = serializedObject.FindProperty("useInputReference");
             SerializedProperty rotateInput = serializedObject.FindProperty("rotateInput");

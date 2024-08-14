@@ -6,8 +6,8 @@ namespace Zigurous.Animation.Editor
     [CustomPropertyDrawer(typeof(TimingRange))]
     public sealed class TimingRangePropertyDrawer : PropertyDrawer
     {
-        private static readonly GUIContent minLabel = new GUIContent("Min");
-        private static readonly GUIContent maxLabel = new GUIContent("Max");
+        private static readonly GUIContent minLabel = new("Min", "The lower bound of the timing range.");
+        private static readonly GUIContent maxLabel = new("Max", "The upper bound of the timing range.");
 
         private const float horizontalSpacing = 4f;
 
@@ -25,8 +25,9 @@ namespace Zigurous.Animation.Editor
             SerializedProperty m_Min = property.FindPropertyRelative("m_Min");
             SerializedProperty m_Max = property.FindPropertyRelative("m_Max");
 
-            Rect field = new Rect(position);
-            field.width = (position.width - horizontalSpacing) / 2f;
+            Rect field = new(position) {
+                width = (position.width - horizontalSpacing) / 2f
+            };
 
             field = FloatField(field, m_Min, minLabel);
             field = FloatField(field, m_Max, maxLabel);

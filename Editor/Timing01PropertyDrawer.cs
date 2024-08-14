@@ -6,8 +6,8 @@ namespace Zigurous.Animation.Editor
     [CustomPropertyDrawer(typeof(Timing01))]
     public sealed class Timing01PropertyDrawer : PropertyDrawer
     {
-        private static readonly GUIContent startLabel = new GUIContent("Start");
-        private static readonly GUIContent endLabel = new GUIContent("End");
+        private static readonly GUIContent startLabel = new("Start", "The start time of the animation, between 0 and 1.");
+        private static readonly GUIContent endLabel = new("End", "The end time of the animation, between 0 and 1.");
 
         private const float horizontalSpacing = 4f;
 
@@ -25,8 +25,9 @@ namespace Zigurous.Animation.Editor
             SerializedProperty m_Start = property.FindPropertyRelative("m_Start");
             SerializedProperty m_End = property.FindPropertyRelative("m_End");
 
-            Rect field = new Rect(position);
-            field.width = (position.width - horizontalSpacing) / 2f;
+            Rect field = new(position) {
+                width = (position.width - horizontalSpacing) / 2f
+            };
 
             field = SliderField(field, m_Start, startLabel);
             field = SliderField(field, m_End, endLabel);

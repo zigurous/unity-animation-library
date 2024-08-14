@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Zigurous.Animation
 {
@@ -6,10 +7,10 @@ namespace Zigurous.Animation
     /// An animation parameter that can be set on an Animator. A hash id is
     /// automatically created for the parameter for optimal code.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public struct AnimatorParameter
     {
-        [System.NonSerialized]
+        [NonSerialized]
         [HideInInspector]
         private int m_Hash;
 

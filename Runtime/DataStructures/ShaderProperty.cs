@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Zigurous.Animation
 {
@@ -6,10 +7,10 @@ namespace Zigurous.Animation
     /// A shader property that can be set on a material. An id is automatically
     /// created for the property for optimal code.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public struct ShaderProperty
     {
-        [System.NonSerialized]
+        [NonSerialized]
         [HideInInspector]
         private int m_Id;
 

@@ -3,43 +3,45 @@
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Animates the tiling property of a renderer's material.
+    /// Animates the texture offset of a material over time.
     /// </summary>
-    [AddComponentMenu("Zigurous/Animation/Animated Material Tiling")]
-    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedMaterialTiling")]
-    public class AnimatedMaterialTiling : UpdateBehaviour
+    [AddComponentMenu("Zigurous/Animation/Animated Texture Offset")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedTextureOffset")]
+    [RequireComponent(typeof(Renderer))]
+    public sealed class AnimatedTextureOffset : UpdateBehaviour
     {
         /// <summary>
-        /// The renderer to animate.
+        /// The direction to offset the texture coordinates.
         /// </summary>
-        [Tooltip("The renderer to animate.")]
-        public new Renderer renderer;
+        [Tooltip("The direction to offset the texture coordinates.")]
+        public Vector2 direction = Vector2.right;
 
         /// <summary>
-        /// The tiling animation speed.
+        /// The speed at which to offset the texture coordinates.
         /// </summary>
-        [Tooltip("The tiling animation speed.")]
-        public float animationSpeed = 1f;
+        [Tooltip("The speed at which to offset the texture coordinates.")]
+        public float speed = 1f;
 
         /// <summary>
-        /// The tiling axis to animate on.
+        /// Uses unscaled time when animating the texture offset.
         /// </summary>
-        [Tooltip("The tiling axis to animate on.")]
-        public Vector2 axis = Vector2.right;
+        [Tooltip("Uses unscaled time when animating the texture offset.")]
+        public bool unscaledTime = false;
 
-        /// <summary>
-        /// A Unity lifecycle method called when the behavior is reset in the editor.
-        /// </summary>
-        protected virtual void Reset()
+        private Material material;
+
+        private void Start()
         {
-            renderer = GetComponent<MeshRenderer>();
+            material = GetComponent<MeshRenderer>().material;
         }
 
         /// <inheritdoc/>
         protected override void OnUpdate(float deltaTime)
         {
-            if (renderer != null) {
-                renderer.material.mainTextureOffset += animationSpeed * Time.deltaTime * axis;
+            if (unscaledTime) {
+                material.mainTextureOffset += speed * Time.unscaledDeltaTime * direction;
+            } else {
+                material.mainTextureOffset += speed * Time.deltaTime * direction;
             }
         }
 

@@ -5,15 +5,21 @@ namespace Zigurous.Animation
     /// <summary>
     /// Scales an object over time by a given speed.
     /// </summary>
-    [AddComponentMenu("Zigurous/Animation/Scale")]
-    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Scale")]
-    public sealed class Scale : UpdateBehaviour
+    [AddComponentMenu("Zigurous/Animation/Scale Over Time")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/ScaleOverTime")]
+    public sealed class ScaleOverTime : UpdateBehaviour
     {
         /// <summary>
-        /// The speed at which the object's scale changes.
+        /// The axis in which the object is scaled.
         /// </summary>
-        [Tooltip("The speed at which the object's scale changes.")]
-        public Vector3 speed = Vector3.zero;
+        [Tooltip("The axis in which the object is scaled.")]
+        public Vector3 axis = Vector3.one;
+
+        /// <summary>
+        /// The speed at which the object is scaled.
+        /// </summary>
+        [Tooltip("The speed at which the object is scaled.")]
+        public float speed = 1f;
 
         /// <summary>
         /// Clamps the scale to a minimum value.
@@ -31,7 +37,7 @@ namespace Zigurous.Animation
         protected override void OnUpdate(float deltaTime)
         {
             Vector3 scale = transform.localScale;
-            scale += speed * deltaTime;
+            scale += speed * deltaTime * axis;
             scale.x = Mathf.Clamp(scale.x, minScale.x, maxScale.x);
             scale.y = Mathf.Clamp(scale.y, minScale.y, maxScale.y);
             scale.z = Mathf.Clamp(scale.z, minScale.z, maxScale.z);

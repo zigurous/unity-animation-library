@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.9.0] - TBD
+## [2.0.0] - TBD
 
 ### Added
 
@@ -23,7 +23,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rewrote `AnimatedMaterialTiling` as `AnimatedTextureOffset`
+  - Added property to use unscaled time
+- Renamed behaviour `Move` to `TranslateOverTime`
+- Renamed behaviour `Rotate` to `RotateOverTime`
+- Renamed behaviour `Scale` to `ScaleOverTime`
 - Improved the editor GUI for `AnimatorParameter`
+- Changed minimum Unity version from 2019.4 to 2022.3
 
 ## [1.8.0] - 2022/11/30
 

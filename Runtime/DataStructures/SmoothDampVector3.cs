@@ -27,7 +27,7 @@ namespace Zigurous.Animation
         /// with the given delta time.
         /// </summary>
         /// <param name="target">The target value to animate towards.</param>
-        /// <param name="deltaTime">The time since the last call to this function.</param>
+        /// <param name="deltaTime">The amount of seconds elapsed since the last update.</param>
         /// <returns>The new current value.</returns>
         public override Vector3 Update(Vector3 target, float deltaTime)
         {

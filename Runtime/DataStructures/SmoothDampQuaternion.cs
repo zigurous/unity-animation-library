@@ -26,7 +26,7 @@ namespace Zigurous.Animation
         /// Smoothes the current value to the target value with the given delta time.
         /// </summary>
         /// <param name="target">The target value to animate towards.</param>
-        /// <param name="deltaTime">The time since the last call to this function.</param>
+        /// <param name="deltaTime">The amount of seconds elapsed since the last update.</param>
         /// <returns>The new current value.</returns>
         public override Quaternion Update(Quaternion target, float deltaTime)
         {
@@ -44,7 +44,7 @@ namespace Zigurous.Animation
         /// <param name="velocity">The current velocity, this value is modified by the function every time you call it.</param>
         /// <param name="smoothTime">Approximately the time it will take to reach the target. A smaller value will reach the target faster.</param>
         /// <param name="maxSpeed">Clamps the maximum speed of the damping.</param>
-        /// <param name="deltaTime">The time since the last call to this function.</param>
+        /// <param name="deltaTime">The amount of seconds elapsed since the last update.</param>
         /// <returns>The smooth damped value.</returns>
         private static Quaternion SmoothDamp(Quaternion current, Quaternion target, ref Quaternion velocity, float smoothTime, float maxSpeed, float deltaTime)
         {

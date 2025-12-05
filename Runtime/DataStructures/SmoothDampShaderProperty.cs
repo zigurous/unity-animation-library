@@ -82,7 +82,7 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="material">The material to animate.</param>
         /// <param name="target">The target value to animate towards.</param>
-        /// <param name="deltaTime">The time since the last call to this function.</param>
+        /// <param name="deltaTime">The amount of seconds elapsed since the last update.</param>
         /// <returns>The new property value.</returns>
         public abstract T Update(Material material, T target, float deltaTime);
     }

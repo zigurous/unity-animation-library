@@ -1,7 +1,9 @@
 {
     "name": "Zigurous.Animation",
+    "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:4c0ec80807ad29a4fadc3386e4b06833"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Zigurous.Animation
 {
+    /// <summary>
+    /// Fades out an object by animating its alpha shader property.
+    /// </summary>
     [AddComponentMenu("Zigurous/Animation/Fade Out")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/FadeOut")]
     public sealed class FadeOut : MonoBehaviour

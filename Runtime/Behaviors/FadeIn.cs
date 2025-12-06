@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Zigurous.Animation
 {
+    /// <summary>
+    /// Fades in an object by animating its alpha shader property.
+    /// </summary>
     [AddComponentMenu("Zigurous/Animation/Fade In")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/FadeIn")]
     public sealed class FadeIn : MonoBehaviour

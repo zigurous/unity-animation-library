@@ -45,14 +45,12 @@ namespace Zigurous.Animation
             m_Renderer = GetComponentInChildren<Renderer>();
         }
 
-        private void Start()
-        {
-            properties = new MaterialPropertyBlock();
-        }
-
         private void OnEnable()
         {
             startTime = Time.time;
+            properties ??= new MaterialPropertyBlock();
+            properties.SetFloat(shaderProperty, 0f);
+            m_Renderer.SetPropertyBlock(properties);
         }
 
         private void Update()

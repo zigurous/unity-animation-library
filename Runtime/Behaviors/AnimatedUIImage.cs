@@ -1,19 +1,20 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Animates a series of sprites over time.
+    /// Animates a series of sprites over time on a UI image component.
     /// </summary>
-    [AddComponentMenu("Zigurous/Animation/Animated Sprite")]
-    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedSprite")]
-    [RequireComponent(typeof(SpriteRenderer))]
-    public sealed class AnimatedSprite : MonoBehaviour
+    [AddComponentMenu("Zigurous/Animation/Animated UI Image")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedUIImage")]
+    [RequireComponent(typeof(Image))]
+    public sealed class AnimatedUIImage : MonoBehaviour
     {
         /// <summary>
-        /// The sprite renderer component for the animation (Read only).
+        /// The UI image component for the animation (Read only).
         /// </summary>
-        public SpriteRenderer spriteRenderer { get; private set; }
+        public Image image { get; private set; }
 
         /// <summary>
         /// The sprites that are rendered with the animation, in order.
@@ -52,7 +53,7 @@ namespace Zigurous.Animation
 
         private void Awake()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            image = GetComponent<Image>();
         }
 
         private void Start()
@@ -100,7 +101,7 @@ namespace Zigurous.Animation
         private void SetSprite()
         {
             if (frame >= 0 && frame < sprites.Length) {
-                spriteRenderer.sprite = sprites[frame];
+                image.sprite = sprites[frame];
             }
         }
 

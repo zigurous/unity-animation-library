@@ -44,9 +44,9 @@ namespace Zigurous.Animation
         }
 
         /// <summary>
-        /// The transform comprising of all the child nodes in the path.
+        /// The transform comprising all of the child nodes in the path.
         /// </summary>
-        [Tooltip("The transform comprising of all the child nodes in the path.")]
+        [Tooltip("The transform comprising all of the child nodes in the path.")]
         public Transform path;
 
         /// <summary>

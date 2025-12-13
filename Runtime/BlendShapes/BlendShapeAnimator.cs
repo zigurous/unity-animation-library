@@ -125,6 +125,9 @@ namespace Zigurous.Animation
         {
             if (currentAnimation == null || currentAnimation.finished)
             {
+                currentAnimation?.Stop();
+                currentAnimation = null;
+
                 if (TryGetAnimation(defaultAnimationId, out currentAnimation)) {
                     currentAnimation.Play();
                 }
@@ -144,7 +147,9 @@ namespace Zigurous.Animation
         /// <returns>The animation that is played, or null if the animation could not be played.</returns>
         public BlendShapeAnimation PlayAnimation(AnimationId id)
         {
-            if (animations == null || animations.Length == 0) return null;
+            if (animations == null || animations.Length == 0) {
+                return null;
+            }
 
             if (id == null)
             {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -51,6 +52,12 @@ namespace Zigurous.Animation
         public readonly bool loop;
 
         /// <summary>
+        /// Stops the animation on the last frame when finished playing instead
+        /// of resetting all blend shapes to zero.
+        /// </summary>
+        public readonly bool stopOnLastFrame;
+
+        /// <summary>
         /// The current frame of the animation.
         /// </summary>
         public int frame { get; private set; }
@@ -80,12 +87,15 @@ namespace Zigurous.Animation
         /// </summary>
         /// <param name="id">The identifier of the animation.</param>
         /// <param name="loop">Whether the animation loops continuously.</param>
+        /// <param name="stopOnLastFrame">Stops the animation on the last frame when finished playing instead of resetting all blend shapes to zero.</param>
+        /// <param name="frameLengths">The amount of subframes for each keyframe.</param>
         /// <param name="blendShapes">All of the blend shapes of the renderer being animated.</param>
         /// <param name="blendShapeIndex">The starting blend shape index for the first frame of the animation.</param>
-        public BlendShapeAnimation(AnimationId id, bool loop, short[] frameLengths, BlendShapeKeyframe[] blendShapes, int blendShapeIndex)
+        public BlendShapeAnimation(AnimationId id, bool loop, bool stopOnLastFrame, short[] frameLengths, BlendShapeKeyframe[] blendShapes, int blendShapeIndex)
         {
             this.id = id;
             this.loop = loop;
+            this.stopOnLastFrame = stopOnLastFrame;
             this.frameLengths = frameLengths;
 
             int frames = frameLengths.Length;
@@ -109,7 +119,7 @@ namespace Zigurous.Animation
         /// <param name="blendShapes">All of the blend shapes of the renderer being animated.</param>
         /// <param name="blendShapeIndex">The starting blend shape index for the first frame of the animation.</param>
         public BlendShapeAnimation(BlendShapeAnimationClip clip, BlendShapeKeyframe[] blendShapes, int blendShapeIndex) :
-            this(clip.id, clip.loop, clip.frameLengths, blendShapes, blendShapeIndex) {}
+            this(clip.id, clip.loop, clip.stopOnLastFrame, clip.frameLengths, blendShapes, blendShapeIndex) {}
 
         /// <summary>
         /// Plays the animation.
@@ -154,6 +164,11 @@ namespace Zigurous.Animation
                 if (smoothing)
                 {
                     float t = Mathf.InverseLerp(0f, currentKeyframe.duration, elapsed);
+
+                    if (!loop && stopOnLastFrame && frame == keyframes.Length - 1) {
+                        t = 0f;
+                    }
+
                     currentKeyframe.targetWeight = (1f - t) * 100f;
 
                     if (frame < keyframes.Length - 1) {
@@ -189,6 +204,13 @@ namespace Zigurous.Animation
 
         private void NextKeyframe()
         {
+            if (!loop && stopOnLastFrame && frame == keyframes.Length - 1)
+            {
+                playing = false;
+                finished = true;
+                return;
+            }
+
             elapsed = 0f;
             frame++;
 
@@ -241,6 +263,13 @@ namespace Zigurous.Animation
         /// Loops the animation continuously.
         /// </summary>
         public bool loop;
+
+        /// <summary>
+        /// Stops the animation on the last frame when finished playing instead
+        /// of resetting all blend shapes to zero.
+        /// </summary>
+        [ConditionalHide(nameof(loop))]
+        public bool stopOnLastFrame;
 
         /// <summary>
         /// The amount of subframes for each keyframe. For example, a length of

@@ -39,15 +39,15 @@ namespace Zigurous.Animation
         {
             Vector3 scale = transform.localScale;
 
-            if (constraints.Contains(AxisConstraint.X)) {
+            if (constraints.Has(AxisConstraint.X)) {
                 scale.x = lockedScale.x;
             }
 
-            if (constraints.Contains(AxisConstraint.Y)) {
+            if (constraints.Has(AxisConstraint.Y)) {
                 scale.y = lockedScale.y;
             }
 
-            if (constraints.Contains(AxisConstraint.Z)) {
+            if (constraints.Has(AxisConstraint.Z)) {
                 scale.z = lockedScale.z;
             }
 

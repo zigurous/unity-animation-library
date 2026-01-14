@@ -65,9 +65,9 @@ namespace Zigurous.Animation
             Vector3 targetPosition = target.position + (target.rotation * offset);
             Vector3 targetDirection = targetPosition - transform.position;
 
-            if (constraints.Contains(AxisConstraint.X)) targetDirection.x = 0f;
-            if (constraints.Contains(AxisConstraint.Y)) targetDirection.y = 0f;
-            if (constraints.Contains(AxisConstraint.Z)) targetDirection.z = 0f;
+            if (constraints.Has(AxisConstraint.X)) targetDirection.x = 0f;
+            if (constraints.Has(AxisConstraint.Y)) targetDirection.y = 0f;
+            if (constraints.Has(AxisConstraint.Z)) targetDirection.z = 0f;
 
             Quaternion targetRotation = targetDirection != Vector3.zero ?
                 Quaternion.LookRotation(targetDirection) :

@@ -65,9 +65,9 @@ namespace Zigurous.Animation
 
             Vector3 lookDirection = lookCamera.transform.position - transform.position;
 
-            if (constraints.Contains(AxisConstraint.X)) lookDirection.x = 0f;
-            if (constraints.Contains(AxisConstraint.Y)) lookDirection.y = 0f;
-            if (constraints.Contains(AxisConstraint.Z)) lookDirection.z = 0f;
+            if (constraints.Has(AxisConstraint.X)) lookDirection.x = 0f;
+            if (constraints.Has(AxisConstraint.Y)) lookDirection.y = 0f;
+            if (constraints.Has(AxisConstraint.Z)) lookDirection.z = 0f;
 
             Quaternion lookRotation = lookDirection != Vector3.zero ?
                 Quaternion.LookRotation(lookDirection) :

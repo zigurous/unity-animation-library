@@ -76,30 +76,30 @@ namespace Zigurous.Animation
 
         private void LockWorldSpace()
         {
-            if (constraints.Contains(TransformConstraint.Position)) {
+            if (constraints.Has(TransformConstraint.Position)) {
                 transform.position = lockedPosition;
             }
 
-            if (constraints.Contains(TransformConstraint.Rotation)) {
+            if (constraints.Has(TransformConstraint.Rotation)) {
                 transform.eulerAngles = lockedRotation;
             }
 
-            if (constraints.Contains(TransformConstraint.Scale)) {
+            if (constraints.Has(TransformConstraint.Scale)) {
                 transform.localScale = lockedScale;
             }
         }
 
         private void LockLocalSpace()
         {
-            if (constraints.Contains(TransformConstraint.Position)) {
+            if (constraints.Has(TransformConstraint.Position)) {
                 transform.localPosition = lockedPosition;
             }
 
-            if (constraints.Contains(TransformConstraint.Rotation)) {
+            if (constraints.Has(TransformConstraint.Rotation)) {
                 transform.localEulerAngles = lockedRotation;
             }
 
-            if (constraints.Contains(TransformConstraint.Scale)) {
+            if (constraints.Has(TransformConstraint.Scale)) {
                 transform.localScale = lockedScale;
             }
         }

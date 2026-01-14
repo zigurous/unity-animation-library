@@ -33,12 +33,12 @@
     public static class TransformConstraintExtensions
     {
         /// <summary>
-        /// Checks if the constraints contains the specified flag.
+        /// Checks if the constraints has the specified flag.
         /// </summary>
         /// <param name="constraints">The constraints to check.</param>
         /// <param name="flag">The flag to check for.</param>
-        /// <returns>True if the constraints contain the specified flag.</returns>
-        public static bool Contains(this TransformConstraint constraints, TransformConstraint flag)
+        /// <returns>True if the constraints has the specified flag, false otherwise.</returns>
+        public static bool Has(this TransformConstraint constraints, TransformConstraint flag)
         {
             return ((int)constraints & (int)flag) == (int)flag;
         }

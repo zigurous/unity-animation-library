@@ -42,30 +42,30 @@ namespace Zigurous.Animation
 
         private void MatchWorldSpace()
         {
-            if (constraints.Contains(TransformConstraint.Position)) {
+            if (constraints.Has(TransformConstraint.Position)) {
                 transform.position = matchedTransform.position;
             }
 
-            if (constraints.Contains(TransformConstraint.Rotation)) {
+            if (constraints.Has(TransformConstraint.Rotation)) {
                 transform.rotation = matchedTransform.rotation;
             }
 
-            if (constraints.Contains(TransformConstraint.Scale)) {
+            if (constraints.Has(TransformConstraint.Scale)) {
                 transform.localScale = matchedTransform.localScale;
             }
         }
 
         private void MatchLocalSpace()
         {
-            if (constraints.Contains(TransformConstraint.Position)) {
+            if (constraints.Has(TransformConstraint.Position)) {
                 transform.localPosition = matchedTransform.localPosition;
             }
 
-            if (constraints.Contains(TransformConstraint.Rotation)) {
+            if (constraints.Has(TransformConstraint.Rotation)) {
                 transform.localRotation = matchedTransform.localRotation;
             }
 
-            if (constraints.Contains(TransformConstraint.Scale)) {
+            if (constraints.Has(TransformConstraint.Scale)) {
                 transform.localScale = matchedTransform.localScale;
             }
         }

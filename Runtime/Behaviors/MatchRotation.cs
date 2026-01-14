@@ -44,15 +44,15 @@ namespace Zigurous.Animation
         {
             Vector3 eulerAngles = transform.eulerAngles;
 
-            if (constraints.Contains(AxisConstraint.X)) {
+            if (constraints.Has(AxisConstraint.X)) {
                 eulerAngles.x = matchedTransform.eulerAngles.x;
             }
 
-            if (constraints.Contains(AxisConstraint.Y)) {
+            if (constraints.Has(AxisConstraint.Y)) {
                 eulerAngles.y = matchedTransform.eulerAngles.y;
             }
 
-            if (constraints.Contains(AxisConstraint.Z)) {
+            if (constraints.Has(AxisConstraint.Z)) {
                 eulerAngles.z = matchedTransform.eulerAngles.z;
             }
 
@@ -63,15 +63,15 @@ namespace Zigurous.Animation
         {
             Vector3 eulerAngles = transform.localEulerAngles;
 
-            if (constraints.Contains(AxisConstraint.X)) {
+            if (constraints.Has(AxisConstraint.X)) {
                 eulerAngles.x = matchedTransform.localEulerAngles.x;
             }
 
-            if (constraints.Contains(AxisConstraint.Y)) {
+            if (constraints.Has(AxisConstraint.Y)) {
                 eulerAngles.y = matchedTransform.localEulerAngles.y;
             }
 
-            if (constraints.Contains(AxisConstraint.Z)) {
+            if (constraints.Has(AxisConstraint.Z)) {
                 eulerAngles.z = matchedTransform.localEulerAngles.z;
             }
 

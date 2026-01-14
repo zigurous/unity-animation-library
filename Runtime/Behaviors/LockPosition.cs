@@ -59,15 +59,15 @@ namespace Zigurous.Animation
         {
             Vector3 position = transform.position;
 
-            if (constraints.Contains(AxisConstraint.X)) {
+            if (constraints.Has(AxisConstraint.X)) {
                 position.x = lockedPosition.x;
             }
 
-            if (constraints.Contains(AxisConstraint.Y)) {
+            if (constraints.Has(AxisConstraint.Y)) {
                 position.y = lockedPosition.y;
             }
 
-            if (constraints.Contains(AxisConstraint.Z)) {
+            if (constraints.Has(AxisConstraint.Z)) {
                 position.z = lockedPosition.z;
             }
 
@@ -78,15 +78,15 @@ namespace Zigurous.Animation
         {
             Vector3 position = transform.localPosition;
 
-            if (constraints.Contains(AxisConstraint.X)) {
+            if (constraints.Has(AxisConstraint.X)) {
                 position.x = lockedPosition.x;
             }
 
-            if (constraints.Contains(AxisConstraint.Y)) {
+            if (constraints.Has(AxisConstraint.Y)) {
                 position.y = lockedPosition.y;
             }
 
-            if (constraints.Contains(AxisConstraint.Z)) {
+            if (constraints.Has(AxisConstraint.Z)) {
                 position.z = lockedPosition.z;
             }
 

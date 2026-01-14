@@ -65,9 +65,9 @@ namespace Zigurous.Animation
             Vector3 currentPosition = space == Space.World ? transform.position : transform.localPosition;
             Vector3 targetPosition = target.position + (target.rotation * offset);
 
-            if (constraints.Contains(AxisConstraint.X)) targetPosition.x = currentPosition.x;
-            if (constraints.Contains(AxisConstraint.Y)) targetPosition.y = currentPosition.y;
-            if (constraints.Contains(AxisConstraint.Z)) targetPosition.z = currentPosition.z;
+            if (constraints.Has(AxisConstraint.X)) targetPosition.x = currentPosition.x;
+            if (constraints.Has(AxisConstraint.Y)) targetPosition.y = currentPosition.y;
+            if (constraints.Has(AxisConstraint.Z)) targetPosition.z = currentPosition.z;
 
             if (space == Space.World) {
                 transform.position = Vector3.SmoothDamp(currentPosition, targetPosition, ref velocity, damping, maxSpeed);

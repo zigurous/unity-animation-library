@@ -33,12 +33,12 @@
     public static class AxisConstraintExtensions
     {
         /// <summary>
-        /// Checks if the constraints contains the specified axis.
+        /// Checks if the constraints has the specified axis.
         /// </summary>
         /// <param name="constraints">The constraints to check.</param>
         /// <param name="axis">The axis to check for.</param>
-        /// <returns>True if the constraints contain the specified axis.</returns>
-        public static bool Contains(this AxisConstraint constraints, AxisConstraint axis)
+        /// <returns>True if the constraints has the specified axis, false otherwise.</returns>
+        public static bool Has(this AxisConstraint constraints, AxisConstraint axis)
         {
             return ((int)constraints & (int)axis) == (int)axis;
         }

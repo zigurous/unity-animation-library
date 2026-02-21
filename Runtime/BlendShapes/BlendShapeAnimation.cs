@@ -29,6 +29,11 @@ namespace Zigurous.Animation
         public readonly BlendShapeKeyframe[] keyframes;
 
         /// <summary>
+        /// The number of frames of the animation.
+        /// </summary>
+        public int frames => keyframes.Length;
+
+        /// <summary>
         /// The amount of subframes for each keyframe. For example, a length of
         /// 5 means the keyframe would last 100ms at 50fps (1000ms/50*5). This
         /// allows for custom keyframe timing to create different animation
@@ -37,9 +42,9 @@ namespace Zigurous.Animation
         public readonly short[] frameLengths;
 
         /// <summary>
-        /// The number of frames of the animation.
+        /// The total number of subframes of the entire animation.
         /// </summary>
-        public int frames => keyframes.Length;
+        public readonly int totalFrameLength;
 
         /// <summary>
         /// The entire duration of the animation in seconds.
@@ -108,7 +113,9 @@ namespace Zigurous.Animation
                 keyframe.length = frameLengths[frameLengthsIndex + i];
                 keyframe.frame = i + 1;
                 keyframes[i] = keyframe;
+
                 duration += keyframe.length * FrameDuration;
+                totalFrameLength += keyframe.length;
             }
         }
 

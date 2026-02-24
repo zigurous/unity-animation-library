@@ -52,7 +52,7 @@ namespace Zigurous.Animation
         public ShaderProperty(string name)
         {
             m_Name = name;
-            m_Id = Shader.PropertyToID(name);
+            m_Id = 0;
         }
 
         /// <summary>

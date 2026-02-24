@@ -9,6 +9,9 @@ namespace Zigurous.Animation
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/FadeIn")]
     public sealed class FadeIn : MonoBehaviour
     {
+        private static readonly ShaderProperty _Color = "_Color";
+        private static readonly ShaderProperty _BaseColor = "_BaseColor";
+
         [SerializeField]
         [Tooltip("The renderer to fade in.")]
         private Renderer m_Renderer;
@@ -49,7 +52,15 @@ namespace Zigurous.Animation
         {
             startTime = Time.time;
             properties ??= new MaterialPropertyBlock();
-            properties.SetFloat(shaderProperty, 0f);
+
+            if (shaderProperty == _Color) {
+                SetColorAlpha(_Color, 0f);
+            } else if (shaderProperty == _BaseColor) {
+                SetColorAlpha(_BaseColor, 0f);
+            } else {
+                properties.SetFloat(shaderProperty, 0f);
+            }
+
             m_Renderer.SetPropertyBlock(properties);
         }
 
@@ -61,9 +72,24 @@ namespace Zigurous.Animation
             {
                 elapsed -= fadeDelay;
                 float alpha = ease.ValueAt(Mathf.Clamp01(elapsed / fadeDuration));
-                properties.SetFloat(shaderProperty, alpha);
+
+                if (shaderProperty.Equals(_Color)) {
+                    SetColorAlpha(_Color, alpha);
+                } else if (shaderProperty.Equals(_BaseColor)) {
+                    SetColorAlpha(_BaseColor, alpha);
+                } else {
+                    properties.SetFloat(shaderProperty, alpha);
+                }
+
                 m_Renderer.SetPropertyBlock(properties);
             }
+        }
+
+        private void SetColorAlpha(ShaderProperty property, float alpha)
+        {
+            Color color = properties.GetColor(property);
+            color.a = alpha;
+            properties.SetColor(property, color);
         }
 
     }

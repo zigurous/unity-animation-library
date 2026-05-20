@@ -214,7 +214,7 @@ namespace Zigurous.Animation
             }
         }
 
-        private BlendShapeAnimation GetAnimation(AnimationId id)
+        public BlendShapeAnimation GetAnimation(AnimationId id)
         {
             if (animations == null || id == null) return null;
 
@@ -228,7 +228,7 @@ namespace Zigurous.Animation
             return null;
         }
 
-        private bool TryGetAnimation(AnimationId id, out BlendShapeAnimation animation)
+        public bool TryGetAnimation(AnimationId id, out BlendShapeAnimation animation)
         {
             animation = GetAnimation(id);
             return animation != null;

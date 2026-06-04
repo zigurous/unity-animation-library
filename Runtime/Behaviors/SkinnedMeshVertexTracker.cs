@@ -12,6 +12,9 @@ namespace Zigurous.Animation
     [RequireComponent(typeof(SkinnedMeshRenderer))]
     public sealed class SkinnedMeshVertexTracker : MonoBehaviour
     {
+        private RecalculateSkinnedBounds baker;
+        private List<Vector3> vertices;
+
         /// <summary>
         /// The index of the vertex to track.
         /// </summary>
@@ -29,19 +32,30 @@ namespace Zigurous.Animation
         /// </summary>
         public Vector3 vertexPosition { get; private set; }
 
-        private SkinnedMeshBaker baker;
-        private List<Vector3> vertices;
-
         private void Awake()
         {
             if (!TryGetComponent(out baker)) {
-                baker = gameObject.AddComponent<SkinnedMeshBaker>();
+                baker = gameObject.AddComponent<RecalculateSkinnedBounds>();
             }
 
             baker.updateEveryFrame = true;
         }
 
+        private void OnEnable()
+        {
+            Recalculate();
+        }
+
         private void LateUpdate()
+        {
+            Recalculate();
+        }
+
+        /// <summary>
+        /// Recalculates the vertex position with the current state of the
+        /// skinned mesh renderer.
+        /// </summary>
+        public void Recalculate()
         {
             vertices ??= new List<Vector3>(baker.bakedMesh.vertexCount);
             baker.bakedMesh.GetVertices(vertices);

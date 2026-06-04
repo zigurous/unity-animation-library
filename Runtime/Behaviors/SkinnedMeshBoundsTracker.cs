@@ -11,6 +11,8 @@ namespace Zigurous.Animation
     [RequireComponent(typeof(SkinnedMeshRenderer))]
     public sealed class SkinnedMeshBoundsTracker : MonoBehaviour
     {
+        private RecalculateSkinnedBounds baker;
+
         /// <summary>
         /// The transform that tracks the center of the mesh (optional).
         /// </summary>
@@ -41,15 +43,13 @@ namespace Zigurous.Animation
         [Tooltip("Updates the mesh bounds every frame. Note: performance costly.")]
         public bool updateEveryFrame;
 
-        private SkinnedMeshBaker baker;
-
         private void Awake()
         {
             if (!TryGetComponent(out baker)) {
-                baker = gameObject.AddComponent<SkinnedMeshBaker>();
+                baker = gameObject.AddComponent<RecalculateSkinnedBounds>();
             }
 
-            baker.updateEveryFrame = updateEveryFrame;
+            baker.updateEveryFrame |= updateEveryFrame;
         }
 
         private void OnValidate()
@@ -59,20 +59,30 @@ namespace Zigurous.Animation
             }
         }
 
+        private void OnEnable()
+        {
+            Recalculate();
+        }
+
         private void LateUpdate()
+        {
+            Recalculate();
+        }
+
+        /// <summary>
+        /// Recalculates the tracker positions with the current state of the
+        /// skinned mesh renderer.
+        /// </summary>
+        public void Recalculate()
         {
             if (unscaled) {
                 TrackUnscaledPositions(baker.bounds);
             } else {
-                TrackPositions(baker.bounds);
+                TrackScaledPositions(baker.bounds);
             }
         }
 
-        /// <summary>
-        /// Updates the positions of the tracking transforms to the bounds.
-        /// </summary>
-        /// <param name="bounds">The bounds to track.</param>
-        public void TrackPositions(Bounds bounds)
+        private void TrackScaledPositions(Bounds bounds)
         {
             if (centerTracker != null) {
                 centerTracker.position = transform.TransformPoint(bounds.center);
@@ -87,11 +97,7 @@ namespace Zigurous.Animation
             }
         }
 
-        /// <summary>
-        /// Updates the positions of the tracking transforms to the bounds unscaled.
-        /// </summary>
-        /// <param name="bounds">The bounds to track.</param>
-        public void TrackUnscaledPositions(Bounds bounds)
+        private void TrackUnscaledPositions(Bounds bounds)
         {
             if (centerTracker != null) {
                 centerTracker.position = transform.position + bounds.center;

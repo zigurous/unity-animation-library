@@ -3,18 +3,18 @@ using UnityEngine;
 namespace Zigurous.Animation
 {
     /// <summary>
-    /// Bakes the mesh of a skinned mesh renderer.
+    /// Recalculates the bounds of a skinned mesh renderer.
     /// </summary>
     [DefaultExecutionOrder(1)]
-    [AddComponentMenu("Zigurous/Animation/Skinned Mesh Baker")]
-    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/SkinnedMeshBaker")]
+    [AddComponentMenu("Zigurous/Animation/Recalculate Skinned Bounds")]
+    [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/RecalculateSkinnedBounds")]
     [RequireComponent(typeof(SkinnedMeshRenderer))]
-    public sealed class SkinnedMeshBaker : MonoBehaviour
+    public sealed class RecalculateSkinnedBounds : MonoBehaviour
     {
         /// <summary>
         /// The skinned mesh renderer being baked.
         /// </summary>
-        public SkinnedMeshRenderer skinnedMeshRenderer { get; private set; }
+        public SkinnedMeshRenderer skinnedRenderer { get; private set; }
 
         /// <summary>
         /// The baked mesh.
@@ -24,7 +24,7 @@ namespace Zigurous.Animation
         /// <summary>
         /// The bounds of the baked mesh.
         /// </summary>
-        public Bounds bounds { get; private set; }
+        public Bounds bounds => skinnedRenderer.localBounds;
 
         /// <summary>
         /// Bakes the mesh every single frame. Note: performance costly.
@@ -34,30 +34,30 @@ namespace Zigurous.Animation
 
         private void Awake()
         {
-            skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+            skinnedRenderer = GetComponent<SkinnedMeshRenderer>();
             bakedMesh = new Mesh();
         }
 
         private void OnEnable()
         {
-            Bake();
+            Recalculate();
         }
 
         private void LateUpdate()
         {
             if (updateEveryFrame) {
-                Bake();
+                Recalculate();
             }
         }
 
         /// <summary>
         /// Bakes the mesh in its current state and recalculates the bounds.
         /// </summary>
-        public void Bake()
+        public void Recalculate()
         {
-            skinnedMeshRenderer.BakeMesh(bakedMesh);
+            skinnedRenderer.BakeMesh(bakedMesh);
             bakedMesh.RecalculateBounds();
-            bounds = bakedMesh.bounds;
+            skinnedRenderer.localBounds = bakedMesh.bounds;
         }
 
     }

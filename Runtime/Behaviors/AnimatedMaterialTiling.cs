@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -9,7 +8,7 @@ namespace Zigurous.Animation
     [AddComponentMenu("Zigurous/Animation/Animated Texture Offset")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/AnimatedTextureOffset")]
     [RequireComponent(typeof(Renderer))]
-    public sealed class AnimatedTextureOffset : UpdateBehaviour
+    public sealed class AnimatedTextureOffset : MonoBehaviour
     {
         /// <summary>
         /// The direction to offset the texture coordinates.
@@ -36,8 +35,7 @@ namespace Zigurous.Animation
             material = GetComponent<MeshRenderer>().material;
         }
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void Update()
         {
             if (unscaledTime) {
                 material.mainTextureOffset += speed * Time.unscaledDeltaTime * direction;

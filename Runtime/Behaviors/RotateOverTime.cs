@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -8,7 +7,7 @@ namespace Zigurous.Animation
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate Over Time")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/RotateOverTime")]
-    public sealed class RotateOverTime : UpdateBehaviour
+    public sealed class RotateOverTime : MonoBehaviour
     {
         /// <summary>
         /// The coordinate space in which the object rotates.
@@ -28,10 +27,9 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object rotates.")]
         public float speed = 45f;
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void Update()
         {
-            transform.Rotate(deltaTime * speed * axis, space);
+            transform.Rotate(Time.deltaTime * speed * axis, space);
         }
 
     }

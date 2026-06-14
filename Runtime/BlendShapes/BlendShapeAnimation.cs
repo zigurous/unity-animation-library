@@ -1,5 +1,4 @@
 using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -275,7 +274,6 @@ namespace Zigurous.Animation
         /// Stops the animation on the last frame when finished playing instead
         /// of resetting all blend shapes to zero.
         /// </summary>
-        [ConditionalHide(nameof(loop))]
         public bool stopOnLastFrame;
 
         /// <summary>

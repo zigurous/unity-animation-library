@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -8,7 +7,7 @@ namespace Zigurous.Animation
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Orbit")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/Orbit")]
-    public sealed class Orbit : UpdateBehaviour
+    public sealed class Orbit : MonoBehaviour
     {
         /// <summary>
         /// The coordinate space in which the object rotates.
@@ -48,20 +47,19 @@ namespace Zigurous.Animation
         /// </summary>
         public float angle { get; set; }
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void Start()
         {
-            angle += speed * deltaTime;
-
-            SetPosition(angle * Mathf.Deg2Rad);
+            angle = startAngle;
         }
 
-        private void SetPosition(float angle)
+        private void LateUpdate()
         {
+            angle += speed * Time.deltaTime;
+
             if (space == Space.World) {
-                SetWorldPosition(angle);
+                SetWorldPosition(angle * Mathf.Deg2Rad);
             } else {
-                SetLocalPosition(angle);
+                SetLocalPosition(angle * Mathf.Deg2Rad);
             }
         }
 
@@ -91,11 +89,6 @@ namespace Zigurous.Animation
                 x: pivotPoint.x + (Mathf.Cos(angle) * radius),
                 y: pivotPoint.y,
                 z: pivotPoint.z + (Mathf.Sin(angle) * radius));
-        }
-
-        private void Start()
-        {
-            angle = startAngle;
         }
 
     }

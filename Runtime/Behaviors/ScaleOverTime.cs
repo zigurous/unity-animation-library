@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -8,7 +7,7 @@ namespace Zigurous.Animation
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Scale Over Time")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/ScaleOverTime")]
-    public sealed class ScaleOverTime : UpdateBehaviour
+    public sealed class ScaleOverTime : MonoBehaviour
     {
         /// <summary>
         /// The axis in which the object is scaled.
@@ -34,11 +33,10 @@ namespace Zigurous.Animation
         [Tooltip("Clamps the scale to a maximum value.")]
         public Vector3 maxScale = new(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void Update()
         {
             Vector3 scale = transform.localScale;
-            scale += speed * deltaTime * axis;
+            scale += speed * Time.deltaTime * axis;
             scale.x = Mathf.Clamp(scale.x, minScale.x, maxScale.x);
             scale.y = Mathf.Clamp(scale.y, minScale.y, maxScale.y);
             scale.z = Mathf.Clamp(scale.z, minScale.z, maxScale.z);

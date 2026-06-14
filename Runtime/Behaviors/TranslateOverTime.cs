@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -8,7 +7,7 @@ namespace Zigurous.Animation
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Translate Over Time")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/TranslateOverTime")]
-    public sealed class TranslateOverTime : UpdateBehaviour
+    public sealed class TranslateOverTime : MonoBehaviour
     {
         /// <summary>
         /// The coordinate space in which the object moves.
@@ -28,10 +27,9 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object moves.")]
         public float speed = 1f;
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void Update()
         {
-            transform.Translate(speed * deltaTime * axis, space);
+            transform.Translate(speed * Time.deltaTime * axis, space);
         }
 
     }

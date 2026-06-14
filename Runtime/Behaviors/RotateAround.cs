@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zigurous.Architecture;
 
 namespace Zigurous.Animation
 {
@@ -8,7 +7,7 @@ namespace Zigurous.Animation
     /// </summary>
     [AddComponentMenu("Zigurous/Animation/Rotate Around")]
     [HelpURL("https://docs.zigurous.com/com.zigurous.animation/api/Zigurous.Animation/RotateAround")]
-    public sealed class RotateAround : UpdateBehaviour
+    public sealed class RotateAround : MonoBehaviour
     {
         /// <summary>
         /// The point to rotate around.
@@ -28,10 +27,9 @@ namespace Zigurous.Animation
         [Tooltip("The speed at which the object rotates.")]
         public float speed = 45f;
 
-        /// <inheritdoc/>
-        protected override void OnUpdate(float deltaTime)
+        private void LateUpdate()
         {
-            transform.RotateAround(point.position, axis, speed * deltaTime);
+            transform.RotateAround(point.position, axis, speed * Time.deltaTime);
         }
 
     }

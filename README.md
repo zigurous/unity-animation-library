@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/zigurous/unity-animation-library) [![](https://img.shields.io/github/package-json/v/zigurous/unity-animation-library)](https://github.com/zigurous/unity-animation-library/releases) [![](https://img.shields.io/badge/docs-link-success)](https://docs.zigurous.com/com.zigurous.animation) [![](https://img.shields.io/github/license/zigurous/unity-animation-library)](https://github.com/zigurous/unity-animation-library/blob/main/LICENSE.md)
 
-The **Animation Library** package contains assets and scripts for animating Unity objects. Animation behaviors include Blink, FollowPath, Move, Orbit, Rotate, Scale, SmoothFollow, SmoothLookAt, and more. The package also contains several animation-related data structures and predefined avatar masks.
+A robust library for animating Unity objects. Contains built-in animation behaviors, data structures, easing functions, predefined avatar masks, a blend shape animation system, and more.
 
 ## Reference
 

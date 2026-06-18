@@ -9,7 +9,7 @@
   "changelogUrl": "https://docs.zigurous.com/com.zigurous.animation/changelog",
   "licensesUrl": "https://docs.zigurous.com/com.zigurous.animation/license",
   "dependencies": {
-    "com.unity.inputsystem": "1.2.0"
+    "com.unity.inputsystem": "1.18.0"
   },
   "keywords": [
     "animation",
